@@ -1,0 +1,9 @@
+# WebStorm
+.idea/
+
+#Project files
+node_modules/
+dist/
+
+#Temp assets
+temp/
