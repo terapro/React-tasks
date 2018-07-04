@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import "./css/bootstrap.min.css";
-import "./css/my-styles.css";
+
 
 const name = "World";
 
