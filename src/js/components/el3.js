@@ -8,15 +8,12 @@ class El3 extends Component {
             value: "Click to change my name",
             buffer: ""
         };
-        this.setName = this.setName.bind(this);
-        this.setBuffer = this.setBuffer.bind(this);
+
+        this.setBuffer = (e) => {this.setState({ buffer: e.target.value })};
+        this.setName  = () => {this.setState({value: this.state.buffer})}
+
     }
-    setBuffer(e){
-        this.setState({ buffer: e.target.value })
-    }
-    setName() {
-        this.setState({value: this.state.buffer})
-    }
+
     render() {
         return (
             <div className= "input-group mb-3 ">
