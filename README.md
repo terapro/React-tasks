@@ -22,9 +22,9 @@ Tasks are processed by Sergey Dmitriev
 
 ### Progress
 
-- [ ] Install blank express.js application
-- [ ] Render blank message (Hello World) with react
-- [ ] Use at least 2 methods of creating react components
+- [x] Install blank express.js application
+- [x] Render blank message (Hello World) with react
+- [x] Use at least 2 methods of creating react components
 - [ ] Use all methods which mentioned in task, to create react components
 
 ## Task 2
@@ -35,9 +35,9 @@ Tasks are processed by Sergey Dmitriev
 
 ### Progress
 
-- [ ] Installed React, Redux, React-Redux, React-Router, Jest
-- [ ] Configured webpack
-- [ ] Configured babel
+- [x] Installed React, Redux, React-Redux, React-Router, Jest
+- [x] Configured webpack
+- [x] Configured babel
 - [ ] Configured tests script
-- [ ] Have dev and prod build commands (use _evn_ variables)
+- [x] Have dev and prod build commands (use _evn_ variables)
 
