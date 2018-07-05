@@ -4,6 +4,11 @@ module.exports = {
     parserOptions: {
         "ecmaFeatures": {
             "jsx": true,
+
         }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
     }
 };

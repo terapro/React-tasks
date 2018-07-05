@@ -3,6 +3,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+    //entry: './src/examples.js',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -20,6 +21,11 @@ module.exports = {
             {
               test: /\.css$/,
               use:  [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+              test: /\.scss$/,
+              use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+
             }
         ]
     },
