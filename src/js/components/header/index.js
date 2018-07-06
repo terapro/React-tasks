@@ -1,8 +1,11 @@
 import React from 'react';
 
+import {HeaderContainer} from './container.js';
+
+
 const Header = () => (
         <header className={'header'}>
-            Это хедер
+            <HeaderContainer/>
         </header>
 );
 

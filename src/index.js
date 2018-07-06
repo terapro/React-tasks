@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import "../src/scss/main.scss";
+import "./scss/index.scss";
+
+// Pictures
+
 import "../src/img/netflix-bg.jpg";
+import "../src/img/logo-netflixroulette.png";
+
 
 import {App} from "./app.js";
-import {AppFooter} from "./app.js";
+
 
 const root = document.getElementById("root");
 
