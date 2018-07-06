@@ -1,0 +1,44 @@
+//App parameters
+// App
+$appWidth: 1150px;
+$fontFamily: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+//Header
+
+$headerContainerWidth: $appWidth - 100px;
+$searchInputPaddingHorizontal: 20px;
+
+//Colors
+
+$color_red: #f55263; // red
+$color_grey: #3c3c3c; // grey
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $fontFamily;
+}
+
+.doc-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+div.wrapper {
+  width: $appWidth;
+  margin: 0 auto;
+  flex: 1 0 auto;
+}
+
+@import 'components/header/index';
+@import 'components/summary/index';
+@import 'components/results/index';
+@import 'components/footer/index';
+@import 'components/common/index';
+@import 'components/search/index';

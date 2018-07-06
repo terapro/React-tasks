@@ -1,27 +1,23 @@
 import React from 'react';
 
-import {Header} from './js/components/header/index.js'
-import {Summary} from './js/components/summary/index.js'
-import {Results} from './js/components/results/index.js'
-import {Footer} from './js/components/footer/index.js'
+import {Header} from './components/header/index.js'
+import {Summary} from './components/summary/index.js'
+import {Results} from './components/results/index.js'
+import {Footer} from './components/footer/index.js'
 
-const Body =() => (<div className = "wrapper">
+const Body = () => (
+  <div className="wrapper">
     <Header/>
-    <Summary />
+    <Summary/>
     <Results/>
-
-</div>);
-
-
-
-
+  </div>
+);
 
 const App = () => (
-    <React.Fragment>
+  <React.Fragment>
     <Body/>
     <Footer/>
-    </React.Fragment>
-
+  </React.Fragment>
 );
 
 export {App};

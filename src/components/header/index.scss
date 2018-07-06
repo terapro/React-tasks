@@ -1,0 +1,16 @@
+.header {
+  height: 250px;
+  width: inherit;
+  background: #000 url('img/netflix-bg.jpg')
+}
+
+@import 'container/container';
+@import 'logo/logo';
+@import 'search/search';
+@import 'title/title';
+
+
+
+
+
+
