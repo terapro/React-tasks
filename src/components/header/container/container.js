@@ -9,12 +9,12 @@ const HeaderContainer = (props) => (
     <div className={'header-container'}>
         <HeaderLogo />
         <HeaderTitle />
-        <HeaderSearch searchButtonCallBack = {props.searchButtonCallBack} />
+        <HeaderSearch startSearch = {props.startSearch}/>
     </div>
 
 );
 HeaderContainer.propTypes = {
-  searchButtonCallBack: PropTypes.func
+  startSearch: PropTypes.func
 };
 
 

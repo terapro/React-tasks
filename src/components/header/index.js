@@ -6,12 +6,12 @@ import {HeaderContainer} from './container/container.js';
 
 const Header = (props) => (
         <header className={'header'}>
-            <HeaderContainer searchButtonCallBack = {props.searchButtonCallBack}/>
+            <HeaderContainer startSearch = {props.startSearch} />
         </header>
 );
 
 Header.propTypes = {
-  searchButtonCallBack: PropTypes.func
+  startSearch: PropTypes.func
 };
 
 

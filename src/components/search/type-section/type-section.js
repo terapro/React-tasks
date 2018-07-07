@@ -11,7 +11,14 @@ const TypeSection = (props) => (
     <Text content={'search by'}/>
 
     {
-      Object.keys(props.searchTypes).map((item) => <SearchRadioEl name={props.name} id = {'radio-' + item} text = {item} checked = {props.searchTypes[item]} key = {'radio-' + item} />)
+      Object.keys(props.searchTypes)
+        .map((item) => (
+                       <SearchRadioEl name={props.name} id = {item}
+                       text = {item} checked = {props.searchTypes[item]}
+                       key = {'radio-' + item}
+                       searchTypeCallback = {props.searchTypeCallback} />
+                        )
+            )
     }
 
   </div>
@@ -20,6 +27,7 @@ const TypeSection = (props) => (
 TypeSection.propTypes = {
   searchTypes: PropTypes.object,
   name: PropTypes.string,
+  searchTypeCallback: PropTypes.func
 };
 
 export {TypeSection};
