@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FormButton} from '../../common/form-button/form-button.js';
+import {SearchButton} from '../../common/search-button/search-button.js';
 
 const ButtonSection = (props) => (
     <div className={'search-button-section'}>
-        <FormButton content={'Search'} parentFormId = {props.parentFormId}/>
+        <SearchButton content={'Search'}   searchButtonCallBack = {props.searchButtonCallBack}/>
 
     </div>
 );
 
 ButtonSection.propTypes = {
-    parentFormId: PropTypes.string
+
+    searchButtonCallBack: PropTypes.func
 };
 
 export {ButtonSection};
