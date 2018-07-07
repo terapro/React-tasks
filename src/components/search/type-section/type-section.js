@@ -9,8 +9,11 @@ const TypeSection = (props) => (
 
   <div className={'search-type-section'}>
     <Text content={'search by'}/>
-    <SearchRadioEl name={props.name} id = 'radio-title' text = 'title' checked = {true}/>
-    <SearchRadioEl name={props.name} id = 'radio-genre' text = 'genre' checked = {false}/>
+
+    {
+      Object.keys(props.searchTypes).map((item) => <SearchRadioEl name={props.name} id = {'radio-' + item} text = {item} checked = {props.searchTypes[item]} key = {'radio-' + item} />)
+    }
+
   </div>
 );
 

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import {Logo} from '../../common/logo/logo.js';
-import {Title} from '../../common/title/title.js';
-import {Search} from '../search/search.js';
+import {HeaderLogo} from '../header-logo/header-logo.js';
+import {HeaderTitle} from '../header-title/header-title.js';
+import {HeaderSearch} from '../header-search/header-search.js';
 
 const HeaderContainer = () => (
     <div className={'header-container'}>
-        <Logo />
-        <Title />
-        <Search />
+        <HeaderLogo />
+        <HeaderTitle />
+        <HeaderSearch />
     </div>
 
 );

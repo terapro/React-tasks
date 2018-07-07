@@ -8,7 +8,7 @@ import "./main.scss";
 import "../src/img/netflix-bg.jpg";
 import "../src/img/logo-netflixroulette.png";
 
-import {App} from "./app.js";
+import {App} from "./app/app.js";
 
 
 const root = document.getElementById("root");

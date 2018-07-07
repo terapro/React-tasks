@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Title = (props) => (
-    <h2 className={'title'}>{props.content}</h2>
+    <h2 className = {'title'}>{props.content}</h2>
 
 );
 
