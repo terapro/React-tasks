@@ -11,10 +11,9 @@ const TypeSection = (props) => (
     <Text content={'search by'}/>
 
     {
-      Object.keys(props.searchTypes)
-        .map((item) => (
+      props.searchTypes.list.map((item) => (
                        <SearchRadioEl name={props.name} id = {item}
-                       text = {item} checked = {props.searchTypes[item]}
+                       text = {item} checked = {item === props.searchTypes.active}
                        key = {'radio-' + item}
                        searchTypeCallback = {props.searchTypeCallback} />
                         )

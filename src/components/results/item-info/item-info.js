@@ -12,26 +12,26 @@ const ItemInfo = (props) => (
         {props.filmTitle}
       </div>
       <div className='release-date'>
-        {props.releaseDate}
+        {props.releaseDate.slice(0,4)}
       </div>
 
     </div>
     <div className='item-info-genre'>
-      {props.genre}
+      {props.genre[0]}
     </div>
 
   </div>);
 
 ItemInfo.propTypes = {
   filmTitle: PropTypes.string,
-  releaseDate: PropTypes.number,
-  genre: PropTypes.string
+  releaseDate: PropTypes.string,
+  genre: PropTypes.array
 };
 
 ItemInfo.defaultProps = {
   filmTitle: 'Fifty Shades Freed',
-  releaseDate: 2011,
-  genre: 'Drama',
+  releaseDate: '2011-01-01',
+  genre: ['Drama']
 
 }
 
