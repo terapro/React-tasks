@@ -3,3 +3,17 @@
   width: inherit;
   background: #f3f3f3;
 }
+
+.summary-wrapper {
+  width: $summaryContainerWidth;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+@import 'film-count/film-count';
+@import 'film-sort/film-sort';
+@import 'sort-item/sort-item';
+@import 'sort-text/sort-text';

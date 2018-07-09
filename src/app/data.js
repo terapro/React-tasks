@@ -1,14 +1,3 @@
-const appSettings = {
-  searchTypesActivityList: { // Shows lis of search parameters. True/false - Checked/Unchecked. Only 1 can be true
-    'title': true,
-    'genre': true
-  },
-  headerSearchTitle: 'Find your movie',
-  searchInputPlaceholder: 'Start typing...',
-  noResultsText: 'No films found'
-
-};
-
 const moviesDB = {
   "data": [
     {
@@ -924,4 +913,4 @@ const moviesDB = {
 
 
 
-export {appSettings, moviesDB};
+export {moviesDB};

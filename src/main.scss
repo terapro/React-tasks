@@ -2,11 +2,15 @@
 // App
 $appWidth: 1150px;
 $fontFamily: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$fontSizeDefault: 13px;
 
 //Header
 
 $headerContainerWidth: $appWidth - 100px;
 $searchInputPaddingHorizontal: 20px;
+
+// Summary
+$summaryContainerWidth: $appWidth - 100px;
 
 //Colors
 
@@ -22,6 +26,7 @@ html,
 body {
   height: 100%;
   font-family: $fontFamily;
+  font-size: $fontSizeDefault;
 }
 
 .doc-wrapper {
