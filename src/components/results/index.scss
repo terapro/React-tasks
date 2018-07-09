@@ -1,8 +1,10 @@
 .results {
-  min-height: 110px;
-  width: inherit;
   background: #fefefe;
-  text-align: center;
-  font-size: 40px;
-  padding-top: 200px;
 }
+
+
+
+@import 'no-results/no-results';
+@import 'item/item';
+@import 'item-poster/item-poster';
+@import 'item-info/item-info';

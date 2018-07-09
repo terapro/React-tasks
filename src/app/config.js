@@ -4,7 +4,8 @@ const appSettings = {
     'genre': true
   },
   headerSearchTitle: 'Find your movie',
-  searchInputPlaceholder: 'Start typing...'
+  searchInputPlaceholder: 'Start typing...',
+  noResultsText: 'No films found'
 
 };
 

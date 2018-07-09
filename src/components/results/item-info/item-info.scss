@@ -1,0 +1,28 @@
+.item-info {
+  width: 200px;
+  margin-top: 15px;
+
+
+}
+.item-info-details {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.film-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.release-date {
+  border: 1px solid #CCCCCC;
+  font-size: 11px;
+  padding: 2px 4px;
+
+}
+
+.item-info-genre {
+  font-size: 10px;
+
+}
