@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 
 
 
-const ItemInfo = (props) => (
+const ItemInfo = (props) => {
 
-  <div className='item-info'>
+  let title = props.filmTitle.length > 16 ? props.filmTitle.slice(0,18) + '...' :  props.filmTitle;
+
+
+return (<div className='item-info'>
     <div className='item-info-details'>
       <div className='film-title'>
-        {props.filmTitle}
+        {title}
       </div>
       <div className='release-date'>
         {props.releaseDate.slice(0,4)}
@@ -17,10 +20,12 @@ const ItemInfo = (props) => (
 
     </div>
     <div className='item-info-genre'>
-      {props.genre[0]}
+      {props.genre.join(', ')}
     </div>
 
-  </div>);
+  </div>)
+
+};
 
 ItemInfo.propTypes = {
   filmTitle: PropTypes.string,

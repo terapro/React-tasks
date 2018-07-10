@@ -15,7 +15,7 @@ const Item = (props) => (
 Item.propTypes = {
   filmTitle: PropTypes.string,
   releaseDate: PropTypes.string,
-  genre: PropTypes.string,
+  genre: PropTypes.array,
   posterLink: PropTypes.string
 };
 

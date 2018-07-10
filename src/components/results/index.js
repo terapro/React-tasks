@@ -8,7 +8,7 @@ import {Item} from './item/item.js';
 
 class Results extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       status: 'noResults', // 'noResults'
     };
@@ -25,7 +25,7 @@ class Results extends Component {
           searchResult.map((item) => (
                                       <Item filmTitle = {item['title']}
                                            releaseDate={item['release_date']}
-                                           // genre = {item['genres']}
+                                            genre = {item['genres']}
                                             posterLink ={item['poster_path']}
                                             key = {item['id']}
                                       />

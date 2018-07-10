@@ -12,8 +12,20 @@ import {Footer} from './../components/footer/index.js'
 
 const searchItemsMatchingFromUserToDBFile = { // User items >> matching >> Items in moviesDB file
   'title': 'title',
-  'genre': 'genres'
+  'genre': 'genres',
 };
+
+const searchKeysAliases = { // only lower case!
+  'sci fi': 'science fiction',
+  'scifi': 'science fiction',
+  'sci-fi': 'science fiction',
+  'sf': 'science fiction',
+  'melodrama': 'drama',
+  "romans": 'romance',
+  'thriler' : 'thriller',
+  'triller' : 'thriller',
+  'cartoon': "animation"
+}
 
 
 
@@ -43,31 +55,35 @@ class App extends Component {
     };
 
     this.startSearchFunc = (obj) => {
-      const phrase = obj.searchPhrase;
+      let phrase = obj.searchPhrase.toLowerCase();
       const type = searchItemsMatchingFromUserToDBFile[obj.searchType];
-
+      let result = new Array();
       this.setState({
         searchPhrase: phrase,
         searchType: obj.type
       });
 
       console.log('Searching ' + phrase + ' by ' + type);
-     // this.setState({result: []}); // Reset the results
-      if (type === 'genres') {
-        for (let i =0; i < moviesDB.data.length; i++) {
-          if (moviesDB.data[i][type].some((genre) => genre.toLowerCase() === phrase.toLowerCase()))
-            this.state.result.push(moviesDB.data[i]);
-        }
-      }
-      if (type === 'title') {
-        for (let i =0; i < moviesDB.data.length; i++) {
-          if (moviesDB.data[i][type].toLowerCase() == phrase.toLowerCase())
-            this.state.result.push(moviesDB.data[i]);
-        }
-      }
-     // this.state.result.forEach((item) => console.log(item));
-    }
 
+      // Search by genres
+      if (type === 'genres') {
+        phrase = searchKeysAliases[phrase] ? searchKeysAliases[phrase] : phrase; // Synonyms for genres
+        for (let i = 0; i < moviesDB.data.length; i++) {
+          if (moviesDB.data[i][type].some((genre) => genre.toLowerCase() === phrase))
+            result.push(moviesDB.data[i]);
+        }
+      }
+        // Search by title
+        if (type === 'title') {
+          for (let i = 0; i < moviesDB.data.length; i++) {
+            if (moviesDB.data[i][type].toLowerCase() === phrase
+              || moviesDB.data[i][type].toLowerCase().indexOf(phrase) >= 0) {
+              result.push(moviesDB.data[i]);
+            }
+          }
+        }
+        this.state.result = result;
+      }
   }
 
   render() {
