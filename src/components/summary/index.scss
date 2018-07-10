@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   font-weight: bold;
+  user-select: none;
 }
 
 @import 'film-count/film-count';

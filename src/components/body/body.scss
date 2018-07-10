@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $fontFamily;
+  font-size: $fontSizeDefault;
+}
+
+.doc-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+div.wrapper {
+  width: $appWidth;
+  margin: 0 auto;
+  flex: 1 0 auto;
+}

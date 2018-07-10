@@ -9,7 +9,7 @@ const Summary = (props) => (
   <div className='summary'>
     <div className='summary-wrapper'>
       <FilmCount filmNumber ={props.filmNumber} />
-      <FilmSort />
+      <FilmSort sortItems={ props.sortItems } changeSortItemCallBack = {props.changeSortItemCallBack} />
 
     </div>
 
@@ -18,7 +18,10 @@ const Summary = (props) => (
 );
 
 Summary.propTypes = {
-  filmNumber: PropTypes.number
+  filmNumber: PropTypes.number,
+  sortItems: PropTypes.object,
+  changeSortItemCallBack: PropTypes.func
+
 
 };
 
