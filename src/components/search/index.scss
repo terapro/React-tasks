@@ -1,5 +1,10 @@
+.header-search {
+  margin-top: 100px;
+}
+.search-components {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
 
-@import 'button-section/button-section';
-@import 'input/input';
-@import 'radio-element/radio-element';
-@import 'type-section/type-section';

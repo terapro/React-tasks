@@ -1,25 +1,26 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
-import {Text} from '../../common/text/text.js';
-import {SearchRadioEl} from '../radio-element/radio-element';
+import {Label} from '../../common/label/label.js';
+import {Button} from '../../common/button/button.js'
 
 const TypeSection = (props) => (
-
   <div className={'search-type-section'}>
-    <Text content={'search by'}/>
-
+    <Label content={'search by'} labelUC={true} labelWhite={true}/>
     {
       props.searchTypes.list.map((item) => (
-                       <SearchRadioEl name={props.name} id = {item}
-                       text = {item} checked = {item === props.searchTypes.active}
-                       key = {'radio-' + item}
-                       searchTypeCallback = {props.searchTypeCallback} />
-                        )
-            )
+          <Button btnRed={item === props.searchTypes.active}
+                  btnGrey={item !== props.searchTypes.active}
+                  key = {item}
+                  id = {item}
+                  content = {item}
+                  btnClick={props.searchTypeCallback}
+                  btnInline = {true}
+                  btnUC={true}
+          />
+        )
+      )
     }
-
   </div>
 );
 

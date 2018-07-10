@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {HeaderContainer} from './container/container.js';
+import {TopBar} from '../header/topbar/topbar.js';
+import {Search} from '../search/index.js';
 
 
 const Header = (props) => (
         <header className={'header'}>
-            <HeaderContainer startSearch = {props.startSearch} />
+          <div className={'header-container'}>
+            <TopBar />
+            <Search startSearch = {props.startSearch}/>
+          </div>
         </header>
 );
 

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import {SortItem} from '../sort-item/sort-item.js';
-import {SortText} from '../sort-text/sort-text.js';
+
+import {Button} from '../../common/button/button.js'
+import {Label} from '../../common/label/label.js'
 
 import PropTypes from 'prop-types';
 
@@ -10,8 +11,21 @@ const FilmSort = (props) => {
   if (props.sortItems) {
     return (
       <div className='film-sort'>
-        <SortText content='Sort by '/>
-        {props.sortItems.list.map((item) => ( <SortItem name={item} key={item} active = {item === props.sortItems.active} changeSortItemCallBack = {props.changeSortItemCallBack} />))}
+        <Label content='Sort by '/>
+          {
+            props.sortItems.list.map(
+              (item) => (
+                <Button key={item}
+                        btnTranspRed  = {item === props.sortItems.active}
+                        btnTransp  = {item !== props.sortItems.active}
+                        btnClick = {props.changeSortItemCallBack}
+                        btnBold = {true}
+                        content = {item}
+                        id = {item}
+                />
+              )
+            )
+          }
       </div>
     );
   } else return '';

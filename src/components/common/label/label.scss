@@ -1,0 +1,14 @@
+.label {
+  height: $elementHeight;
+  line-height: $elementHeight;
+  font-size: 14px;
+  color: $color_black;
+  user-select: none;
+}
+
+.label-upper-case {
+  text-transform: uppercase;
+}
+.label-white {
+  color: $color_white;
+}

@@ -1,13 +1,17 @@
 .header {
-  height: 250px;
+  height: 350px;
   width: inherit;
   background: #000 url('img/netflix-bg.jpg')
 }
 
-@import 'container/container';
-@import 'header-logo/header-logo';
-@import 'header-search/header-search';
-@import 'header-title/header-title';
+.header-container {
+  width: $headerContainerWidth;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+
+
 
 
 

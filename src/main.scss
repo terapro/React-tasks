@@ -2,8 +2,16 @@
 // App
 $appWidth: 1150px;
 $fontFamily: Arial, "Helvetica Neue", Helvetica, sans-serif;
-$fontSizeDefault: 13px;
+$fontSizeDefault: 14px;
 
+  // Element (button, label)
+$elementHeight: 30px; //buttons, labels
+$elementPadding: 20px;
+$elementFontSize: $fontSizeDefault;
+
+
+
+$logoHeight: 25px;
 //Header
 
 $headerContainerWidth: $appWidth - 100px;
@@ -14,14 +22,47 @@ $summaryContainerWidth: $appWidth - 100px;
 
 //Colors
 
-$color_red: #f55263; // red
-$color_grey: #3c3c3c; // grey
+$color_red: #F55263; // red
+$color_grey: #3C3C3C; // grey
+$color_white: #FFF; // grey
+$color_black: #000; // black
 
-
+//Imports
+  //Body
 @import 'components/body/body';
-@import 'components/header/index';
-@import 'components/summary/index';
-@import 'components/results/index';
-@import 'components/footer/index';
+
+  //Common
 @import 'components/common/index';
+@import 'components/common/logo/logo';
+@import 'components/common/label/label';
+@import 'components/common/title/title';
+@import 'components/common/button/button';
+@import 'components/common/input/input';
+
+  //Footer
+@import 'components/footer/index';
+
+  //Header
+@import 'components/header/index';
+@import 'components/header/topbar/topbar';
+
+  //Results
+@import 'components/results/index';
+@import 'components/results/no-results/no-results';
+@import 'components/results/item/item';
+@import 'components/results/item-poster/item-poster';
+@import 'components/results/item-info/item-info';
+
+  //Search
 @import 'components/search/index';
+@import 'components/search/button-section/button-section';
+@import 'components/search/type-section/type-section';
+
+  //Summary
+@import 'components/summary/index';
+@import 'components/summary/film-sort/film-sort';
+
+
+
+
+

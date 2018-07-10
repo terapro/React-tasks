@@ -5,16 +5,14 @@
 }
 
 .summary-wrapper {
+  height: 50px;
   width: $summaryContainerWidth;
   margin: 0 auto;
-  padding: 20px 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: bold;
   user-select: none;
 }
 
-@import 'film-count/film-count';
-@import 'film-sort/film-sort';
-@import 'sort-item/sort-item';
-@import 'sort-text/sort-text';
+

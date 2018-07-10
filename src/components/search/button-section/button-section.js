@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {SearchButton} from '../../common/search-button/search-button.js';
+import {Button} from '../../common/button/button.js';
 
 const ButtonSection = (props) => (
     <div className={'search-button-section'}>
-        <SearchButton content={'Search'}   searchButtonCallBack = {props.searchButtonCallBack}/>
+        <Button content='Search' btnClick={props.searchButtonCallBack} btnRed={true} btnBig={true} />
 
     </div>
 );
