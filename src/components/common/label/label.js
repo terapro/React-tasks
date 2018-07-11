@@ -4,9 +4,10 @@ import classNames from 'classnames';
 
 const Label = (props) => {
     const itemClass =classNames({
-      'label': true,
-      'label-upper-case': props.labelUC,
-      'label-white': props.labelWhite
+      'lbl': true,
+      'lbl-upper-case': props.labelUC,
+      'lbl-white': props.labelWhite,
+      'lbl-bold': props.labelBold
     });
 
     return (
@@ -18,6 +19,7 @@ const Label = (props) => {
 };
 
 Label.propTypes = {
+    labelBold: PropTypes.bool,
     content: PropTypes.string,
     labelUC: PropTypes.bool,
     labelWhite: PropTypes.bool

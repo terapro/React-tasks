@@ -8,12 +8,12 @@ $fontSizeDefault: 14px;
 $elementHeight: 30px; //buttons, labels
 $elementPadding: 20px;
 $elementFontSize: $fontSizeDefault;
+$textSize: 16px;
 
 
 
 $logoHeight: 25px;
 //Header
-
 $headerContainerWidth: $appWidth - 100px;
 $searchInputPaddingHorizontal: 20px;
 
@@ -42,11 +42,13 @@ $color_black: #000; // black
 @import 'components/common/title/title';
 @import 'components/common/button/button';
 @import 'components/common/input/input';
+@import 'components/common/caption/caption';
 
   //Film
 @import 'components/film/film';
 @import 'components/film/film-info/film-info';
 @import 'components/film/film-poster/film-poster';
+@import 'components/film/year-min/year-min';
 
   //Footer
 @import 'components/footer/index';

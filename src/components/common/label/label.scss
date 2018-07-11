@@ -1,4 +1,4 @@
-.label {
+.lbl {
   height: $elementHeight;
   line-height: $elementHeight;
   font-size: 14px;
@@ -6,9 +6,12 @@
   user-select: none;
 }
 
-.label-upper-case {
+.lbl-UC {
   text-transform: uppercase;
 }
-.label-white {
+.lbl-white {
   color: $color_white;
+}
+.lbl-bold {
+  font-weight: bold;
 }

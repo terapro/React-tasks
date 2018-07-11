@@ -1,0 +1,15 @@
+.year-min {
+  display: flex;
+}
+
+.year-min > div {
+  margin: 0 $elementPadding*2 $elementPadding $elementPadding*2
+}
+
+.year-min > div:first-child {
+  margin: 0 0 $elementPadding 0
+}
+
+.year-min > div:last-child {
+  margin: 0 0 $elementPadding $elementPadding*2
+}
