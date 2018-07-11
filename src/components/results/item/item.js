@@ -13,7 +13,7 @@ const Item = (props) => (
 );
 
 Item.propTypes = {
-  filmTitle: PropTypes.string.isRequired,
+  filmTitle: PropTypes.string,
   releaseDate: PropTypes.string,
   genre: PropTypes.array,
   posterLink: PropTypes.string,

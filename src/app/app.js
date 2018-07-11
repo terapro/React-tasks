@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {ErrorBoundary} from "./error-boundary";
 
 import {moviesDB} from '../app/data'
 
@@ -33,17 +34,17 @@ class App extends Component {
       filmModeGenre: '',
       filmInfo: {}
     };
+
     //Search function
     this.startSearchFunc = (obj) => { // Main Search function - callback for the "Search button"
       let phrase = obj.searchPhrase.toLowerCase();
+      if (phrase == '') {throw new Error('Empty search key')} // Example of an Error
       const type = searchItemsMatchingFromUserToDBFile[obj.searchType];
       let result = [];
       this.setState({
         searchPhrase: phrase,
         searchType: obj.type
       });
-      console.log('Searching ' + phrase + ' by ' + type);
-
       // Search by genres
       if (type === 'genres') {
         phrase = searchKeysAliases[phrase] ? searchKeysAliases[phrase] : phrase; // Synonyms for genres
@@ -63,6 +64,7 @@ class App extends Component {
       }
       this.state.result = result;
     };
+
     //Search for film mode by genre
     this.SearchInFilmModeByGenre = (genre) => {
       const cond = {
@@ -71,32 +73,32 @@ class App extends Component {
       };
       this.startSearchFunc(cond);
     };
+
     //Sets the film mode
     this.setFilmMode = (el) => {
       const currentFilm = this.findFilmById(el.target.id);
       const genre = currentFilm['genres'][0];
       this.setState({
-                      searchMode: false,
-                      filmMode: true,
-                      filmModeGenre: genre,
-                      filmInfo: currentFilm
-                    });
+        searchMode: false,
+        filmMode: true,
+        filmModeGenre: genre,
+        filmInfo: currentFilm
+      });
       this.SearchInFilmModeByGenre(genre);
-      console.log( this.findFilmById(el.target.id));
-
     };
+
     //Sets the search mode
     this.setSearchMode = () => {
       this.setState({
         searchMode: true,
         filmMode: false
       });
-      console.log('Entered search mode');
     };
+
     //Searches film by id
-    this.findFilmById =(id) => {
-      let res = {x:1};
-      for (let i =0; i < moviesDB['data'].length; i++) {
+    this.findFilmById = (id) => {
+      let res = {x: 1};
+      for (let i = 0; i < moviesDB['data'].length; i++) {
         if (moviesDB['data'][i]['id'] == id) {
           res = moviesDB['data'][i];
           break;
@@ -107,16 +109,18 @@ class App extends Component {
   }
   render() {
     return (
-      <Body
-        startSearch={this.startSearchFunc}
-        searchResult={this.state.result}
-        searchMode={this.state.searchMode}
-        filmMode={this.state.filmMode}
-        filmModeGenre={this.state.filmModeGenre}
-        filmInfo={this.state.filmInfo}
-        setFilmModeCallback={this.setFilmMode}
-        setSearchModeCallback={this.setSearchMode}
-      />
+      <ErrorBoundary>
+        <Body
+          startSearch={this.startSearchFunc}
+          searchResult={this.state.result}
+          searchMode={this.state.searchMode}
+          filmMode={this.state.filmMode}
+          filmModeGenre={this.state.filmModeGenre}
+          filmInfo={this.state.filmInfo}
+          setFilmModeCallback={this.setFilmMode}
+          setSearchModeCallback={this.setSearchMode}
+        />
+      </ErrorBoundary>
     )
   }
 }

@@ -41,7 +41,6 @@ class Search extends Component {
   }
 
   render() {
-    console.log('Rendered!');
     return (
       <div className={'header-search'} id={'search-form'}>
         <Title  content='Find your movie' ttlWhite={true} ttlUC={true}/>

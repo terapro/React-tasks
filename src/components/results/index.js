@@ -6,9 +6,6 @@ import {NoResults} from '../results/no-results/no-results.js';
 import {Item} from './item/item.js';
 import {Summary} from '../summary/index.js'
 
-
-
-
 class Results extends Component {
   constructor(props) {
     super(props);
@@ -50,13 +47,10 @@ class Results extends Component {
       }
     }
   }
-
   render() {
 
     let {searchResult, setFilmModeCallback, filmMode, filmModeGenre} = this.props;
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
-
-
     if (searchResult.length) { // When at least 1 film to show
       return (
         <React.Fragment>
@@ -71,7 +65,6 @@ class Results extends Component {
           </div>
         </React.Fragment>
       );
-
     } else {
       return (
         <div className='results'>
