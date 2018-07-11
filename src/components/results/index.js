@@ -52,7 +52,8 @@ class Results extends Component {
   }
 
   render() {
-    let {searchResult} = this.props;
+
+    let {searchResult, setFilmModeCallback} = this.props;
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
 
 
@@ -63,12 +64,7 @@ class Results extends Component {
           <div className='results'>
             {
               searchResult.map((item) => (
-                                      <Item filmTitle = {item['title']}
-                                           releaseDate={item['release_date']}
-                                            genre = {item['genres']}
-                                            posterLink ={item['poster_path']}
-                                            key = {item['id']}
-                                      />
+                                          <Item key = {item['id']} info = {item} setFilmModeCallback={setFilmModeCallback} />
                                         )
                           )
             }
@@ -88,7 +84,8 @@ class Results extends Component {
 }
 
 Results.propTypes = {
-  searchResult: PropTypes.array
+  searchResult: PropTypes.array,
+  setFilmModeCallback: PropTypes.func
 };
 
 Results.defaultProps = {

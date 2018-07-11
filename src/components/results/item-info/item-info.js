@@ -8,7 +8,6 @@ const ItemInfo = (props) => {
 
   let title = props.filmTitle.length > 16 ? props.filmTitle.slice(0,18) + '...' :  props.filmTitle;
 
-
 return (<div className='item-info'>
     <div className='item-info-details'>
       <div className='film-title'>

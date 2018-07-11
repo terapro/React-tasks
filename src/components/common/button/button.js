@@ -14,7 +14,6 @@ const Button = (props) => {
   'btn-transp': props.btnTransp,
   'btn-transp-red': props.btnTranspRed,
   'btn-UC': props.btnUC
-
   });
   return (
     <div className={itemClass} onClick = {props.btnClick} id={props.id}>

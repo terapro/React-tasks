@@ -44,7 +44,7 @@ class Search extends Component {
     console.log('Rendered!');
     return (
       <div className={'header-search'} id={'search-form'}>
-        <Title  content='Find your movie' />
+        <Title  content='Find your movie' ttlWhite={true} ttlUC={true}/>
         <Input searchInputCallback = {this.cloneSearchInput} value = {this.state.searchPhrase} onKeyPressedFunc={this.enterKeyPressedOnInput} />
         <div className={'search-components'}>
           <TypeSection searchTypes = {this.state.searchTypes} name = {'searchby'}

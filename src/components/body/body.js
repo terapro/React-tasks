@@ -10,8 +10,15 @@ import {Footer} from '../../components/footer/index.js';
 const Body = (props) => ( // Footer is separated for the better design expirience
   <React.Fragment>
     <div className="wrapper">
-      <Header startSearch = {props.startSearch}   />
-      <Results searchResult = {props.searchResult} />
+      <Header startSearch = {props.startSearch}
+              searchMode={props.searchMode}
+              filmMode={props.filmMode}
+              filmInfo={props.filmInfo}
+              setSearchModeCallback = {props.setSearchModeCallback}
+      />
+      <Results searchResult = {props.searchResult}
+               setFilmModeCallback ={props.setFilmModeCallback}
+      />
     </div>
     <Footer/>
   </React.Fragment>
@@ -19,7 +26,12 @@ const Body = (props) => ( // Footer is separated for the better design expirienc
 
 Body.propTypes = {
   startSearch: PropTypes.func,
-  searchResult: PropTypes.array
+  searchResult: PropTypes.array,
+  setFilmModeCallback: PropTypes.func,
+  searchMode: PropTypes.bool,
+  filmMode: PropTypes.bool,
+  filmInfo: PropTypes.object,
+  setSearchModeCallback: PropTypes.func
 };
 
 export {Body};
