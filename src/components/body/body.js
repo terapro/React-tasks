@@ -18,6 +18,8 @@ const Body = (props) => ( // Footer is separated for the better design expirienc
       />
       <Results searchResult = {props.searchResult}
                setFilmModeCallback ={props.setFilmModeCallback}
+               filmModeGenre={props.filmModeGenre}
+               filmMode={props.filmMode}
       />
     </div>
     <Footer/>
@@ -25,6 +27,7 @@ const Body = (props) => ( // Footer is separated for the better design expirienc
 );
 
 Body.propTypes = {
+  filmModeGenre: PropTypes.string,
   startSearch: PropTypes.func,
   searchResult: PropTypes.array,
   setFilmModeCallback: PropTypes.func,

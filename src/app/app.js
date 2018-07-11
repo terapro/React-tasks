@@ -30,9 +30,10 @@ class App extends Component {
       result: [],
       searchMode: true,
       filmMode: false,
+      filmModeGenre: '',
       filmInfo: {}
     };
-
+    //Search function
     this.startSearchFunc = (obj) => { // Main Search function - callback for the "Search button"
       let phrase = obj.searchPhrase.toLowerCase();
       const type = searchItemsMatchingFromUserToDBFile[obj.searchType];
@@ -62,17 +63,29 @@ class App extends Component {
       }
       this.state.result = result;
     };
+    //Search for film mode by genre
+    this.SearchInFilmModeByGenre = (genre) => {
+      const cond = {
+        searchPhrase: genre,
+        searchType: 'genre'
+      };
+      this.startSearchFunc(cond);
+    };
+    //Sets the film mode
     this.setFilmMode = (el) => {
+      const currentFilm = this.findFilmById(el.target.id);
+      const genre = currentFilm['genres'][0];
       this.setState({
                       searchMode: false,
                       filmMode: true,
-                      filmInfo: this.findFilmById(el.target.id)
+                      filmModeGenre: genre,
+                      filmInfo: currentFilm
                     });
+      this.SearchInFilmModeByGenre(genre);
       console.log( this.findFilmById(el.target.id));
 
-
-
     };
+    //Sets the search mode
     this.setSearchMode = () => {
       this.setState({
         searchMode: true,
@@ -80,6 +93,7 @@ class App extends Component {
       });
       console.log('Entered search mode');
     };
+    //Searches film by id
     this.findFilmById =(id) => {
       let res = {x:1};
       for (let i =0; i < moviesDB['data'].length; i++) {
@@ -91,7 +105,6 @@ class App extends Component {
       return res;
     }
   }
-
   render() {
     return (
       <Body
@@ -99,6 +112,7 @@ class App extends Component {
         searchResult={this.state.result}
         searchMode={this.state.searchMode}
         filmMode={this.state.filmMode}
+        filmModeGenre={this.state.filmModeGenre}
         filmInfo={this.state.filmInfo}
         setFilmModeCallback={this.setFilmMode}
         setSearchModeCallback={this.setSearchMode}
@@ -106,6 +120,5 @@ class App extends Component {
     )
   }
 }
-
 
 export {App};
