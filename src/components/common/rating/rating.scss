@@ -1,0 +1,12 @@
+.rating {
+  display: inline-block;
+  color: aquamarine;
+  border: 1px solid aquamarine;
+  border-radius: 100%;
+  font-size: 18px;
+  margin-left: $elementPadding;
+  height: $elementHeight + $elementPadding;
+  width: $elementHeight + $elementPadding;
+  line-height: $elementHeight +$elementPadding;
+  text-align: center;
+}

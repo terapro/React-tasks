@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 const Caption =(props) => {
   let itemClass = classNames({
     'txt': true,
-    'txt-white': props.txtWhite
+    'txt-white': props.txtWhite,
+    'txt-italic': props.txtItalic
   });
 
   return (
@@ -14,6 +15,7 @@ const Caption =(props) => {
 };
 Caption.propTypes ={
   txtWhite: PropTypes.bool,
+  txtItalic: PropTypes.bool,
   content: PropTypes.string
 };
 
