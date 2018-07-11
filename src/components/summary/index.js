@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const Summary = (props) => (
   <div className='summary'>
     <div className='summary-wrapper'>
-      {props.filmMode? null : <Label content ={props.filmNumber + ' movies found'} />}
+      {props.filmMode? null : <Label content ={'For \''+ props.searchPhrase +'\' ' + props.filmNumber + ' movies found'} />}
       {props.filmMode? null : <FilmSort sortItems={props.sortItems} changeSortItemCallBack = {props.changeSortItemCallBack} />}
       {props.filmMode?  <Label content ={'Films by ' + props.filmModeGenre  + ' genre'} /> : null}
 
@@ -18,6 +18,7 @@ const Summary = (props) => (
 );
 
 Summary.propTypes = {
+  searchPhrase: PropTypes.string,
   filmModeGenre: PropTypes.string,
   filmMode: PropTypes.bool,
   filmNumber: PropTypes.number,

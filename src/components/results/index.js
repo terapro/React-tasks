@@ -49,12 +49,19 @@ class Results extends Component {
   }
   render() {
 
-    let {searchResult, setFilmModeCallback, filmMode, filmModeGenre} = this.props;
+    let {searchResult, setFilmModeCallback, filmMode, filmModeGenre, searchPhrase} = this.props;
+   // if (filmMode) {throw new Error('Film mode')}
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
     if (searchResult.length) { // When at least 1 film to show
       return (
         <React.Fragment>
-          <Summary filmNumber={searchResult.length} sortItems = {this.state.sortItems} changeSortItemCallBack = {this.changeSortItemClick} filmMode={filmMode} filmModeGenre ={filmModeGenre} />
+          <Summary filmNumber={searchResult.length}
+                   sortItems={this.state.sortItems}
+                   changeSortItemCallBack={this.changeSortItemClick}
+                   filmMode={filmMode}
+                   filmModeGenre={filmModeGenre}
+                   searchPhrase={searchPhrase}
+          />
           <div className='results'>
             {
               searchResult.map((item) => (
@@ -77,6 +84,7 @@ class Results extends Component {
 }
 
 Results.propTypes = {
+  searchPhrase: PropTypes.string,
   filmMode: PropTypes.bool,
   filmModeGenre: PropTypes.string,
   searchResult: PropTypes.array,

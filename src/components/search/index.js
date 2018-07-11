@@ -13,7 +13,7 @@ class Search extends Component {
 
     this.state = {
       searchTypes: {
-        list: ['title', 'genre'],
+        list: ['title', 'genres'],
         active: 'title'
       },
       searchPhrase: ''
@@ -21,7 +21,10 @@ class Search extends Component {
     };
 
     this.searchButtonClick = () => {// CallBack for SearchButton click
-      this.props.startSearch({searchPhrase: this.state.searchPhrase, searchType: this.state.searchTypes.active});
+      this.props.startSearch({
+        searchPhrase: this.state.searchPhrase,
+        searchType: this.state.searchTypes.active
+      });
       this.setState({searchPhrase: ''});
     };
     this.enterKeyPressedOnInput = (e) => {
@@ -43,12 +46,20 @@ class Search extends Component {
   render() {
     return (
       <div className={'header-search'} id={'search-form'}>
+
         <Title  content='Find your movie' ttlWhite={true} ttlUC={true}/>
-        <Input searchInputCallback = {this.cloneSearchInput} value = {this.state.searchPhrase} onKeyPressedFunc={this.enterKeyPressedOnInput} />
+
+        <Input searchInputCallback = {this.cloneSearchInput}
+               value = {this.state.searchPhrase}
+               onKeyPressedFunc={this.enterKeyPressedOnInput} />
+
         <div className={'search-components'}>
-          <TypeSection searchTypes = {this.state.searchTypes} name = {'searchby'}
+          <TypeSection searchTypes = {this.state.searchTypes}
+                       name = {'searchby'}
                        searchTypeCallback = {this.changeSearchType}/>
-          <ButtonSection parentFormId={'search-form'} searchButtonCallBack = {this.searchButtonClick}/>
+
+          <ButtonSection parentFormId={'search-form'}
+                         searchButtonCallBack = {this.searchButtonClick}/>
         </div>
       </div>
     )

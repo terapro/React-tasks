@@ -5,10 +5,6 @@ import {moviesDB} from '../app/data'
 
 import {Body} from '../components/body/body.js'
 
-const searchItemsMatchingFromUserToDBFile = { // User items >> matching >> Items in moviesDB file
-  'title': 'title',
-  'genre': 'genres',
-};
 const searchKeysAliases = { // only lower case!
   'sci fi': 'science fiction',
   'scifi': 'science fiction',
@@ -24,7 +20,9 @@ class App extends Component {
     super();
 
     this.state = {
+      lastSearchPhrase: '',
       searchPhrase: '',
+      lastSearchType: '',
       searchType: '',
       sortParameters: null, //Items for 'Sort by' field (e.g. 'release date', 'rating')
       filmNumber: 0,
@@ -38,12 +36,11 @@ class App extends Component {
     //Search function
     this.startSearchFunc = (obj) => { // Main Search function - callback for the "Search button"
       let phrase = obj.searchPhrase.toLowerCase();
-      if (phrase == '') {throw new Error('Empty search key')} // Example of an Error
-      const type = searchItemsMatchingFromUserToDBFile[obj.searchType];
+      const type = obj.searchType;
       let result = [];
       this.setState({
         searchPhrase: phrase,
-        searchType: obj.type
+        searchType: type
       });
       // Search by genres
       if (type === 'genres') {
@@ -69,7 +66,7 @@ class App extends Component {
     this.SearchInFilmModeByGenre = (genre) => {
       const cond = {
         searchPhrase: genre,
-        searchType: 'genre'
+        searchType: 'genres'
       };
       this.startSearchFunc(cond);
     };
@@ -78,12 +75,23 @@ class App extends Component {
     this.setFilmMode = (el) => {
       const currentFilm = this.findFilmById(el.target.id);
       const genre = currentFilm['genres'][0];
-      this.setState({
-        searchMode: false,
-        filmMode: true,
-        filmModeGenre: genre,
-        filmInfo: currentFilm
-      });
+      if (!this.state.filmMode) { // For the 1st delve into 'film' mode
+        this.setState({
+          lastSearchPhrase: this.state.searchPhrase,
+          lastSearchType: this.state.searchType,
+          searchMode: false,
+          filmMode: true,
+          filmModeGenre: genre,
+          filmInfo: currentFilm
+        });
+      } else {
+        this.setState({
+          searchMode: false,
+          filmMode: true,
+          filmModeGenre: genre,
+          filmInfo: currentFilm
+        });
+      }
       this.SearchInFilmModeByGenre(genre);
     };
 
@@ -93,6 +101,11 @@ class App extends Component {
         searchMode: true,
         filmMode: false
       });
+
+      this.startSearchFunc({
+        searchPhrase: this.state.lastSearchPhrase,
+        searchType: this.state.lastSearchType
+      })
     };
 
     //Searches film by id
@@ -119,6 +132,7 @@ class App extends Component {
           filmInfo={this.state.filmInfo}
           setFilmModeCallback={this.setFilmMode}
           setSearchModeCallback={this.setSearchMode}
+          searchPhrase={this.state.searchPhrase}
         />
       </ErrorBoundary>
     )
