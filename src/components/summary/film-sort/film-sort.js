@@ -8,17 +8,18 @@ import PropTypes from 'prop-types';
 
 
 const FilmSort = (props) => {
-  if (props.sortItems) {
+  const {sortItems, changeSortItemCallBack} = props;
+  if (sortItems) {
     return (
       <div className='film-sort'>
         <Label content='Sort by '/>
           {
-            props.sortItems.list.map(
+            sortItems.list.map(
               (item) => (
                 <Button key={item}
-                        btnTranspRed  = {item === props.sortItems.active}
-                        btnTransp  = {item !== props.sortItems.active}
-                        btnClick = {props.changeSortItemCallBack}
+                        btnTranspRed  = {item === sortItems.active}
+                        btnTransp  = {item !== sortItems.active}
+                        btnClick = {changeSortItemCallBack}
                         btnBold
                         content = {item}
                         id = {item}

@@ -1,16 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
 import {ItemPoster} from 'src/components/results/item-poster/item-poster.js';
 import {ItemInfo} from 'src/components/results/item-info/item-info.js'
 
-const Item = (props) => (
-  <div  className='item'>
-    <ItemPoster posterLink={props.info['poster_path']} posterClick = {props.setFilmModeCallback} id={(props.info['id']).toString()}/>
-    <ItemInfo filmTitle ={props.info['title']} releaseDate = {props.info['release_date']} genre = {props.info['genres']}/>
-  </div>
-);
+class Item extends Component {
+  constructor () {
+    super();
+    this.onPosterClick = () => {
+      const {setFilmModeCallback, info} = this.props;
+      setFilmModeCallback(info);
+    };
+  }
+  render() {
+    const {info} = this.props;
+    return (
+      <div  className='item'>
+        <ItemPoster posterLink={info['poster_path']} posterClick = {this.onPosterClick} id={(info['id']).toString()}/>
+        <ItemInfo filmTitle ={info['title']} releaseDate = {info['release_date']} genre = {info['genres']}/>
+      </div>
+    );
+  }
+
+}
 
 Item.propTypes = {
   info: PropTypes.shape({
@@ -27,11 +40,7 @@ Item.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string),
     runtime: PropTypes.number
   }).isRequired,
-  setFilmModeCallback: PropTypes.func
+  setFilmModeCallback: PropTypes.func.isRequired
 };
-Item.defaultProps = {
-  setFilmModeCallback: ()=> {}
-};
-
 
 export {Item};

@@ -79,14 +79,12 @@ class App extends Component {
     };
 
     /**
-     * Callback function for a film item. Enters the film mode
-     * @param {element} el
+     *
+     * @param el
      */
-    this.setFilmMode = (el) => {
-      const currentFilm = this.findFilmById(el.target.id);
-      const genre = currentFilm['genres'][0];
+    this.setFilmMode = (film) => {
+      const genre = film['genres'][0];
       let newState;
-
       if (!this.state.filmMode) { // For the 1st delve into 'film' mode
         newState = {
           lastSearchPhrase: this.state.searchPhrase,
@@ -94,14 +92,14 @@ class App extends Component {
           searchMode: false,
           filmMode: true,
           filmModeGenre: genre,
-          filmInfo: currentFilm
+          filmInfo: film
         };
       } else {
         newState = {
           searchMode: false,
           filmMode: true,
           filmModeGenre: genre,
-          filmInfo: currentFilm
+          filmInfo: film
         };
       }
       this.setState(newState);

@@ -3,14 +3,16 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 const Caption =(props) => {
+  const {txtWhite, txtItalic, content} = props;
   let itemClass = classNames({
     'txt': true,
-    'txt-white': props.txtWhite,
-    'txt-italic': props.txtItalic
+    'txt-white': txtWhite,
+    'txt-italic': txtItalic
   });
-
   return (
-    <p className={itemClass}>{props.content}</p>
+    <p className={itemClass}>
+      {content}
+    </p>
   );
 };
 Caption.propTypes = {

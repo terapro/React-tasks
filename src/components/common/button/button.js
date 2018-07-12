@@ -3,21 +3,23 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 const Button = (props) => {
+  const {btnSm, btnBig, btnWhite, btnRed, btnGrey, btnBold, btnTransp, btnTranspRed, btnUC} = props;
+  const {btnClick, id, content} = props;
   let itemClass = classNames({
   'btn': true,
-  'btn-sm': props.btnSm,
-  'btn-big': props.btnBig,
-  'btn-white': props.btnWhite,
-  'btn-red': props.btnRed,
-  'btn-grey': props.btnGrey,
-  'btn-bold':  props.btnBold,
-  'btn-transp': props.btnTransp,
-  'btn-transp-red': props.btnTranspRed,
-  'btn-UC': props.btnUC
+  'btn-sm': btnSm,
+  'btn-big': btnBig,
+  'btn-white': btnWhite,
+  'btn-red': btnRed,
+  'btn-grey': btnGrey,
+  'btn-bold':  btnBold,
+  'btn-transp': btnTransp,
+  'btn-transp-red': btnTranspRed,
+  'btn-UC': btnUC
   });
   return (
-    <div className={itemClass} onClick = {props.btnClick} id={props.id}>
-      {props.content}
+    <div className={itemClass} onClick = {btnClick} id={id}>
+      {content}
     </div>
   );
 };

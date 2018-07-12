@@ -2,19 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {TopBar} from 'src/components/header/topbar/topbar.js';
-import {Search} from 'src/components/search/index.js';
+import {Search} from 'src/components/search/search.js';
 import {Film} from 'src/components/film/film.js'
 
 
-const Header = (props) => (
-        <header className={'header'}>
-          <div className={'header-container'}>
-            <TopBar setSearchModeCallback = {props.setSearchModeCallback}  filmMode={props.filmMode}/>
-            {props.searchMode? <Search startSearch = {props.startSearch} active={props.searchMode} /> : null }
-            {props.filmMode? <Film info={props.filmInfo} active ={props.filmMode} /> : null}
-          </div>
-        </header>
+const Header = (props) => {
+  const {searchMode, setSearchModeCallback, filmMode, filmInfo, startSearch} = props;
+  return (
+    <header className={'header'}>
+      <div className={'header-container'}>
+        <TopBar setSearchModeCallback = {setSearchModeCallback}  filmMode={filmMode}/>
+          {searchMode? <Search startSearch = {startSearch} active={searchMode} /> : null }
+          {filmMode? <Film info={filmInfo} active ={filmMode} /> : null}
+      </div>
+  </header>
 );
+};
+
 
 Header.propTypes = {
   startSearch: PropTypes.func.isRequired,

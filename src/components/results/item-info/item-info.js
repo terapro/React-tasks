@@ -3,8 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ItemInfo = (props) => {
+  const {filmTitle, releaseDate, genre} = props;
 
-  let title = props.filmTitle.length > 16 ? props.filmTitle.slice(0,18) + '...' :  props.filmTitle;
+  let title = filmTitle.length > 16 ? filmTitle.slice(0,18) + '...' :  filmTitle;
 
 return (
   <div className='item-info'>
@@ -13,11 +14,11 @@ return (
         {title}
       </div>
       <div className='release-date'>
-        {props.releaseDate.slice(0,4)}
+        {releaseDate.slice(0,4)}
       </div>
     </div>
     <div className='item-info-genre'>
-      {props.genre.join(', ')}
+      {genre.join(', ')}
     </div>
   </div>
 )

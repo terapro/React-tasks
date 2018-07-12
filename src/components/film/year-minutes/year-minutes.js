@@ -5,16 +5,17 @@ import {Label} from 'src/components/common/label/label.js';
 
 
 const YearMinutes = (props) => {
+  const {year, minutes} = props;
   return (
     <div className='year-min'>
-      <Label content={props.year.slice(0,4)} labelWhite labelBold />
-      <Label content={props.minutes + ' min'} labelWhite labelBold/>
+      <Label content={year.slice(0,4)} labelWhite labelBold />
+      <Label content={minutes + ' min'} labelWhite labelBold/>
     </div>
   );
 };
 YearMinutes.propTypes = {
   year: PropTypes.string.isRequired,
-  minutes: PropTypes.string.isRequired
+  minutes: PropTypes.number.isRequired
 };
 
 

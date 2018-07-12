@@ -52,21 +52,21 @@ $color_black: #000; // black
 @import 'components/film/film-header/film-header';
 
   //Footer
-@import 'components/footer/index';
+@import 'components/footer/footer';
 
   //Header
-@import 'components/header/index';
+@import 'components/header/header';
 @import 'components/header/topbar/topbar';
 
   //Results
-@import 'components/results/index';
+@import 'components/results/results';
 @import 'components/results/no-results/no-results';
 @import 'components/results/item/item';
 @import 'components/results/item-poster/item-poster';
 @import 'components/results/item-info/item-info';
 
   //Search
-@import 'components/search/index';
+@import 'components/search/search';
 @import 'components/search/type-section/type-section';
 
   //Summary

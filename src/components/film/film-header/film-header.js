@@ -6,14 +6,14 @@ import {Rating} from 'src/components/common/rating/rating.js';
 
 
 const FilmHeader =(props) => {
-
+  const {title, rating} = props;
   return (
     <div className='film-header' >
       <div>
-        <Title content={props.title} ttlRed ttlBig />
+        <Title content={title} ttlRed ttlBig />
       </div>
       <div>
-        <Rating value ={props.rating}/>
+        <Rating value ={rating}/>
       </div>
     </div>
   );

@@ -4,18 +4,20 @@ import classNames from 'classnames';
 
 
 const Title = (props) => {
+  const {ttlRed, ttlWhite, ttlUC, ttlBig, content} = props;
   let itemClass = classNames({
     'ttl': true,
-    'ttl-red': props.ttlRed,
-    'ttl-white': props.ttlWhite,
-    'ttl-UC': props.ttlUC,
-    'ttl-big': props.ttlBig
-
+    'ttl-red': ttlRed,
+    'ttl-white': ttlWhite,
+    'ttl-UC': ttlUC,
+    'ttl-big': ttlBig
   });
 
-  return (<h2 className={itemClass}>{props.content}</h2>);
+  return (
+    <h2 className={itemClass}>
+      {content}
+    </h2>);
 };
-
 
 Title.propTypes = {
   ttlBig: PropTypes.bool,

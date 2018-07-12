@@ -4,15 +4,18 @@ import PropTypes from 'prop-types';
 import {Label} from 'src/components/common/label/label.js';
 import {FilmSort} from 'src/components/summary/film-sort/film-sort';
 
-const Summary = (props) => (
-  <div className='summary'>
-    <div className='summary-wrapper'>
-      {props.filmMode? null : <Label content ={'For \''+ props.searchPhrase +'\' ' + props.filmNumber + ' movies found'} />}
-      {props.filmMode? null : <FilmSort sortItems={props.sortItems} changeSortItemCallBack = {props.changeSortItemCallBack} />}
-      {props.filmMode?  <Label content ={'Films by ' + props.filmModeGenre  + ' genre'} /> : null}
+const Summary = (props) => {
+  const {filmMode, searchPhrase, filmNumber, sortItems, changeSortItemCallBack, filmModeGenre} = props;
+  return (
+    <div className='summary'>
+      <div className='summary-wrapper'>
+        {filmMode? null : <Label content ={'For \''+ searchPhrase +'\' ' + filmNumber + ' movies found'} />}
+        {filmMode? null : <FilmSort sortItems={sortItems} changeSortItemCallBack = {changeSortItemCallBack} />}
+        {filmMode?  <Label content ={'Films by ' + filmModeGenre  + ' genre'} /> : null}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 Summary.propTypes = {
   searchPhrase: PropTypes.string,

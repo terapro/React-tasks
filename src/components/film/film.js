@@ -3,11 +3,13 @@ import React from 'react';
 import {FilmPoster} from 'src/components/film/film-poster/film-poster.js';
 import {FilmInfo} from 'src/components/film/film-info/film-info.js';
 
+
 const Film = (props) => {
-  if (props.active) {
+  const {active, info} = props;
+  if (active) {
     return (<div className="film">
-      <FilmPoster posterPath={props.info['poster_path']}/>
-      <FilmInfo info={props.info}/>
+      <FilmPoster posterPath={info['poster_path']}/>
+      <FilmInfo info={info}/>
     </div>);
   } else {
     return null;

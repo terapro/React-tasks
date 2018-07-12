@@ -2,29 +2,34 @@ import React, {Fragment} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Header} from 'src/components/header/index.js';
-import {Results} from 'src/components/results/index.js';
-import {Footer} from 'src/components/footer/index.js';
+import {Header} from 'src/components/header/header.js';
+import {Results} from 'src/components/results/results.js';
+import {Footer} from 'src/components/footer/footer.js';
 
-const Body = (props) => ( // Footer is separated for the better design expirience
-  <Fragment>
-    <div className="wrapper">
-      <Header startSearch = {props.startSearch}
-              searchMode={props.searchMode}
-              filmMode={props.filmMode}
-              filmInfo={props.filmInfo}
-              setSearchModeCallback = {props.setSearchModeCallback}
-      />
-      <Results searchResult = {props.searchResult}
-               setFilmModeCallback ={props.setFilmModeCallback}
-               filmModeGenre={props.filmModeGenre}
-               filmMode={props.filmMode}
-               searchPhrase={props.searchPhrase}
-      />
-    </div>
-    <Footer/>
-  </Fragment>
-);
+
+const Body = (props) => { // Footer is separated for the better design expirience
+  const {startSearch, searchMode, filmMode, filmInfo, setSearchModeCallback, searchResult, setFilmModeCallback,
+    filmModeGenre, searchPhrase} = props;
+  return (
+    <Fragment>
+      <div className="wrapper">
+        <Header startSearch={startSearch}
+                searchMode={searchMode}
+                filmMode={filmMode}
+                filmInfo={filmInfo}
+                setSearchModeCallback={setSearchModeCallback}
+        />
+        <Results searchResult={searchResult}
+                 setFilmModeCallback={setFilmModeCallback}
+                 filmModeGenre={filmModeGenre}
+                 filmMode={filmMode}
+                 searchPhrase={searchPhrase}
+        />
+      </div>
+      <Footer/>
+    </Fragment>
+  )
+};
 
 Body.propTypes = {
   searchPhrase: PropTypes.string.isRequired,

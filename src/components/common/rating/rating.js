@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 
 const Rating = (props) => {
-
-
+  const {value} = props;
   return (
     <span className='rating'>
-      {props.value}
+      {value}
     </span>
   )
 

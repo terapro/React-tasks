@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Label = (props) => {
+    const {labelUC, labelWhite, labelBold, content} = props;
     const itemClass =classNames({
       'lbl': true,
-      'lbl-UC': props.labelUC,
-      'lbl-white': props.labelWhite,
-      'lbl-bold': props.labelBold,
+      'lbl-UC': labelUC,
+      'lbl-white': labelWhite,
+      'lbl-bold': labelBold,
     });
 
     return (
       <div className={itemClass}>
-        {props.content}
+        {content}
       </div>
     )
 };
