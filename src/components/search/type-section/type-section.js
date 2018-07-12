@@ -14,7 +14,6 @@ const TypeSection = (props) => {
             <Button btnRed={item === searchTypes.active}
                     btnGrey={item !== searchTypes.active}
                     key = {item}
-                    id = {item}
                     content = {item}
                     btnClick={searchTypeCallback}
                     btnInline

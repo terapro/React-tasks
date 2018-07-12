@@ -6,13 +6,25 @@ import {FilmSort} from 'src/components/summary/film-sort/film-sort';
 
 const Summary = (props) => {
   const {filmMode, searchPhrase, filmNumber, sortItems, changeSortItemCallBack, filmModeGenre} = props;
+  let innerContent;
+
+  if (filmMode) {
+    innerContent = (
+      <div className='summary-wrapper'>
+        <Label content ={'Films by ' + filmModeGenre  + ' genre'} />
+      </div>
+    );
+  } else {
+    innerContent = (
+      <div className='summary-wrapper'>
+        <Label content ={'For \''+ searchPhrase +'\' ' + filmNumber + ' movies found'} />
+        <FilmSort sortItems={sortItems} changeSortItemCallBack = {changeSortItemCallBack} />
+      </div>
+    );
+  }
   return (
     <div className='summary'>
-      <div className='summary-wrapper'>
-        {filmMode? null : <Label content ={'For \''+ searchPhrase +'\' ' + filmNumber + ' movies found'} />}
-        {filmMode? null : <FilmSort sortItems={sortItems} changeSortItemCallBack = {changeSortItemCallBack} />}
-        {filmMode?  <Label content ={'Films by ' + filmModeGenre  + ' genre'} /> : null}
-      </div>
+        {innerContent}
     </div>
   );
 };

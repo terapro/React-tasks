@@ -45,7 +45,7 @@ class Search extends Component {
     this.changeSearchType = (el) => {
       this.setState({searchTypes: {
           list: this.state.searchTypes.list, // living as it is
-          active: el.target.id // Toggle to the active type
+          active: el.target.innerHTML // Toggle to the active type
         }});
     };
     /**

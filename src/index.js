@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import "src/main.scss";
+import 'src/main.scss';
 
 // Pictures
 
-import "src/img/netflix-bg.jpg";
-import "src/img/logo-netflixroulette.png";
+import 'src/img/netflix-bg.jpg';
+import 'src/img/logo-netflixroulette.png';
 
-import {App} from "./app/app.js";
+import {App} from 'src/app/app.js';
 
 
 const root = document.getElementById("root");
