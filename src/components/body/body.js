@@ -7,9 +7,9 @@ import {Results} from 'src/components/results/results.js';
 import {Footer} from 'src/components/footer/footer.js';
 
 
-const Body = (props) => { // Footer is separated for the better design expirience
-  const {startSearch, searchMode, filmMode, filmInfo, setSearchModeCallback, searchResult, setFilmModeCallback,
-    filmModeGenre, searchPhrase} = props;
+const Body = (props) => { // Footer is separated for the better design experience
+  const {startSearch, searchMode, filmMode, filmInfo, setSearchModeCallback, searchResult, setFilmMode,
+    filmModeGenre, searchPhrase, searchInFilmModeByGenre} = props;
   return (
     <Fragment>
       <div className="wrapper">
@@ -19,8 +19,9 @@ const Body = (props) => { // Footer is separated for the better design expirienc
                 filmInfo={filmInfo}
                 setSearchModeCallback={setSearchModeCallback}
         />
-        <Results searchResult={searchResult}
-                 setFilmModeCallback={setFilmModeCallback}
+        <Results searchInFilmModeByGenre={searchInFilmModeByGenre}
+                 searchResult={searchResult}
+                 setFilmMode={setFilmMode}
                  filmModeGenre={filmModeGenre}
                  filmMode={filmMode}
                  searchPhrase={searchPhrase}
@@ -36,11 +37,12 @@ Body.propTypes = {
   filmModeGenre: PropTypes.string.isRequired,
   startSearch: PropTypes.func.isRequired,
   searchResult: PropTypes.array.isRequired,
-  setFilmModeCallback: PropTypes.func.isRequired,
+  setFilmMode: PropTypes.func.isRequired,
   searchMode: PropTypes.bool.isRequired,
   filmMode: PropTypes.bool.isRequired,
   filmInfo: PropTypes.object.isRequired,
-  setSearchModeCallback: PropTypes.func.isRequired
+  setSearchModeCallback: PropTypes.func.isRequired,
+  searchInFilmModeByGenre: PropTypes.func.isRequired
 };
 
 export {Body};

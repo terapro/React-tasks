@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
-import {Summary} from 'src/components/summary/index.js'
+import {Summary} from 'src/components/summary/summary.js'
 
 class Results extends Component {
   constructor(props) {
@@ -70,7 +70,7 @@ class Results extends Component {
     }
   }
   render() {
-    let {searchResult, setFilmModeCallback, filmMode, filmModeGenre, searchPhrase} = this.props;
+    let {searchResult, setFilmMode, filmMode, filmModeGenre, searchPhrase, searchInFilmModeByGenre} = this.props;
    // if (filmMode) {throw new Error('Film mode')}
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
     if (searchResult.length) { // When at least 1 film to show
@@ -86,7 +86,7 @@ class Results extends Component {
           <div className='results'>
             {
               searchResult.map((item) => (
-                                          <Item key = {item['id']} info = {item} setFilmModeCallback={setFilmModeCallback} />
+                                          <Item key = {item['id']} info = {item} setFilmMode={setFilmMode} searchInFilmModeByGenre={searchInFilmModeByGenre}/>
                                         )
                           )
             }
@@ -109,7 +109,8 @@ Results.propTypes = {
   filmMode: PropTypes.bool,
   filmModeGenre: PropTypes.string,
   searchResult: PropTypes.arrayOf(PropTypes.object),
-  setFilmModeCallback: PropTypes.func
+  setFilmMode: PropTypes.func,
+  startSearch: PropTypes.func
 };
 
 Results.defaultProps = {
@@ -117,7 +118,8 @@ Results.defaultProps = {
   filmMode: false,
   filmModeGenre: '',
   searchResult: [{}],
-  setFilmModeCallback: PropTypes.func
+  setFilmMode: PropTypes.func,
+  startSearch: () => {}
 };
 
 export {Results};

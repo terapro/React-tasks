@@ -9,8 +9,9 @@ class Item extends Component {
   constructor () {
     super();
     this.onPosterClick = () => {
-      const {setFilmModeCallback, info} = this.props;
-      setFilmModeCallback(info);
+      const {setFilmMode, info, searchInFilmModeByGenre} = this.props;
+      setFilmMode(info);
+      searchInFilmModeByGenre(info['genres'][0]);
     };
   }
   render() {
@@ -40,7 +41,8 @@ Item.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string),
     runtime: PropTypes.number
   }).isRequired,
-  setFilmModeCallback: PropTypes.func.isRequired
+  setFilmMode: PropTypes.func.isRequired,
+  searchInFilmModeByGenre: PropTypes.func.isRequired
 };
 
 export {Item};

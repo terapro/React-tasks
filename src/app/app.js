@@ -70,7 +70,7 @@ class App extends Component {
      * @param {string} genre
      * @constructor
      */
-    this.SearchInFilmModeByGenre = (genre) => {
+    this.searchInFilmModeByGenre = (genre) => {
       const cond = {
         searchPhrase: genre,
         searchType: 'genres'
@@ -103,8 +103,7 @@ class App extends Component {
         };
       }
       this.setState(newState);
-
-      this.SearchInFilmModeByGenre(genre);
+      window.scrollTo(0, 0);
     };
 
     /**
@@ -140,13 +139,14 @@ class App extends Component {
     return (
       <ErrorBoundary>
         <Body
+          searchInFilmModeByGenre={this.searchInFilmModeByGenre}
           startSearch={this.startSearchFunc}
           searchResult={this.state.result}
           searchMode={this.state.searchMode}
           filmMode={this.state.filmMode}
           filmModeGenre={this.state.filmModeGenre}
           filmInfo={this.state.filmInfo}
-          setFilmModeCallback={this.setFilmMode}
+          setFilmMode={this.setFilmMode}
           setSearchModeCallback={this.setSearchMode}
           searchPhrase={this.state.searchPhrase}
         />

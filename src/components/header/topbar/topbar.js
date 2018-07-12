@@ -1,25 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Logo} from './../../common/logo/logo.js';
-import {Button} from './../../common/button/button.js';
+import {Logo} from 'src/components/common/logo/logo.js';
+import {Button} from 'src/components/common/button/button.js';
 
 const TopBar = (props) => {
   const {filmMode, setSearchModeCallback} = props;
   return (
-  <div className={'topbar'}>
-    <Logo/>
-    {filmMode? <Button content='search' btnWhite btnClick={setSearchModeCallback} /> : null}
-  </div>);
+    <div className={'topbar'}>
+      <Logo/>
+      {filmMode && <Button content='search' btnWhite btnClick={setSearchModeCallback} />}
+    </div>);
 };
 
 TopBar.propTypes ={
-  setSearchModeCallback: PropTypes.func,
+  setSearchModeCallback: PropTypes.func.isRequired,
   filmMode: PropTypes.bool
 };
 
 TopBar.defaultProps ={
-  setSearchModeCallback: () => {},
   filmMode: false
 };
 export {TopBar};
