@@ -1,0 +1,79 @@
+//App parameters
+// App
+$appWidth: 1150px;
+$fontFamily: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$fontSizeDefault: 14px;
+
+  // Element (button, label)
+$elementHeight: 30px; //buttons, labels
+$elementPadding: 20px;
+$elementFontSize: $fontSizeDefault;
+$textSize: 16px;
+
+
+
+$logoHeight: 25px;
+//Header
+$headerContainerWidth: $appWidth - 100px;
+$searchInputPaddingHorizontal: 20px;
+
+//Film
+$filmPosterWidth: 350px;
+$filmInfoWidth: $headerContainerWidth - $filmPosterWidth - $elementPadding*2;
+
+// Summary
+$summaryContainerWidth: $appWidth - 100px;
+
+//Colors
+
+$color_red: #F55263; // red
+$color_grey: #3C3C3C; // grey
+$color_white: #FFF; // grey
+$color_black: #000; // black
+
+//Imports
+  //Body
+@import 'components/body/body';
+
+  //Common
+@import 'components/common/logo/logo';
+@import 'components/common/label/label';
+@import 'components/common/title/title';
+@import 'components/common/button/button';
+@import 'components/common/input/input';
+@import 'components/common/caption/caption';
+@import 'components/common/rating/rating';
+
+  //Film
+@import 'components/film/film';
+@import 'components/film/film-info/film-info';
+@import 'components/film/film-poster/film-poster';
+@import 'components/film/year-minutes/year-minutes';
+@import 'components/film/film-header/film-header';
+
+  //Footer
+@import 'components/footer/footer';
+
+  //Header
+@import 'components/header/header';
+@import 'components/header/topbar/topbar';
+
+  //Results
+@import 'components/results/results';
+@import 'components/results/no-results/no-results';
+@import 'components/results/item/item';
+@import 'components/results/item-poster/item-poster';
+@import 'components/results/item-info/item-info';
+
+  //Search
+@import 'components/search/search';
+@import 'components/search/type-section/type-section';
+
+  //Summary
+@import 'components/summary/summary';
+@import 'components/summary/film-sort/film-sort';
+
+
+
+
+

@@ -41,3 +41,19 @@ Tasks are processed by Sergey Dmitriev
 - [ ] Configured tests script
 - [x] Have dev and prod build commands (use _evn_ variables)
 
+## Task 3
+> Write components implementing HTML markup for required design.
+> Use ErrorBoundary component for catching and displaying errors. You could create one component and wrap all your application, or use several components.
+> Use smart/dumb components approach
+> 100% decomposition
+
+### Progress
+
+- [ ] Markup is done with React Components
+- [ ] Use ErrorBoundary component for catching and displaying errors
+- [ ] Use smart/dumb components approach
+- [ ] 100% decomposition
+
+
+
+

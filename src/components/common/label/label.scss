@@ -1,0 +1,17 @@
+.lbl {
+  height: $elementHeight;
+  line-height: $elementHeight;
+  font-size: 14px;
+  color: $color_black;
+  user-select: none;
+}
+
+.lbl-UC {
+  text-transform: uppercase;
+}
+.lbl-white {
+  color: $color_white;
+}
+.lbl-bold {
+  font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.search-input {
+  width: $headerContainerWidth - 2 * $searchInputPaddingHorizontal;
+  background-color: #000;
+  border: 0px;
+  border-bottom: 2px solid $color_red;
+  height: 45px;
+  color: #EAEAEA;
+  padding: 0 $searchInputPaddingHorizontal;
+  font-size: 20px;
+  line-height: 45px;
+}

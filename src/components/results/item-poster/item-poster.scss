@@ -1,0 +1,13 @@
+$posterHeight: 300px;
+$posterWidth: 200px;
+
+.item-poster {
+  width: $posterWidth;
+  height: $posterHeight;
+  cursor: pointer;
+}
+
+.item-poster-img {
+  width: $posterWidth;
+  height: $posterHeight;
+}

@@ -1,0 +1,52 @@
+.btn {
+  height: $elementHeight;
+  line-height: $elementHeight;
+  text-align: center;
+  padding: 0 $elementPadding;
+  font-size: $elementFontSize;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: normal;
+  user-select: none;
+}
+
+
+.btn-big {
+  font-size: 18px;
+  line-height: 45px;
+  height: 45px;
+  padding: 0 25px;
+  min-width: 235px;
+}
+
+.btn-white {
+  background: $color_white;
+  color: $color_red;
+}
+
+.btn-red {
+  background: $color_red;
+  color: $color_white;
+}
+
+.btn-grey {
+  background: $color_grey;
+  color: $color_white;
+}
+.btn-transp {
+  color: $color_black;
+}
+.btn-transp-red {
+  color: $color_red;
+}
+
+.btn-bold {
+  font-weight: bold;
+}
+.btn-UC {
+  text-transform: uppercase;
+}
+
+
+

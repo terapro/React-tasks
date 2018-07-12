@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "../src/css/bootstrap.min.css";
 
-import el1 from "../src/js/components/el1";
-import el2 from "../src/js/components/el2";
-import El3 from "../src/js/components/el3";
+import 'src/main.scss';
 
-const name = "World";
+// Pictures
 
+import 'src/img/netflix-bg.jpg';
+import 'src/img/logo-netflixroulette.png';
 
-const app = React.createElement('div', null, el1, el2(name), <El3/>);
+import {App} from 'src/app/app.js';
+
 
 const root = document.getElementById("root");
 
-ReactDOM.render(app, root);
+
+ReactDOM.render(<App/>, root);
+
+
+
 
