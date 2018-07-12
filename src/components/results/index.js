@@ -13,16 +13,25 @@ class Results extends Component {
       sortItems: {
         list: ['release date', 'rating'],
         active: 'release date'
-      },
-
+      }
     };
-    this.changeSortItemClick = (el) => { // CallBack for changing this.state (it changes active genre)
+    /**
+     * // CallBack for changing this.state (it changes active genre)
+     * @param {element} el
+     */
+    this.changeSortItemClick = (el) => {
       this.setState({sortItems: {
           list: this.state.sortItems.list,
           active: el.target.id
         }})
     };
-    this.sortResult = (res, parameter) => { // Function for sorting results
+    /**
+     * // Function for sorting results
+     * @param {Object} res
+     * @param {string} parameter
+     * @returns {DependencyReference[]|void|*}
+     */
+    this.sortResult = (res, parameter) => {
       const sortParametersMatching = {
         'release date': 'release_date',
         'rating': 'vote_average'
@@ -39,16 +48,28 @@ class Results extends Component {
         }
       }
 
+      /**
+       * Sort function for Rating
+       * @param {Object} a
+       * @param {Object} b
+       * @returns {number}
+       */
       function sortFuncRating (a,b) {
         return +b[parameter] - +a[parameter]
       }
+
+      /**
+       *Sort function for Release Date
+       * @param {Object} a
+       * @param {Object} b
+       * @returns {number}
+       */
       function sortFuncDates(a,b) {
         return Date.parse(b[parameter]) - Date.parse(a[parameter]);
       }
     }
   }
   render() {
-
     let {searchResult, setFilmModeCallback, filmMode, filmModeGenre, searchPhrase} = this.props;
    // if (filmMode) {throw new Error('Film mode')}
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here

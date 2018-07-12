@@ -19,25 +19,39 @@ class Search extends Component {
       searchPhrase: ''
 
     };
-
-    this.searchButtonClick = () => {// CallBack for SearchButton click
+    /**
+     * CallBack for SearchButton click
+     */
+    this.searchButtonClick = () => {
       this.props.startSearch({
         searchPhrase: this.state.searchPhrase,
         searchType: this.state.searchTypes.active
       });
       this.setState({searchPhrase: ''});
     };
+    /**
+     * Handle the enter click on the search input element
+     * @param {element} e
+     */
     this.enterKeyPressedOnInput = (e) => {
       if (e.key === 'Enter') {
         this.searchButtonClick();
       }
     };
+    /**
+     * toggle the search type (search by type/title)
+     * @param {element} el
+     */
     this.changeSearchType = (el) => {
       this.setState({searchTypes: {
           list: this.state.searchTypes.list, // living as it is
           active: el.target.id // Toggle to the active type
         }});
     };
+    /**
+     * Clones the input from a search input
+     * @param {element} el
+     */
     this.cloneSearchInput = (el) => {
       this.setState({searchPhrase: el.target.value});
     }

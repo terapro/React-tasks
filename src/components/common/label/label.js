@@ -5,9 +5,9 @@ import classNames from 'classnames';
 const Label = (props) => {
     const itemClass =classNames({
       'lbl': true,
-      'lbl-upper-case': props.labelUC,
+      'lbl-UC': props.labelUC,
       'lbl-white': props.labelWhite,
-      'lbl-bold': props.labelBold
+      'lbl-bold': props.labelBold,
     });
 
     return (

@@ -33,8 +33,11 @@ class App extends Component {
       filmInfo: {}
     };
 
-    //Search function
-    this.startSearchFunc = (obj) => { // Main Search function - callback for the "Search button"
+    /**
+     * Main Search function - callback for the "Search button"
+     * @param {Object} obj
+     */
+    this.startSearchFunc = (obj) => { //
       let phrase = obj.searchPhrase.toLowerCase();
       const type = obj.searchType;
       let result = [];
@@ -42,27 +45,31 @@ class App extends Component {
         searchPhrase: phrase,
         searchType: type
       });
-      // Search by genres
-      if (type === 'genres') {
-        phrase = searchKeysAliases[phrase] ? searchKeysAliases[phrase] : phrase; // Synonyms for genres
-        for (let i = 0; i < moviesDB.data.length; i++) {
-          if (moviesDB.data[i][type].some((genre) => genre.toLowerCase() === phrase))
-            result.push(moviesDB.data[i]);
-        }
-      }
-      // Search by title
-      if (type === 'title') {
-        for (let i = 0; i < moviesDB.data.length; i++) {
-          if (moviesDB.data[i][type].toLowerCase() === phrase // Search by the direct coincidence
-            || moviesDB.data[i][type].toLowerCase().indexOf(phrase) >= 0) { // Search by keywords in the title
-            result.push(moviesDB.data[i]);
+
+      switch(type){
+        case 'genres': // Search by genres
+          phrase = searchKeysAliases[phrase] ? searchKeysAliases[phrase] : phrase; // Synonyms for genres
+          for (let i = 0; i < moviesDB.data.length; i++) {
+            if (moviesDB.data[i][type].some((genre) => genre.toLowerCase() === phrase))
+              result.push(moviesDB.data[i]);
           }
-        }
+          break;
+        case 'title': // Search by title
+          for (let i = 0; i < moviesDB.data.length; i++) {
+            if (moviesDB.data[i][type].toLowerCase() === phrase // Search by the direct coincidence
+              || moviesDB.data[i][type].toLowerCase().indexOf(phrase) >= 0) { // Search by keywords in the title
+              result.push(moviesDB.data[i]);
+            }
+          }
       }
       this.state.result = result;
     };
 
-    //Search for film mode by genre
+    /**
+     * When the film mode is active it gives the list of films in the same genre
+     * @param {string} genre
+     * @constructor
+     */
     this.SearchInFilmModeByGenre = (genre) => {
       const cond = {
         searchPhrase: genre,
@@ -71,48 +78,59 @@ class App extends Component {
       this.startSearchFunc(cond);
     };
 
-    //Sets the film mode
+    /**
+     * Callback function for a film item. Enters the film mode
+     * @param {element} el
+     */
     this.setFilmMode = (el) => {
       const currentFilm = this.findFilmById(el.target.id);
       const genre = currentFilm['genres'][0];
+      let newState;
+
       if (!this.state.filmMode) { // For the 1st delve into 'film' mode
-        this.setState({
+        newState = {
           lastSearchPhrase: this.state.searchPhrase,
           lastSearchType: this.state.searchType,
           searchMode: false,
           filmMode: true,
           filmModeGenre: genre,
           filmInfo: currentFilm
-        });
+        };
       } else {
-        this.setState({
+        newState = {
           searchMode: false,
           filmMode: true,
           filmModeGenre: genre,
           filmInfo: currentFilm
-        });
+        };
       }
+      this.setState(newState);
+
       this.SearchInFilmModeByGenre(genre);
     };
 
-    //Sets the search mode
+    /**
+     * Toggle to the search mode
+     */
     this.setSearchMode = () => {
       this.setState({
         searchMode: true,
         filmMode: false
       });
-
       this.startSearchFunc({
         searchPhrase: this.state.lastSearchPhrase,
         searchType: this.state.lastSearchType
       })
     };
-
-    //Searches film by id
+    /**
+     * After a click on the film item the callback function returns the film id. Then we search this film in our DB
+     * @param {string} id
+     * @returns {Object}
+     */
     this.findFilmById = (id) => {
-      let res = {x: 1};
+      let res = null;
       for (let i = 0; i < moviesDB['data'].length; i++) {
-        if (moviesDB['data'][i]['id'] == id) {
+        if (moviesDB['data'][i]['id'] === +id) {
           res = moviesDB['data'][i];
           break;
         }
