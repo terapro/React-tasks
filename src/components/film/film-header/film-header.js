@@ -24,6 +24,11 @@ FilmHeader.propTypes = {
   title: PropTypes.string,
   rating: PropTypes.number
 };
+FilmHeader.defaultProps = {
+  title: 'Film title',
+  rating: 0
+};
+
 
 
 export {FilmHeader};

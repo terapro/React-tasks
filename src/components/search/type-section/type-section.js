@@ -24,10 +24,16 @@ const TypeSection = (props) => (
   </div>
 );
 
+
 TypeSection.propTypes = {
-  searchTypes: PropTypes.object,
-  name: PropTypes.string,
+  searchTypes: PropTypes.shape({
+    list: PropTypes.arrayOf(PropTypes.string),
+    active: PropTypes.string
+  }).isRequired,
   searchTypeCallback: PropTypes.func
+};
+TypeSection.defaultProps = {
+  searchTypeCallback: ()=> {}
 };
 
 export {TypeSection};

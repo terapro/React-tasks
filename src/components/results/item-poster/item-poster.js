@@ -11,12 +11,13 @@ const ItemPoster = (props) => (
 );
 
 ItemPoster.propTypes= {
-  posterLink: PropTypes.string,
+  posterLink: PropTypes.string.isRequired,
   posterClick: PropTypes.func,
   id: PropTypes.string
 };
 
 ItemPoster.defaultProps = {
-  posterLink: 'https://image.tmdb.org/t/p/w500/3kcEGnYBHDeqmdYf8ZRbKdfmlUy.jpg'
+  posterClick: () => {},
+  id: ''
 };
 export {ItemPoster};

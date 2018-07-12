@@ -8,7 +8,7 @@ const FilmPoster = (props) => (
 );
 
 FilmPoster.propTypes ={
-  posterPath: PropTypes.string
+  posterPath: PropTypes.string.isRequired
 };
 
 

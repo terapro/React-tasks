@@ -35,6 +35,9 @@ const FilmSort = (props) => {
 FilmSort.propTypes = {
   changeSortItemCallBack: PropTypes.func
 };
+FilmSort.defaultProps = {
+  changeSortItemCallBack: ()=>{}
+};
 
 
 

@@ -9,8 +9,11 @@ const ButtonSection = (props) => (
 );
 
 ButtonSection.propTypes = {
-
     searchButtonCallBack: PropTypes.func
 };
+ButtonSection.defaultProps = {
+  searchButtonCallBack: () => {}
+};
+
 
 export {ButtonSection};

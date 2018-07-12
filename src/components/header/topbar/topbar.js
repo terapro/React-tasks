@@ -16,4 +16,8 @@ TopBar.propTypes ={
   filmMode: PropTypes.bool
 };
 
+TopBar.defaultProps ={
+  setSearchModeCallback: () => {},
+  filmMode: false
+};
 export {TopBar};

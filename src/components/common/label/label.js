@@ -15,7 +15,6 @@ const Label = (props) => {
         {props.content}
       </div>
     )
-
 };
 
 Label.propTypes = {
@@ -23,6 +22,13 @@ Label.propTypes = {
     content: PropTypes.string,
     labelUC: PropTypes.bool,
     labelWhite: PropTypes.bool
+};
+
+Label.defaultProps = {
+  labelBold: false,
+  content: 'Label',
+  labelUC: false,
+  labelWhite: false
 };
 
 export {Label};

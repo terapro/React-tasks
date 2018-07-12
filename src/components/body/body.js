@@ -27,15 +27,15 @@ const Body = (props) => ( // Footer is separated for the better design expirienc
 );
 
 Body.propTypes = {
-  searchPhrase: PropTypes.string,
-  filmModeGenre: PropTypes.string,
-  startSearch: PropTypes.func,
-  searchResult: PropTypes.array,
-  setFilmModeCallback: PropTypes.func,
-  searchMode: PropTypes.bool,
-  filmMode: PropTypes.bool,
-  filmInfo: PropTypes.object,
-  setSearchModeCallback: PropTypes.func
+  searchPhrase: PropTypes.string.isRequired,
+  filmModeGenre: PropTypes.string.isRequired,
+  startSearch: PropTypes.func.isRequired,
+  searchResult: PropTypes.array.isRequired,
+  setFilmModeCallback: PropTypes.func.isRequired,
+  searchMode: PropTypes.bool.isRequired,
+  filmMode: PropTypes.bool.isRequired,
+  filmInfo: PropTypes.object.isRequired,
+  setSearchModeCallback: PropTypes.func.isRequired
 };
 
 export {Body};

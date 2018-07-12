@@ -82,5 +82,8 @@ class Search extends Component {
 Search.propTypes = {
   startSearch: PropTypes.func
 };
+Search.defaultProps = {
+  startSearch: () => {}
+};
 
 export {Search};

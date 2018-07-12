@@ -108,12 +108,16 @@ Results.propTypes = {
   searchPhrase: PropTypes.string,
   filmMode: PropTypes.bool,
   filmModeGenre: PropTypes.string,
-  searchResult: PropTypes.array,
+  searchResult: PropTypes.arrayOf(PropTypes.object),
   setFilmModeCallback: PropTypes.func
 };
 
 Results.defaultProps = {
-  searchResult: []
+  searchPhrase: '',
+  filmMode: false,
+  filmModeGenre: '',
+  searchResult: [{}],
+  setFilmModeCallback: PropTypes.func
 };
 
 export {Results};

@@ -13,10 +13,15 @@ const Caption =(props) => {
     <p className={itemClass}>{props.content}</p>
   );
 };
-Caption.propTypes ={
+Caption.propTypes = {
   txtWhite: PropTypes.bool,
   txtItalic: PropTypes.bool,
   content: PropTypes.string
+};
+Caption.defaultProps = {
+  txtWhite: false,
+  txtItalic: false,
+  content: 'Caption'
 };
 
 export {Caption};

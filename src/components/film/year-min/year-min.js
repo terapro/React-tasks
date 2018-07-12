@@ -15,8 +15,8 @@ const YearMin = (props) => {
   );
 };
 YearMin.propTypes = {
-  year: PropTypes.string,
-  min: PropTypes.string
+  year: PropTypes.string.isRequired,
+  min: PropTypes.string.isRequired
 };
 
 

@@ -25,7 +25,11 @@ Title.propTypes = {
   content: PropTypes.string
 };
 Title.defaultProps = {
-  content: 'Assign a title'
+  ttlBig: false,
+  ttlUC: false,
+  ttlRed: false,
+  ttlWhite: false,
+  content: 'Title'
 };
 
 export {Title};

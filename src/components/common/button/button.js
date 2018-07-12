@@ -33,8 +33,22 @@ Button.propTypes = {
   btnTranspRed: PropTypes.bool,
   btnUC: PropTypes.bool,
   content: PropTypes.string,
-  btnClick: PropTypes.func,
+  btnClick: PropTypes.func.isRequired,
   id: PropTypes.string
 };
+Button.defaultProps = {
+  btnSm: false,
+  btnBig: false,
+  btnWhite: false,
+  btnRed: false,
+  btnGrey: false,
+  btnBold: false,
+  btnTransp: false,
+  btnTranspRed: false,
+  btnUC: false,
+  content: 'Button',
+  id: ''
+};
+
 
 export {Button};
