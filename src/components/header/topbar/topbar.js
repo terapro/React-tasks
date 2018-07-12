@@ -7,7 +7,7 @@ import {Button} from './../../common/button/button.js';
 const TopBar = (props) => (
   <div className={'topbar'}>
     <Logo/>
-    {props.filmMode? <Button content='search' btnWhite={true} btnClick={props.setSearchModeCallback} /> : null}
+    {props.filmMode? <Button content='search' btnWhite btnClick={props.setSearchModeCallback} /> : null}
   </div>
 );
 

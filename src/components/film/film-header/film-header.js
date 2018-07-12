@@ -10,7 +10,7 @@ const FilmHeader =(props) => {
   return (
     <div className='film-header' >
       <div>
-        <Title content={props.title} ttlRed={true} ttlBig={true} />
+        <Title content={props.title} ttlRed ttlBig />
       </div>
       <div>
         <Rating value ={props.rating}/>

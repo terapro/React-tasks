@@ -19,7 +19,7 @@ const FilmSort = (props) => {
                         btnTranspRed  = {item === props.sortItems.active}
                         btnTransp  = {item !== props.sortItems.active}
                         btnClick = {props.changeSortItemCallBack}
-                        btnBold = {true}
+                        btnBold
                         content = {item}
                         id = {item}
                 />

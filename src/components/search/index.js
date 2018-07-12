@@ -61,7 +61,7 @@ class Search extends Component {
     return (
       <div className={'header-search'} id={'search-form'}>
 
-        <Title  content='Find your movie' ttlWhite={true} ttlUC={true}/>
+        <Title  content='Find your movie' ttlWhite ttlUC/>
 
         <Input searchInputCallback = {this.cloneSearchInput}
                value = {this.state.searchPhrase}

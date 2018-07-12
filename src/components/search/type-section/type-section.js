@@ -6,7 +6,7 @@ import {Button} from 'src/components/common/button/button.js'
 
 const TypeSection = (props) => (
   <div className={'search-type-section'}>
-    <Label content={'search by'} labelUC={true} labelWhite={true}/>
+    <Label content={'search by'} labelUC labelWhite />
     {
       props.searchTypes.list.map((item) => (
           <Button btnRed={item === props.searchTypes.active}
@@ -15,8 +15,8 @@ const TypeSection = (props) => (
                   id = {item}
                   content = {item}
                   btnClick={props.searchTypeCallback}
-                  btnInline = {true}
-                  btnUC={true}
+                  btnInline
+                  btnUC
           />
         )
       )
