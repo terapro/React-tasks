@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {NoResults} from '../results/no-results/no-results.js';
-import {Item} from './item/item.js';
-import {Summary} from '../summary/index.js'
+import {NoResults} from 'src/components/results/no-results/no-results.js';
+import {Item} from 'src/components/results/item/item.js';
+import {Summary} from 'src/components/summary/index.js'
 
 class Results extends Component {
   constructor(props) {

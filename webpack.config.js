@@ -54,5 +54,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "index.css"
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      'src': path.resolve('src')
+    }
+  }
 };

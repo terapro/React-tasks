@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Title} from '../../common/title/title.js';
-import {Rating} from '../../common/rating/rating.js';
+import {Title} from 'src/components/common/title/title.js';
+import {Rating} from 'src/components/common/rating/rating.js';
 
 
 const FilmHeader =(props) => {

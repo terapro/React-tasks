@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Label} from '../common/label/label.js';
+import {Label} from 'src/components/common/label/label.js';
 
-import {FilmSort} from '../summary/film-sort/film-sort';
+import {FilmSort} from 'src/components/summary/film-sort/film-sort';
 
 import PropTypes from 'prop-types';
 

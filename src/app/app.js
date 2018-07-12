@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {ErrorBoundary} from "./error-boundary";
+import {ErrorBoundary} from 'src/app/error-boundary.js';
 
-import {moviesDB} from '../app/data'
+import {moviesDB} from 'src/app/data.js';
 
-import {Body} from '../components/body/body.js'
+import {Body} from 'src/components/body/body.js';
 
 const searchKeysAliases = { // only lower case!
   'sci fi': 'science fiction',

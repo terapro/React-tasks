@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Logo} from '../common/logo/logo.js';
+import {Logo} from 'src/components/common/logo/logo.js';
 
 const Footer = () => (
         <footer className={'footer'}>

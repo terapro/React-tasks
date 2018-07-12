@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-import {Button} from '../../common/button/button.js'
-import {Label} from '../../common/label/label.js'
+import {Button} from 'src/components/common/button/button.js'
+import {Label} from 'src/components/common/label/label.js'
 
 import PropTypes from 'prop-types';
 

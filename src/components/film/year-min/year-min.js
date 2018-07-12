@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Label} from '../../common/label/label.js';
+import {Label} from 'src/components/common/label/label.js';
 
 
 const YearMin = (props) => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Title} from '../../common/title/title.js';
-import {Caption} from '../../common/caption/caption.js';
-import {YearMin} from "../year-min/year-min";
-import {FilmHeader} from "../film-header/film-header.js";
+
+import {Caption} from 'src/components/common/caption/caption.js';
+import {YearMin} from "src/components/film/year-min/year-min";
+import {FilmHeader} from "src/components/film/film-header/film-header.js";
 
 
 const FilmInfo = (props) => (

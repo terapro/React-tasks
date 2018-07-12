@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {TopBar} from '../header/topbar/topbar.js';
-import {Search} from '../search/index.js';
-import {Film} from '../film/film.js'
+import {TopBar} from 'src/components/header/topbar/topbar.js';
+import {Search} from 'src/components/search/index.js';
+import {Film} from 'src/components/film/film.js'
 
 
 const Header = (props) => (

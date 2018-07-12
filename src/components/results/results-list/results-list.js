@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Item} from "../item/item";
+import {Item} from "src/components/results/item/item";
 
 const ResultsList = (props) => {
   if (props.searchResult.length) {

@@ -2,8 +2,8 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import {ItemPoster} from '../../results/item-poster/item-poster.js';
-import {ItemInfo} from '../../results/item-info/item-info.js'
+import {ItemPoster} from 'src/components/results/item-poster/item-poster.js';
+import {ItemInfo} from 'src/components/results/item-info/item-info.js'
 
 const Item = (props) => (
   <div  className='item'>

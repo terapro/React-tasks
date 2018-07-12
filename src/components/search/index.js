@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Input} from '../common/input/input.js';
-import {Title} from '../common/title/title.js';
-import {TypeSection} from '../search/type-section/type-section.js';
-import {ButtonSection} from '../search/button-section/button-section.js';
+import {Input} from 'src/components/common/input/input.js';
+import {Title} from 'src/components/common/title/title.js';
+import {TypeSection} from 'src/components/search/type-section/type-section.js';
+import {ButtonSection} from 'src/components/search/button-section/button-section.js';
 
 class Search extends Component {
   constructor(props) {

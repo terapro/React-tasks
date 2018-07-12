@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Label} from '../../common/label/label.js';
-import {Button} from '../../common/button/button.js'
+import {Label} from 'src/components/common/label/label.js';
+import {Button} from 'src/components/common/button/button.js'
 
 const TypeSection = (props) => (
   <div className={'search-type-section'}>
