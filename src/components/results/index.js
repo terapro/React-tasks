@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -75,7 +75,7 @@ class Results extends Component {
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
     if (searchResult.length) { // When at least 1 film to show
       return (
-        <React.Fragment>
+        <Fragment>
           <Summary filmNumber={searchResult.length}
                    sortItems={this.state.sortItems}
                    changeSortItemCallBack={this.changeSortItemClick}
@@ -91,7 +91,7 @@ class Results extends Component {
                           )
             }
           </div>
-        </React.Fragment>
+        </Fragment>
       );
     } else {
       return (

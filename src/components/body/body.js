@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import PropTypes from 'prop-types';
-
 
 import {Header} from 'src/components/header/index.js';
 import {Results} from 'src/components/results/index.js';
 import {Footer} from 'src/components/footer/index.js';
 
 const Body = (props) => ( // Footer is separated for the better design expirience
-  <React.Fragment>
+  <Fragment>
     <div className="wrapper">
       <Header startSearch = {props.startSearch}
               searchMode={props.searchMode}
@@ -24,7 +23,7 @@ const Body = (props) => ( // Footer is separated for the better design expirienc
       />
     </div>
     <Footer/>
-  </React.Fragment>
+  </Fragment>
 );
 
 Body.propTypes = {
