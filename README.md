@@ -49,11 +49,27 @@ Tasks are processed by Sergey Dmitriev
 
 ### Progress
 
-- [ ] Markup is done with React Components
-- [ ] Use ErrorBoundary component for catching and displaying errors
-- [ ] Use smart/dumb components approach
-- [ ] 100% decomposition
+- [x] Markup is done with React Components
+- [x] Use ErrorBoundary component for catching and displaying errors
+- [x] Use smart/dumb components approach
+- [x] 100% decomposition
 
+
+## Task 4
+> Coverage > 60%
+> Write tests using enzyme and jest
+> Use snapshot testing
+> Use coverage tool
+> Write at least one e2e test using library from the list:
+> Cypress, CasperJS, Protractor, Nightwatch, Webdriver
+
+
+### Progress
+
+- [ ] Coverage > 60%
+- [ ] Use snapshot testing
+- [ ] Coverage > 80%. Functional testing with enzyme and jest
+- [ ] Write at least one e2e test
 
 
 
