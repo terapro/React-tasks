@@ -2,8 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-const ItemInfo = (props) => {
-  const {filmTitle, releaseDate, genre} = props;
+const ItemInfo = ({filmTitle, releaseDate, genre}) => {
 
   let title = filmTitle.length > 16 ? filmTitle.slice(0,18) + '...' :  filmTitle;
 

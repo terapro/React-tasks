@@ -6,7 +6,7 @@ import {ItemPoster} from 'src/components/results/item-poster/item-poster.js';
 import {ItemInfo} from 'src/components/results/item-info/item-info.js'
 
 class Item extends Component {
-  constructor () {
+  constructor() {
     super();
     this.onPosterClick = () => {
       const {setFilmMode, info, searchInFilmModeByGenre} = this.props;
@@ -14,16 +14,16 @@ class Item extends Component {
       searchInFilmModeByGenre(info['genres'][0]);
     };
   }
+
   render() {
     const {info} = this.props;
     return (
-      <div  className='item'>
-        <ItemPoster posterLink={info['poster_path']} posterClick = {this.onPosterClick} id={(info['id']).toString()}/>
-        <ItemInfo filmTitle ={info['title']} releaseDate = {info['release_date']} genre = {info['genres']}/>
+      <div className='item'>
+        <ItemPoster posterLink={info['poster_path']} posterClick={this.onPosterClick} id={(info['id']).toString()}/>
+        <ItemInfo filmTitle={info['title']} releaseDate={info['release_date']} genre={info['genres']}/>
       </div>
     );
   }
-
 }
 
 Item.propTypes = {

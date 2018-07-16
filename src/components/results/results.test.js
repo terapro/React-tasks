@@ -92,36 +92,3 @@ describe('<Results />', () => {
     });
   });
 });
-
-
-
-  /*describe('Methods', () => {
-    let instance;
-    beforeAll(() => {
-      instance = shallow(
-        <Results searchInFilmModeByGenre={mockProps.searchInFilmModeByGenre}
-                 searchResult={{}}
-                 setFilmMode={mockProps.setFilmMode}
-                 filmModeGenre={mockProps.filmModeGenre}
-                 filmMode={mockProps.filmMode}
-                 searchPhrase={mockProps.searchPhrase}
-        />
-      ).instance();
-    });
-    afterEach(() => {
-      jest.clearAllMocks();
-    });
-    it('should change the sort item', () => {
-      instance.state = {
-        sortItems: {
-          list: ['release date', 'rating'],
-          active: 'release date'
-        }
-      };
-      instance.changeSortItemClick(mockEl);
-      expect(instance.state.sortItems.active).toEqual(mockEl.target.id);
-    });
-
-  });*/
-
-
