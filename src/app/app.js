@@ -103,7 +103,7 @@ class App extends Component {
         };
       }
       this.setState(newState);
-      window.scrollTo(0, 0);
+      //window.scrollTo(0, 0);
     };
 
     /**

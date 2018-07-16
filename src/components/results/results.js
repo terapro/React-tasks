@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
-import {Summary} from 'src/components/summary/summary.js'
+import {Summary} from 'src/components/summary/summary.js';
 
 class Results extends Component {
   constructor(props) {
@@ -73,7 +73,6 @@ class Results extends Component {
     let {searchResult, setFilmMode, filmMode, filmModeGenre, searchPhrase, searchInFilmModeByGenre} = this.props;
    // if (filmMode) {throw new Error('Film mode')}
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
-    console.log(searchResult);
     if (searchResult.length) { // When at least 1 film to show
       return (
         <Fragment>

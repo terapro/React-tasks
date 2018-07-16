@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TypeSection /> Render should render the component in the film mode 1`] = `
+<div
+  className="summary"
+>
+  <div
+    className="summary-wrapper"
+  >
+    <Label
+      content="Films by action genre"
+      labelBold={false}
+      labelUC={false}
+      labelWhite={false}
+    />
+  </div>
+</div>
+`;
+
+exports[`<TypeSection /> Render should render the component in the search mode 1`] = `
+<div
+  className="summary"
+>
+  <div
+    className="summary-wrapper"
+  >
+    <Label
+      content="For 'star wars' 11 movies found"
+      labelBold={false}
+      labelUC={false}
+      labelWhite={false}
+    />
+    <FilmSort
+      changeSortItemCallBack={[MockFunction]}
+      sortItems={
+        Object {
+          "active": "release date",
+          "list": Array [
+            "release date",
+            "rating",
+          ],
+        }
+      }
+    />
+  </div>
+</div>
+`;

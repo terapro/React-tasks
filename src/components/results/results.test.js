@@ -2,8 +2,6 @@ import React from 'react';
 import {Results} from 'src/components/results/results.js';
 import {shallow} from 'enzyme';
 
-const mockFunc = jest.fn();
-
 const mockNoResults = [];
 
 const mockProps = {

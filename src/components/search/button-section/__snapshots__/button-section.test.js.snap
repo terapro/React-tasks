@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonSection /> Render should render the component 1`] = `
+<div>
+  <Button
+    btnBig={true}
+    btnBold={false}
+    btnClick={[MockFunction]}
+    btnGrey={false}
+    btnRed={true}
+    btnSm={false}
+    btnTransp={false}
+    btnTranspRed={false}
+    btnUC={false}
+    btnWhite={false}
+    content="Search"
+    id=""
+  />
+</div>
+`;
