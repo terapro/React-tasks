@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> should render the input 1`] = `
+<input
+  className="search-input"
+  onInput={[Function]}
+  onKeyPress={[Function]}
+  placeholder="Start typing..."
+  type="text"
+  value="testing Input.."
+/>
+`;

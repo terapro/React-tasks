@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Rating = (props) => {
-  const {value} = props;
+const Rating = ({value}) => {
+
   return (
     <span className='rating'>
       {value}

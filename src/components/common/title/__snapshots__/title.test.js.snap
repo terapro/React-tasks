@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> should render the title 1`] = `
+<h2
+  className="ttl"
+>
+  Testing title
+</h2>
+`;

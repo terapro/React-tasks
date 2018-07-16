@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Rating /> should render the logo 1`] = `
+<span
+  className="rating"
+>
+  5
+</span>
+`;
