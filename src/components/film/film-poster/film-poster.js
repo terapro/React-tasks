@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FilmPoster = (props) => {
-  const {posterPath} = props;
-  return (
+const FilmPoster = ({posterPath}) => (
     <div className="film-poster">
       <img src={posterPath} />
     </div>
   );
-};
 
 FilmPoster.propTypes ={
   posterPath: PropTypes.string.isRequired

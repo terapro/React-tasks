@@ -73,6 +73,7 @@ class Results extends Component {
     let {searchResult, setFilmMode, filmMode, filmModeGenre, searchPhrase, searchInFilmModeByGenre} = this.props;
    // if (filmMode) {throw new Error('Film mode')}
     searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
+    console.log(searchResult);
     if (searchResult.length) { // When at least 1 film to show
       return (
         <Fragment>
@@ -105,12 +106,13 @@ class Results extends Component {
 }
 
 Results.propTypes = {
-  searchPhrase: PropTypes.string,
-  filmMode: PropTypes.bool,
-  filmModeGenre: PropTypes.string,
-  searchResult: PropTypes.arrayOf(PropTypes.object),
-  setFilmMode: PropTypes.func,
-  startSearch: PropTypes.func
+  searchPhrase: PropTypes.string,//
+  filmMode: PropTypes.bool,//
+  filmModeGenre: PropTypes.string,//
+  searchResult: PropTypes.arrayOf(PropTypes.object), //
+  setFilmMode: PropTypes.func, //
+  startSearch: PropTypes.func,
+  searchInFilmModeByGenre: PropTypes.func.isRequired //
 };
 
 Results.defaultProps = {

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> <Footer /> should render the component 1`] = `
+<footer
+  className="footer"
+>
+  <Logo />
+</footer>
+`;
+
+exports[`<Footer /> should render the component 1`] = `
+<footer
+  className="footer"
+>
+  <Logo />
+</footer>
+`;

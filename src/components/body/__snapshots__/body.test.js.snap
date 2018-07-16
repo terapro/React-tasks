@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Body /> should render the Body 1`] = `
+<React.Fragment>
+  <div
+    className="wrapper"
+  >
+    <Header
+      filmInfo={
+        Object {
+          "title": "Fifty Shades Freed",
+        }
+      }
+      filmMode={false}
+      searchMode={true}
+      setSearchModeCallback={[MockFunction]}
+      startSearch={[MockFunction]}
+    />
+    <Results
+      filmMode={false}
+      filmModeGenre="action"
+      searchInFilmModeByGenre={[MockFunction]}
+      searchPhrase="Searching something"
+      searchResult={
+        Array [
+          Object {
+            "title": "Fifty Shades Freed",
+          },
+          Object {
+            "title": "Zootopia",
+          },
+        ]
+      }
+      setFilmMode={[MockFunction]}
+      startSearch={[Function]}
+    />
+  </div>
+  <Footer />
+</React.Fragment>
+`;

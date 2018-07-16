@@ -6,11 +6,13 @@ const mockFn = jest.fn();
 const mockText = 'testing Input..';
 
 describe('<Input />', () => {
-  it('should render the input', () => {
-    const wrapper = shallow(<Input
-                                   onInput = {mockFn}
-                                   value = {mockText}
-                                    />);
-    expect(wrapper).toMatchSnapshot();
+  describe('Rendering', () => {
+    it('should render the component', () => {
+      const wrapper = shallow(<Input
+        searchInputCallback = {mockFn}
+        onKeyPressedFunc = {mockText}
+      />);
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });

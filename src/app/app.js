@@ -29,7 +29,7 @@ class App extends Component {
       result: [],
       searchMode: true,
       filmMode: false,
-      filmModeGenre: '',
+      filmModeGenre: ' ',
       filmInfo: {}
     };
 
@@ -80,7 +80,7 @@ class App extends Component {
 
     /**
      *
-     * @param el
+     * @param {object} film
      */
     this.setFilmMode = (film) => {
       const genre = film['genres'][0];
@@ -124,16 +124,6 @@ class App extends Component {
      * @param {string} id
      * @returns {Object}
      */
-    this.findFilmById = (id) => {
-      let res = null;
-      for (let i = 0; i < moviesDB['data'].length; i++) {
-        if (moviesDB['data'][i]['id'] === +id) {
-          res = moviesDB['data'][i];
-          break;
-        }
-      }
-      return res;
-    }
   }
   render() {
     return (

@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Rating /> <Rating /> should render the component 1`] = `
+<span
+  className="rating"
+>
+  5
+</span>
+`;
+
+exports[`<Rating /> <Rating /> should render the component with default value 1`] = `
+<span
+  className="rating"
+>
+  0
+</span>
+`;
+
 exports[`<Rating /> should render the logo 1`] = `
 <span
   className="rating"

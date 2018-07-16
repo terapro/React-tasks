@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Input /> Rendering should render the component 1`] = `
+<input
+  className="search-input"
+  onInput={[MockFunction]}
+  onKeyPress="testing Input.."
+  placeholder="Start typing..."
+  type="text"
+  value=""
+/>
+`;
+
 exports[`<Input /> should render the input 1`] = `
 <input
   className="search-input"

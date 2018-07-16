@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilmHeader /> <FilmHeader /> should render the component 1`] = `
+<div
+  className="film-header"
+>
+  <div>
+    <Title
+      content="film title"
+      ttlBig={true}
+      ttlRed={true}
+      ttlUC={false}
+      ttlWhite={false}
+    />
+  </div>
+  <div>
+    <Rating
+      value={4.2}
+    />
+  </div>
+</div>
+`;
+
+exports[`<FilmHeader /> <FilmHeader /> should render the component with default props 1`] = `
+<div
+  className="film-header"
+>
+  <div>
+    <Title
+      content="Film title"
+      ttlBig={true}
+      ttlRed={true}
+      ttlUC={false}
+      ttlWhite={false}
+    />
+  </div>
+  <div>
+    <Rating
+      value={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`<FilmHeader /> rendering should render the component 1`] = `
+<div
+  className="film-header"
+>
+  <div>
+    <Title
+      content="film title"
+      ttlBig={true}
+      ttlRed={true}
+      ttlUC={false}
+      ttlWhite={false}
+    />
+  </div>
+  <div>
+    <Rating
+      value={4.2}
+    />
+  </div>
+</div>
+`;
+
+exports[`<FilmHeader /> rendering should render the component with default props 1`] = `
+<div
+  className="film-header"
+>
+  <div>
+    <Title
+      content="Film title"
+      ttlBig={true}
+      ttlRed={true}
+      ttlUC={false}
+      ttlWhite={false}
+    />
+  </div>
+  <div>
+    <Rating
+      value={0}
+    />
+  </div>
+</div>
+`;
+
+exports[`<FilmHeader /> should render the component 1`] = `
+<div
+  className="film-header"
+>
+  <div>
+    <Title
+      content="film title"
+      ttlBig={true}
+      ttlRed={true}
+      ttlUC={false}
+      ttlWhite={false}
+    />
+  </div>
+  <div>
+    <Rating
+      value={4.2}
+    />
+  </div>
+</div>
+`;

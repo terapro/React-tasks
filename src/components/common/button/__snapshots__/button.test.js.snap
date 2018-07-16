@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> should render the button 1`] = `
+exports[`<Button /> Rendering should render the button 1`] = `
 <div
   className="btn"
   id=""
@@ -10,7 +10,7 @@ exports[`<Button /> should render the button 1`] = `
 </div>
 `;
 
-exports[`Testing Button render should render the button 1`] = `
+exports[`<Button /> should render the button 1`] = `
 <div
   className="btn"
   id=""
