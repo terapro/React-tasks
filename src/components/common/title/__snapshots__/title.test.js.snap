@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> Rendering should render the component 1`] = `
+<h2
+  className="ttl"
+>
+  Testing title
+</h2>
+`;
+
+exports[`<Title /> Rendering should render the component with default content 1`] = `
+<h2
+  className="ttl"
+>
+  Title
+</h2>
+`;

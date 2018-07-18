@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> should render the logo 1`] = `
+<img
+  className="logo"
+  src="img/logo-netflixroulette.png"
+/>
+`;

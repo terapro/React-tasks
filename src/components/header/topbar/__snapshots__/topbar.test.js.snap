@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TopBar /> Rendering should render the component in film mode 1`] = `
+<div
+  className="topbar"
+>
+  <Logo />
+  <Button
+    btnBig={false}
+    btnBold={false}
+    btnClick={[MockFunction]}
+    btnGrey={false}
+    btnRed={false}
+    btnSm={false}
+    btnTransp={false}
+    btnTranspRed={false}
+    btnUC={false}
+    btnWhite={true}
+    content="search"
+    id=""
+  />
+</div>
+`;
+
+exports[`<TopBar /> Rendering should render the component in search mode 1`] = `
+<div
+  className="topbar"
+>
+  <Logo />
+</div>
+`;
+
+exports[`<TopBar /> Rendering should render the component with default props 1`] = `
+<div
+  className="topbar"
+>
+  <Logo />
+</div>
+`;

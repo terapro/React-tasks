@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> Rendering should render the component 1`] = `
+<div
+  className="header-search"
+  id="search-form"
+>
+  <Title
+    content="Find your movie"
+    ttlBig={false}
+    ttlRed={false}
+    ttlUC={true}
+    ttlWhite={true}
+  />
+  <Input
+    onKeyPressedFunc={[Function]}
+    placeholder="Start typing..."
+    searchInputCallback={[Function]}
+    value=""
+  />
+  <div
+    className="search-components"
+  >
+    <TypeSection
+      name="searchby"
+      searchTypeCallback={[Function]}
+      searchTypes={
+        Object {
+          "active": "title",
+          "list": Array [
+            "title",
+            "genres",
+          ],
+        }
+      }
+    />
+    <ButtonSection
+      parentFormId="search-form"
+      searchButtonCallBack={[Function]}
+    />
+  </div>
+</div>
+`;

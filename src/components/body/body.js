@@ -6,8 +6,7 @@ import {Header} from 'src/components/header/header.js';
 import {Results} from 'src/components/results/results.js';
 import {Footer} from 'src/components/footer/footer.js';
 
-
-const Body = (props) => { // Footer is separated for the better design experience
+const Body = (props) => {
   const {startSearch, searchMode, filmMode, filmInfo, setSearchModeCallback, searchResult, setFilmMode,
     filmModeGenre, searchPhrase, searchInFilmModeByGenre} = props;
   return (
@@ -34,15 +33,34 @@ const Body = (props) => { // Footer is separated for the better design experienc
 
 Body.propTypes = {
   searchPhrase: PropTypes.string.isRequired,
-  filmModeGenre: PropTypes.string.isRequired,
+  filmModeGenre: PropTypes.string,
   startSearch: PropTypes.func.isRequired,
   searchResult: PropTypes.array.isRequired,
   setFilmMode: PropTypes.func.isRequired,
-  searchMode: PropTypes.bool.isRequired,
-  filmMode: PropTypes.bool.isRequired,
-  filmInfo: PropTypes.object.isRequired,
+  searchMode: PropTypes.bool,
+  filmMode: PropTypes.bool,
+  filmInfo:  PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    tagline: PropTypes.string,
+    vote_average: PropTypes.number,
+    vote_count: PropTypes.number,
+    release_date: PropTypes.string,
+    poster_path: PropTypes.string,
+    overview: PropTypes.string,
+    budget: PropTypes.number,
+    revenue: PropTypes.number,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    runtime: PropTypes.number
+  }),
   setSearchModeCallback: PropTypes.func.isRequired,
   searchInFilmModeByGenre: PropTypes.func.isRequired
 };
+Body.defaultProps = {
+  searchMode: true,
+  filmMode: false,
+  filmModeGenre: ''
+};
+
 
 export {Body};

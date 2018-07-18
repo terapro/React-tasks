@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TypeSection /> Render should render the component 1`] = `
+<div
+  className="search-type-section"
+>
+  <Label
+    content="search by"
+    labelBold={false}
+    labelUC={true}
+    labelWhite={true}
+  />
+  <Button
+    btnBig={false}
+    btnBold={false}
+    btnClick={[MockFunction]}
+    btnGrey={false}
+    btnInline={true}
+    btnRed={true}
+    btnSm={false}
+    btnTransp={false}
+    btnTranspRed={false}
+    btnUC={true}
+    btnWhite={false}
+    content="title"
+    id=""
+    key="title"
+  />
+  <Button
+    btnBig={false}
+    btnBold={false}
+    btnClick={[MockFunction]}
+    btnGrey={true}
+    btnInline={true}
+    btnRed={false}
+    btnSm={false}
+    btnTransp={false}
+    btnTranspRed={false}
+    btnUC={true}
+    btnWhite={false}
+    content="genres"
+    id=""
+    key="genres"
+  />
+</div>
+`;

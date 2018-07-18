@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ItemInfo /> Rendering should render the component 1`] = `
+<div
+  className="item-info"
+>
+  <div
+    className="item-info-details"
+  >
+    <div
+      className="film-title"
+    >
+      Star Wars
+    </div>
+    <div
+      className="release-date"
+    >
+      2017
+    </div>
+  </div>
+  <div
+    className="item-info-genre"
+  >
+    comedy, action, drama
+  </div>
+</div>
+`;

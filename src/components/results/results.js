@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
-import {Summary} from 'src/components/summary/summary.js'
+import {Summary} from 'src/components/summary/summary.js';
 
 class Results extends Component {
   constructor(props) {
@@ -105,12 +105,13 @@ class Results extends Component {
 }
 
 Results.propTypes = {
-  searchPhrase: PropTypes.string,
-  filmMode: PropTypes.bool,
-  filmModeGenre: PropTypes.string,
-  searchResult: PropTypes.arrayOf(PropTypes.object),
-  setFilmMode: PropTypes.func,
-  startSearch: PropTypes.func
+  searchPhrase: PropTypes.string,//
+  filmMode: PropTypes.bool,//
+  filmModeGenre: PropTypes.string,//
+  searchResult: PropTypes.arrayOf(PropTypes.object), //
+  setFilmMode: PropTypes.func, //
+  startSearch: PropTypes.func,
+  searchInFilmModeByGenre: PropTypes.func.isRequired //
 };
 
 Results.defaultProps = {
