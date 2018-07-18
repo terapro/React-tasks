@@ -4,20 +4,31 @@ exports[`<Input /> Rendering should render the component 1`] = `
 <input
   className="search-input"
   onInput={[MockFunction]}
-  onKeyPress="testing Input.."
+  onKeyPress={[MockFunction]}
   placeholder="Start typing..."
   type="text"
   value=""
 />
 `;
 
-exports[`<Input /> should render the input 1`] = `
+exports[`<Input /> Rendering should render the component with a proper placeholder  1`] = `
 <input
   className="search-input"
-  onInput={[Function]}
+  onInput={[MockFunction]}
+  onKeyPress={[MockFunction]}
+  placeholder="testing Input.."
+  type="text"
+  value=""
+/>
+`;
+
+exports[`<Input /> Rendering should render the component with default props  1`] = `
+<input
+  className="search-input"
+  onInput={[MockFunction]}
   onKeyPress={[Function]}
   placeholder="Start typing..."
   type="text"
-  value="testing Input.."
+  value=""
 />
 `;

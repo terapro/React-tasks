@@ -1,3 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FilmSort /> Render should render the component in the film mode 1`] = `""`;
+exports[`<FilmSort /> Render should render the component in the film mode 1`] = `
+<div
+  className="film-sort"
+>
+  <Label
+    content="Sort by "
+    labelBold={false}
+    labelUC={false}
+    labelWhite={false}
+  />
+  <Button
+    btnBig={false}
+    btnBold={true}
+    btnClick={[MockFunction]}
+    btnGrey={false}
+    btnRed={false}
+    btnSm={false}
+    btnTransp={false}
+    btnTranspRed={true}
+    btnUC={false}
+    btnWhite={false}
+    content="release date"
+    id="release date"
+    key="release date"
+  />
+  <Button
+    btnBig={false}
+    btnBold={true}
+    btnClick={[MockFunction]}
+    btnGrey={false}
+    btnRed={false}
+    btnSm={false}
+    btnTransp={true}
+    btnTranspRed={false}
+    btnUC={false}
+    btnWhite={false}
+    content="rating"
+    id="rating"
+    key="rating"
+  />
+</div>
+`;

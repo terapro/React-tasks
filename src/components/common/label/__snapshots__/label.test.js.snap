@@ -7,11 +7,3 @@ exports[`<Label /> Rendering should render the label 1`] = `
   Testing label
 </div>
 `;
-
-exports[`<Label /> should render the label 1`] = `
-<div
-  className="lbl"
->
-  Testing label
-</div>
-`;

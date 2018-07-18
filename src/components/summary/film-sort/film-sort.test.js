@@ -12,7 +12,7 @@ describe('<FilmSort />', () => {
     describe('Render', () => {
         it('should render the component in the film mode', () => {
             const wrapper = shallow(<FilmSort changeSortItemCallBack={mockFunc}
-                                              mockSortItems = {mockSortItems}
+                                              sortItems = {mockSortItems}
                                     />);
             expect(wrapper).toMatchSnapshot();
         });

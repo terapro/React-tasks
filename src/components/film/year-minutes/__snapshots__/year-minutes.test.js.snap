@@ -18,22 +18,3 @@ exports[`<YearMinutes /> Rendering should render the component 1`] = `
   />
 </div>
 `;
-
-exports[`<YearMinutes /> should render the component 1`] = `
-<div
-  className="year-min"
->
-  <Label
-    content="2011"
-    labelBold={true}
-    labelUC={false}
-    labelWhite={true}
-  />
-  <Label
-    content="111 min"
-    labelBold={true}
-    labelUC={false}
-    labelWhite={true}
-  />
-</div>
-`;

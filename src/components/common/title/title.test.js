@@ -11,7 +11,7 @@ describe('<Title />', () => {
       expect(wrapper).toMatchSnapshot();
     });
     it('should render the component with default content', () => {
-      const wrapper = shallow(<Title content={mockContent} />);
+      const wrapper = shallow(<Title />);
       expect(wrapper).toMatchSnapshot();
     });
   });

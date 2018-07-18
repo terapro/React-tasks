@@ -15,11 +15,3 @@ exports[`<Rating /> <Rating /> should render the component with default value 1`
   0
 </span>
 `;
-
-exports[`<Rating /> should render the logo 1`] = `
-<span
-  className="rating"
->
-  5
-</span>
-`;

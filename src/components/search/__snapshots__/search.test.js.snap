@@ -14,7 +14,7 @@ exports[`<Search /> Rendering should render the component 1`] = `
   />
   <Input
     onKeyPressedFunc={[Function]}
-    placeholder=""
+    placeholder="Start typing..."
     searchInputCallback={[Function]}
     value=""
   />
