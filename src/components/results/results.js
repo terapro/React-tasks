@@ -2,11 +2,11 @@ import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
-import {ConnectedSummary} from 'src/components/summary/summary.js';
+import {Summary} from 'src/components/summary/summary.js';
 import {connect} from "react-redux";
-import {openFilm} from "src/actions";
+import {openFilm, changeItem} from "src/actions";
 
-class Results extends Component {
+class ResultsChild extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,6 +25,12 @@ class Results extends Component {
           active: el.target.id
         }})
     };
+
+
+    this.sortParameterClick = (e) => {
+      console.log(e.target.id);
+      this.props.onChangeItem(e.target.id);
+    };
     /**
      * // Function for sorting results
      * @param {Object} res
@@ -36,6 +42,7 @@ class Results extends Component {
         'release date': 'release_date',
         'rating': 'vote_average'
       };
+
 
       parameter = sortParametersMatching[parameter];
 
@@ -70,29 +77,19 @@ class Results extends Component {
     }
   }
   render() {
-    let { searchInFilmModeByGenre} = this.props;
-    let { onOpenFilm,  filmMode} = this.props;
-    const {searchList, recommendedList} = this.props;
+    const {searchList, recommendedList, onOpenFilm,  filmMode, searchInFilmModeByGenre, sortBy} = this.props;
 
+    const sortingParameter = sortBy.chosenParameter;
     let filmList = filmMode? [...recommendedList] : [... searchList];
 
-    filmList = this.sortResult(filmList, this.state.sortItems.active);
+    filmList = this.sortResult(filmList, sortingParameter);
 
-    //const renderedList = (filmMode)? [...recommendedList] : [...searchList];
-
-   // renderedList = this.sortResult(renderedList, this.state.sortItems.active); // Sort result here
     if (filmList.length) { // When at least 1 film to show
       return (
         <Fragment>
-          <ConnectedSummary sortItems={this.state.sortItems}
-                            changeSortItemCallBack={this.changeSortItemClick}/>
-          {/*<Summary filmNumber={searchResult.length}
-                   sortItems={this.state.sortItems}
-                   changeSortItemCallBack={this.changeSortItemClick}
-                   filmMode={filmMode}
-                   filmModeGenre={filmModeGenre}
-                   searchPhrase={searchPhrase}
-          />*/}
+          <Summary sortParameters={sortBy}
+                            changeSortItemCallBack={this.sortParameterClick}/>
+
           <div className='results'>
             {
               filmList.map((item) => (
@@ -114,7 +111,7 @@ class Results extends Component {
   }
 }
 
-Results.propTypes = {
+ResultsChild.propTypes = {
   searchPhrase: PropTypes.string,//
   filmMode: PropTypes.bool,//
   filmModeGenre: PropTypes.string,//
@@ -124,7 +121,7 @@ Results.propTypes = {
   searchInFilmModeByGenre: PropTypes.func.isRequired //
 };
 
-Results.defaultProps = {
+ResultsChild.defaultProps = {
   searchPhrase: '',
   filmMode: false,
   filmModeGenre: '',
@@ -134,21 +131,25 @@ Results.defaultProps = {
 };
 
 
-export const ConnectedResults = connect(
+export const Results = connect(
   store =>
     ({
       searchAttributesFromStore: store.search,
       searchList: store.films.searchList,
       recommendedList: store.films.recommendedList,
-      filmMode: store.mode.film
+      filmMode: store.mode.film,
+      sortBy: store.films.sortBy
     }),
   dispatch =>
     ({
       onOpenFilm(film) {
         dispatch(openFilm(film))
+      },
+      onChangeItem(newParameter) {
+        dispatch(changeItem(newParameter))
       }
     })
 
-)(Results);
+)(ResultsChild);
 
 

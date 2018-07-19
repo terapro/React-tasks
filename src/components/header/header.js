@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {TopBar} from 'src/components/header/topbar/topbar.js';
-import {ConnectedSearch} from 'src/components/search/search.js';
+import {Search} from 'src/components/search/search.js';
 import {Film} from 'src/components/film/film.js'
 import {connect} from "react-redux";
 import {openSearch} from "src/actions";
 
-const Header = ({filmMode, currentFilm, onOpenSearch}) => (
+const HeaderChild = ({filmMode, currentFilm, onOpenSearch}) => (
     <header className={'header'}>
       <div className={'header-container'}>
         <TopBar setSearchModeCallback = {onOpenSearch}  filmMode={filmMode}/>
-          <ConnectedSearch />
+          <Search />
           <Film info={currentFilm} active ={filmMode} />
 
       </div>
     </header>
 );
 
-Header.propTypes = {
+HeaderChild.propTypes = {
   startSearch: PropTypes.func.isRequired,
   searchMode: PropTypes.bool,
   filmMode: PropTypes.bool,
@@ -38,7 +38,7 @@ Header.propTypes = {
   }),
   setSearchModeCallback: PropTypes.func
 };
-Header.defaultProps = {
+HeaderChild.defaultProps = {
   searchMode: true,
   filmMode: false,
   setSearchModeCallback: () => {},
@@ -46,7 +46,7 @@ Header.defaultProps = {
 };
 
 
-export const ConnectedHeader = connect(
+export const Header = connect(
   store =>
     ({
       filmMode: store.mode.film,
@@ -60,6 +60,4 @@ export const ConnectedHeader = connect(
 
     })
 
-)(Header);
-
-export {Header};
+)(HeaderChild);

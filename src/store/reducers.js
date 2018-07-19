@@ -14,6 +14,11 @@ export const films = (state={}, action) => {
         currentFilm: action.payload.filmToOpen,
         recommendedList: action.payload.recommendedList
       };
+    case C.CHANGE_SORTING:
+      return {
+        ...state,
+        sortBy: filmsSorting(state.sortBy, action)
+      };
     default:
       return state
   }
@@ -50,6 +55,19 @@ export const search = (state={}, action) => {
       return state
   }
 };
+
+ const filmsSorting = (state={}, action) => {
+  switch (action.type) {
+    case C.CHANGE_SORTING :
+      return {
+        ...state,
+        chosenParameter: action.payload.chosenParameter
+      };
+    default:
+      return state
+  }
+};
+
 
 
 

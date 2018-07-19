@@ -6,9 +6,9 @@ import {FilmSort} from 'src/components/summary/film-sort/film-sort';
 import {connect} from "react-redux";
 
 
-const Summary = (props) => {
-  const {sortItems, changeSortItemCallBack} = props;
-  const {filmMode, searchPhrase, filmNumber, filmModeGenre, searchType} = props;
+const SummaryChild = (props) => {
+
+  const {filmMode, searchPhrase, filmNumber, filmModeGenre, searchType, changeSortItemCallBack, sortParameters} = props;
 
   let innerContent;
 
@@ -16,14 +16,14 @@ const Summary = (props) => {
     innerContent = (
       <div className='summary-wrapper'>
         <Label content ={'Films by ' + filmModeGenre  + ' genre'} />
-        <FilmSort sortItems={sortItems} changeSortItemCallBack = {changeSortItemCallBack} />
+        <FilmSort sortParameters={sortParameters} changeSortItemCallBack = {changeSortItemCallBack} />
       </div>
     );
   } else {
     innerContent = (
       <div className='summary-wrapper'>
         <Label content ={'Found '+ filmNumber +' films for \'' + searchPhrase + '\' by ' + searchType} />
-        <FilmSort sortItems={sortItems} changeSortItemCallBack = {changeSortItemCallBack} />
+        <FilmSort sortParameters={sortParameters} changeSortItemCallBack = {changeSortItemCallBack} />
       </div>
     );
   }
@@ -34,19 +34,15 @@ const Summary = (props) => {
   );
 };
 
-Summary.propTypes = {
+SummaryChild.propTypes = {
   searchPhrase: PropTypes.string,
   filmModeGenre: PropTypes.string,
   filmMode: PropTypes.bool,
   filmNumber: PropTypes.number,
-  sortItems: PropTypes.shape({
-    list: PropTypes.arrayOf(PropTypes.string),
-    active: PropTypes.string
-  }).isRequired,
   changeSortItemCallBack: PropTypes.func
 };
 
-Summary.defaultProps = {
+SummaryChild.defaultProps = {
   searchPhrase: '',
   filmModeGenre: '',
   filmMode: false,
@@ -55,7 +51,7 @@ Summary.defaultProps = {
 };
 
 
-export const ConnectedSummary = connect(
+export const Summary = connect(
   store =>
     ({
       filmMode: store.mode.film,
@@ -71,5 +67,5 @@ export const ConnectedSummary = connect(
 
     })
 
-)(Summary);
+)(SummaryChild);
 

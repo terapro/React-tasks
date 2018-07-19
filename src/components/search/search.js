@@ -9,7 +9,7 @@ import {Title} from 'src/components/common/title/title.js';
 import {TypeSection} from 'src/components/search/type-section/type-section.js';
 import {ButtonSection} from 'src/components/search/button-section/button-section.js';
 
-class Search extends Component {
+class SearchChild extends Component {
   constructor(props) {
     super(props);
 
@@ -71,7 +71,7 @@ class Search extends Component {
                        searchTypeCallback = {this.changeSearchType}/>
 
           <ButtonSection parentFormId={'search-form'}
-                         searchButtonClick = {() => onSearch(this.state.currentInputValue, this.state.searchTypes.active)}/>
+                         searchButtonClick = {this.startSearching}/>
         </div>
       </div>
     )
@@ -79,24 +79,24 @@ class Search extends Component {
   }
 }
 
-Search.propTypes = {
+SearchChild.propTypes = {
   startSearch: PropTypes.func
 };
-Search.defaultProps = {
+SearchChild.defaultProps = {
   startSearch: () => {}
 };
 
 
-export const ConnectedSearch = connect(
+export const Search = connect(
   store =>
     ({
       searchMode: store.mode.search
     }),
   dispatch =>
     ({
-      onSearch(phrase, type){
+      onSearch(phrase, type){// Request API
         dispatch(startSearch(phrase, type))
       }
     })
 
-)(Search);
+)(SearchChild);

@@ -2,8 +2,8 @@ import React, {Fragment} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {ConnectedHeader} from 'src/components/header/header.js';
-import {ConnectedResults} from 'src/components/results/results.js';
+import {Header} from 'src/components/header/header.js';
+import {Results} from 'src/components/results/results.js';
 import {Footer} from 'src/components/footer/footer.js';
 
 const Body = (props) => {
@@ -12,13 +12,13 @@ const Body = (props) => {
   return (
     <Fragment>
       <div className="wrapper">
-        <ConnectedHeader startSearch={startSearch}
+        <Header startSearch={startSearch}
                 searchMode={searchMode}
                 filmMode={filmMode}
                 filmInfo={filmInfo}
                 setSearchModeCallback={setSearchModeCallback}
         />
-        <ConnectedResults searchInFilmModeByGenre={searchInFilmModeByGenre}
+        <Results searchInFilmModeByGenre={searchInFilmModeByGenre}
                  searchResult={searchResult}
                  setFilmMode={setFilmMode}
                  filmModeGenre={filmModeGenre}

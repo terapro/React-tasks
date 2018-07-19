@@ -32,11 +32,11 @@ const startSearchFunc =(phrase, type) => {
   }
 
   return result;
-}
+};
 
 const searchInFilmModeByGenre = (genre) => {
   return startSearchFunc(genre, 'genres')
-}
+};
 
 export const startSearch = (phrase, type) => {
   return {
@@ -60,7 +60,6 @@ export const openFilm = (film) => {
   }
 };
 export const openSearch = () => {
-
   return {
     type: C.OPEN_SEARCH,
     payload: {
@@ -68,5 +67,15 @@ export const openSearch = () => {
     }
   }
 };
+
+export const changeItem = (newCriterion) => {
+  return {
+    type: C.CHANGE_SORTING,
+    payload: {
+      chosenParameter: newCriterion
+    }
+  }
+
+}
 
 

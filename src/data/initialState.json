@@ -2,7 +2,11 @@
   "films": {
     "searchList": [],
     "recommendedList": [],
-    "currentFilm": null
+    "currentFilm": null,
+    "sortBy": {
+      "parameters": ["release date", "rating"],
+      "chosenParameter": "release date"
+    }
   },
   "mode": {
     "search": true,

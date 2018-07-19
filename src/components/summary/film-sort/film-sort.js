@@ -6,17 +6,17 @@ import {Label} from 'src/components/common/label/label.js'
 import PropTypes from 'prop-types';
 
 const FilmSort = (props) => {
-  const {sortItems, changeSortItemCallBack} = props;
-  if (sortItems) {
+  const {sortParameters, changeSortItemCallBack} = props;
+
     return (
       <div className='film-sort'>
         <Label content='Sort by '/>
           {
-            sortItems.list.map(
+            sortParameters.parameters.map(
               (item) => (
                 <Button key={item}
-                        btnTranspRed  = {item === sortItems.active}
-                        btnTransp  = {item !== sortItems.active}
+                        btnTranspRed  = {item === sortParameters.chosenParameter}
+                        btnTransp  = {item !== sortParameters.chosenParameter}
                         btnClick = {changeSortItemCallBack}
                         btnBold
                         content = {item}
@@ -27,15 +27,11 @@ const FilmSort = (props) => {
           }
       </div>
     );
-  } else return '';
 };
 
 FilmSort.propTypes = {
   changeSortItemCallBack: PropTypes.func,
-  sortItems: PropTypes.shape({
-        list: PropTypes.arrayOf(PropTypes.string),
-        active: PropTypes.string
-  }).isRequired,
+
 };
 FilmSort.defaultProps = {
   changeSortItemCallBack: ()=>{}
