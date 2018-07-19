@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {Button} from 'src/components/common/button/button.js';
 
 const ButtonSection = (props) => {
-  const {searchButtonCallBack} = props;
+  const {searchButtonClick} = props;
   return (
     <div>
-      <Button content='Search' btnClick={searchButtonCallBack} btnRed btnBig />
+      <Button content='Search' btnClick={searchButtonClick} btnRed btnBig />
     </div>
   );
 };

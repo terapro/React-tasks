@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {startSearch} from 'src/actions';
 
 import PropTypes from 'prop-types';
 
@@ -16,28 +18,22 @@ class Search extends Component {
         list: ['title', 'genres'],
         active: 'title'
       },
-      searchPhrase: ''
+      currentInputValue: ''
+    };
 
-    };
-    /**
-     * CallBack for SearchButton click
-     */
-    this.searchButtonClick = () => {
-      this.props.startSearch({
-        searchPhrase: this.state.searchPhrase,
-        searchType: this.state.searchTypes.active
-      });
-      this.setState({searchPhrase: ''});
-    };
     /**
      * Handle the enter click on the search input element
      * @param {element} e
      */
     this.enterKeyPressedOnInput = (e) => {
       if (e.key === 'Enter') {
-        this.searchButtonClick();
+        this.startSearching();
       }
     };
+    this.startSearching = () => {
+      this.props.onSearch(this.state.currentInputValue, this.state.searchTypes.active);
+      this.setState({currentInputValue: ''})
+    }
     /**
      * toggle the search type (search by type/title)
      * @param {element} el
@@ -50,22 +46,24 @@ class Search extends Component {
     };
     /**
      * Clones the input from a search input
-     * @param {element} el
+     * @param {string} el
      */
     this.cloneSearchInput = (el) => {
-      this.setState({searchPhrase: el.target.value});
+      this.setState({currentInputValue: el.target.value});
     }
   }
 
   render() {
-    return (
+    const {onSearch, searchMode} = this.props;
+
+    return searchMode? (
       <div className={'header-search'} id={'search-form'}>
 
         <Title  content='Find your movie' ttlWhite ttlUC/>
 
-        <Input searchInputCallback = {this.cloneSearchInput}
-               value = {this.state.searchPhrase}
-               onKeyPressedFunc={this.enterKeyPressedOnInput} />
+        <Input onStartTyping = {this.cloneSearchInput}
+               value = {this.state.currentInputValue}
+               onKeyEnterPressed={this.enterKeyPressedOnInput} />
 
         <div className={'search-components'}>
           <TypeSection searchTypes = {this.state.searchTypes}
@@ -73,12 +71,14 @@ class Search extends Component {
                        searchTypeCallback = {this.changeSearchType}/>
 
           <ButtonSection parentFormId={'search-form'}
-                         searchButtonCallBack = {this.searchButtonClick}/>
+                         searchButtonClick = {() => onSearch(this.state.currentInputValue, this.state.searchTypes.active)}/>
         </div>
       </div>
     )
+      : null;
   }
 }
+
 Search.propTypes = {
   startSearch: PropTypes.func
 };
@@ -86,4 +86,17 @@ Search.defaultProps = {
   startSearch: () => {}
 };
 
-export {Search};
+
+export const ConnectedSearch = connect(
+  store =>
+    ({
+      searchMode: store.mode.search
+    }),
+  dispatch =>
+    ({
+      onSearch(phrase, type){
+        dispatch(startSearch(phrase, type))
+      }
+    })
+
+)(Search);

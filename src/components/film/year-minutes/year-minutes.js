@@ -12,8 +12,12 @@ const YearMinutes = ({year, minutes}) => {
   );
 };
 YearMinutes.propTypes = {
-  year: PropTypes.string.isRequired,
-  minutes: PropTypes.number.isRequired
+  year: PropTypes.string,
+  minutes: PropTypes.number
+};
+YearMinutes.defaultProps = {
+  year: 'unknown date',
+  minutes: '0'
 };
 
 export {YearMinutes};

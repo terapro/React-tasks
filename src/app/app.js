@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import {ErrorBoundary} from 'src/app/error-boundary.js';
-
 import {moviesDB} from 'src/app/data.js';
-
 import {Body} from 'src/components/body/body.js';
 
 const searchKeysAliases = { // only lower case!
@@ -119,15 +116,10 @@ class App extends Component {
         searchType: this.state.lastSearchType
       })
     };
-    /**
-     * After a click on the film item the callback function returns the film id. Then we search this film in our DB
-     * @param {string} id
-     * @returns {Object}
-     */
   }
   render() {
     return (
-      <ErrorBoundary>
+
         <Body
           searchInFilmModeByGenre={this.searchInFilmModeByGenre}
           startSearch={this.startSearchFunc}
@@ -140,7 +132,7 @@ class App extends Component {
           setSearchModeCallback={this.setSearchMode}
           searchPhrase={this.state.searchPhrase}
         />
-      </ErrorBoundary>
+
     )
   }
 }

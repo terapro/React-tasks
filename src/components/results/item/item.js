@@ -8,18 +8,14 @@ import {ItemInfo} from 'src/components/results/item-info/item-info.js'
 class Item extends Component {
   constructor() {
     super();
-    this.onPosterClick = () => {
-      const {setFilmMode, info, searchInFilmModeByGenre} = this.props;
-      setFilmMode(info);
-      searchInFilmModeByGenre(info['genres'][0]);
-    };
+
   }
 
   render() {
-    const {info} = this.props;
+    const {info, onPosterClick} = this.props;
     return (
       <div className='item'>
-        <ItemPoster posterLink={info['poster_path']} posterClick={this.onPosterClick} id={(info['id']).toString()}/>
+        <ItemPoster posterLink={info['poster_path']} posterClick={onPosterClick} id={(info['id']).toString()}/>
         <ItemInfo filmTitle={info['title']} releaseDate={info['release_date']} genre={info['genres']}/>
       </div>
     );
@@ -41,7 +37,7 @@ Item.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string),
     runtime: PropTypes.number
   }).isRequired,
-  setFilmMode: PropTypes.func.isRequired,
+  setFilmMode: PropTypes.func,
   searchInFilmModeByGenre: PropTypes.func.isRequired
 };
 

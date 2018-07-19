@@ -1,0 +1,18 @@
+{
+  "films": {
+    "searchList": [],
+    "recommendedList": [],
+    "currentFilm": null
+  },
+  "mode": {
+    "search": true,
+    "film": false,
+    "filmModeSettings": {
+      "genre": " "
+    }
+  },
+  "search": {
+    "phrase": "",
+    "type": ""
+  }
+}

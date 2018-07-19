@@ -1,10 +1,10 @@
 import React, {Component, Fragment} from 'react';
-
 import PropTypes from 'prop-types';
-
 import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
-import {Summary} from 'src/components/summary/summary.js';
+import {ConnectedSummary} from 'src/components/summary/summary.js';
+import {connect} from "react-redux";
+import {openFilm} from "src/actions";
 
 class Results extends Component {
   constructor(props) {
@@ -70,23 +70,33 @@ class Results extends Component {
     }
   }
   render() {
-    let {searchResult, setFilmMode, filmMode, filmModeGenre, searchPhrase, searchInFilmModeByGenre} = this.props;
-   // if (filmMode) {throw new Error('Film mode')}
-    searchResult = this.sortResult(searchResult, this.state.sortItems.active); // Sort result here
-    if (searchResult.length) { // When at least 1 film to show
+    let { searchInFilmModeByGenre} = this.props;
+    let { onOpenFilm,  filmMode} = this.props;
+    const {searchList, recommendedList} = this.props;
+
+    let filmList = filmMode? [...recommendedList] : [... searchList];
+
+    filmList = this.sortResult(filmList, this.state.sortItems.active);
+
+    //const renderedList = (filmMode)? [...recommendedList] : [...searchList];
+
+   // renderedList = this.sortResult(renderedList, this.state.sortItems.active); // Sort result here
+    if (filmList.length) { // When at least 1 film to show
       return (
         <Fragment>
-          <Summary filmNumber={searchResult.length}
+          <ConnectedSummary sortItems={this.state.sortItems}
+                            changeSortItemCallBack={this.changeSortItemClick}/>
+          {/*<Summary filmNumber={searchResult.length}
                    sortItems={this.state.sortItems}
                    changeSortItemCallBack={this.changeSortItemClick}
                    filmMode={filmMode}
                    filmModeGenre={filmModeGenre}
                    searchPhrase={searchPhrase}
-          />
+          />*/}
           <div className='results'>
             {
-              searchResult.map((item) => (
-                                          <Item key = {item['id']} info = {item} setFilmMode={setFilmMode} searchInFilmModeByGenre={searchInFilmModeByGenre}/>
+              filmList.map((item) => (
+                                          <Item key = {item['id']} info = {item} onPosterClick={() => onOpenFilm(item)} searchInFilmModeByGenre={searchInFilmModeByGenre} />
                                         )
                           )
             }
@@ -123,4 +133,22 @@ Results.defaultProps = {
   startSearch: () => {}
 };
 
-export {Results};
+
+export const ConnectedResults = connect(
+  store =>
+    ({
+      searchAttributesFromStore: store.search,
+      searchList: store.films.searchList,
+      recommendedList: store.films.recommendedList,
+      filmMode: store.mode.film
+    }),
+  dispatch =>
+    ({
+      onOpenFilm(film) {
+        dispatch(openFilm(film))
+      }
+    })
+
+)(Results);
+
+
