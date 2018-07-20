@@ -1,5 +1,5 @@
 import C from 'src/constants';
-import {moviesDB} from 'src/data/data.js';
+//import {moviesDB} from 'src/data/data.js';
 const searchKeysAliases = { // only lower case!
   'sci fi': 'science fiction',
   'scifi': 'science fiction',
@@ -31,8 +31,21 @@ const startSearchFunc =(phrase, type) => {
       }
   }
 
+  //Console
+
+  //console.log('I searched!');
+
+/*  RequestToServer(phrase, type).then(
+    info => info,
+    err => console.error(
+      new Error("cannot load films from server"))
+  );*/
+
   return result;
 };
+
+
+
 
 const searchInFilmModeByGenre = (genre) => {
   return startSearchFunc(genre, 'genres')
@@ -44,10 +57,24 @@ export const startSearch = (phrase, type) => {
     payload: {
       searchPhrase: phrase,
       searchType: type,
-      searchResult: startSearchFunc(phrase, type)
+      replaceCurrentResultsBy: [],
+      loadingData: true
     }
   }
 };
+
+export const resultsToStore = (results) => {
+  return {
+    type: C.RESULTS_TO_STORE,
+    payload: {
+      foundResults: results,
+      loadingData: false
+    }
+  }
+};
+
+
+
 export const openFilm = (film) => {
   const genre = film['genres'][0];
   return {
@@ -55,10 +82,21 @@ export const openFilm = (film) => {
     payload: {
       filmToOpen: {...film},
       filmGenre: genre,
-      recommendedList: searchInFilmModeByGenre(genre)
+      loadingData: true,
+      searchType: 'genres'
     }
   }
 };
+export const recommendedToStore = (results) => {
+  return {
+    type: C.RECOMMENDED_TO_STORE,
+    payload: {
+      foundRecommended: results,
+      loadingData: false
+    }
+  }
+};
+
 export const openSearch = () => {
   return {
     type: C.OPEN_SEARCH,

@@ -8,83 +8,82 @@ import {TypeSection} from 'src/components/search/type-section/type-section.js';
 import {ButtonSection} from 'src/components/search/button-section/button-section.js';
 
 class SearchChild extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchTypes: {
-                list: ['title', 'genres'],
-                active: 'title'
-            },
-            currentInputValue: ''
-        };
-        this.startSearching = () => {
-            this.props.onSearch(this.state.currentInputValue, this.state.searchTypes.active);
-            this.setState({currentInputValue: ''})
-        };
-        this.enterKeyPressedOnInput = (e) => {
-            if (e.key === 'Enter') {
-                this.startSearching();
-            }
-        };
-        this.changeSearchType = (el) => {
-            this.setState({
-                searchTypes: {
-                    list: this.state.searchTypes.list, // living as it is
-                    active: el.target.innerHTML // Toggle to the active type
-                }
-            });
-        };
-        this.cloneSearchInput = (el) => {
-            this.setState({currentInputValue: el.target.value});
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTypes: {
+        list: ['title', 'genres'],
+        active: 'title'
+      },
+      currentInputValue: ''
+    };
+    this.startSearching = () => {
+      this.props.onSearch(this.state.currentInputValue, this.state.searchTypes.active);
+      this.setState({currentInputValue: ''})
+    };
+    this.enterKeyPressedOnInput = (e) => {
+      if (e.key === 'Enter') {
+        this.startSearching();
+      }
+    };
+    this.changeSearchType = (el) => {
+      this.setState({
+        searchTypes: {
+          list: this.state.searchTypes.list, // living as it is
+          active: el.target.innerHTML // Toggle to the active type
         }
+      });
+    };
+    this.cloneSearchInput = (el) => {
+      this.setState({currentInputValue: el.target.value});
     }
-    render() {
-        const {searchMode} = this.props;
-        if (searchMode) {
-            return (
-                <div className={'header-search'}>
-                    <Title content='Find your movie' ttlWhite ttlUC/>
+  }
 
-                    <Input onStartTyping={this.cloneSearchInput}
-                           value={this.state.currentInputValue}
-                           onKeyEnterPressed={this.enterKeyPressedOnInput}/>
+  render() {
+    const {searchMode} = this.props;
+    if (searchMode) {
+      return (
+        <div className={'header-search'}>
+          <Title content='Find your movie' ttlWhite ttlUC/>
 
-                    <div className={'search-components'}>
-                        <TypeSection searchTypes={this.state.searchTypes}
-                                     searchTypeClick={this.changeSearchType}/>
+          <Input onStartTyping={this.cloneSearchInput}
+                 value={this.state.currentInputValue}
+                 onKeyEnterPressed={this.enterKeyPressedOnInput}/>
 
-                        <ButtonSection parentFormId={'search-form'}
-                                       searchButtonClick={this.startSearching}/>
-                    </div>
-                </div>
-            );
-        } else {
-            return null;
-        }
+          <div className={'search-components'}>
+            <TypeSection searchTypes={this.state.searchTypes}
+                         searchTypeClick={this.changeSearchType}/>
 
+            <ButtonSection parentFormId={'search-form'}
+                           searchButtonClick={this.startSearching}/>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
     }
+  }
 }
 
 SearchChild.propTypes = {
-    onSearch: PropTypes.func.isRequired,
-    searchMode: PropTypes.bool
+  onSearch: PropTypes.func.isRequired,
+  searchMode: PropTypes.bool
 
 };
 SearchChild.defaultProps = {
-    startSearch: () => {
-    }
+  startSearch: () => {
+  }
 };
 
-
 export const Search = connect(
-    store =>
-        ({
-            searchMode: store.mode.search
-        }),
-    dispatch =>
-        ({
-            onSearch(phrase, type) {// Request API
-                dispatch(startSearch(phrase, type))
-            }
-        })
+  store =>
+    ({
+      searchMode: store.mode.search
+    }),
+  dispatch =>
+    ({
+      onSearch(phrase, type) {// Request API
+        dispatch(startSearch(phrase, type))
+      }
+    })
 )(SearchChild);

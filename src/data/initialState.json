@@ -11,7 +11,8 @@
   },
   "mode": {
     "search": true,
-    "film": false
+    "film": false,
+    "loadingData": false
   },
   "search": {
     "phrase": "",

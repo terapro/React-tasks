@@ -27,10 +27,11 @@ Film.propTypes = {
     revenue: PropTypes.number,
     genres: PropTypes.arrayOf(PropTypes.string),
     runtime: PropTypes.number
-  }).isRequired,
+  }),
   active: PropTypes.bool
 };
 
 Film.defaulProps = {
-    active: false
+  active: false,
+  info: {}
 };

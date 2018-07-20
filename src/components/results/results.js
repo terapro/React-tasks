@@ -5,7 +5,7 @@ import {openFilm} from "src/actions";
 import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
 import {Summary} from 'src/components/summary/summary.js';
-
+import {ResultsLoading} from 'src/components/results/results-loading/results-loading';
 
 class ResultsChild extends Component {
   constructor(props) {
@@ -59,11 +59,17 @@ class ResultsChild extends Component {
     };
   }
   render() {
-    const {searchList, recommendedList, filmMode, sortBy} = this.props;
-      this.filmList = filmMode? [...recommendedList] : [... searchList]; // The film list depends on mode: search/film
+    const {searchList, recommendedList, mode, sortBy, searchAttributes} = this.props;
+      this.filmList = mode.film? [...recommendedList] : [... searchList]; // The film list depends on mode: search/film
       this.filmList = this.sortResult(this.filmList, sortBy.chosenParameter);
 
-    if (this.filmList.length) { // When at least 1 film to show
+
+
+    if(mode.loadingData) {
+      return (
+        <ResultsLoading phrase={searchAttributes.phrase} type={searchAttributes.type} />
+      )
+    } else if (this.filmList.length) { // When at least 1 film to show
       return (
         <Fragment>
           <Summary />
@@ -78,7 +84,7 @@ class ResultsChild extends Component {
           </div>
         </Fragment>
       );
-    } else {
+    } else  {
       return (
         <div className='results'>
           <NoResults />
@@ -93,11 +99,19 @@ ResultsChild.propTypes = {
     recommendedList: PropTypes.array,
     onOpenFilm: PropTypes.func,
     onChangeItem: PropTypes.func,
-    filmMode: PropTypes.bool,
+    mode: PropTypes.shape({
+      film: PropTypes.bool,
+      search: PropTypes.bool,
+      loadingData: PropTypes.bool
+    }),
     sortBy: PropTypes.shape({
         parameters: PropTypes.arrayOf(PropTypes.string),
         chosenParameter: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    searchAttributes: PropTypes.shape({
+      phrase: PropTypes.string,
+      type: PropTypes.string
+    })
 };
 ResultsChild.defaultProps = {
     searchList: [],
@@ -110,10 +124,10 @@ ResultsChild.defaultProps = {
 export const Results = connect(
   store =>
     ({
-      searchAttributesFromStore: store.search,
+      searchAttributes: store.search,
       searchList: store.films.searchList,
       recommendedList: store.films.recommendedList,
-      filmMode: store.mode.film,
+      mode: store.mode,
       sortBy: store.films.sortBy
     }),
   dispatch =>
