@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Spiner} from 'src/components/common/spiner/spiner';
 
-
 export const ResultsLoading = ({phrase, type}) => (
   <div className='results-loading'>
     Searching <span>&quot;{phrase}&quot;</span> by <span>{type}</span>
@@ -12,7 +11,6 @@ export const ResultsLoading = ({phrase, type}) => (
 );
 
 ResultsLoading.propTypes = {
-  phrase: PropTypes.string,
-  type: PropTypes.string
-
+  phrase: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 };

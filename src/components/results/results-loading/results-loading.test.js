@@ -1,16 +1,16 @@
 import React from 'react';
-import {NoResults} from 'src/components/results/no-results/no-results.js';
+import {ResultsLoading} from "src/components/results/results-loading/results-loading";
 import {shallow} from 'enzyme';
+
 
 const mockTitle ='happyness';
 const mockType = 'life';
 
-
-describe('<NoResults />', () => {
+describe('<ResultsLoading />', () => {
   describe('Rendering', () => {
     it('should render the component', () => {
       const wrapper = shallow(
-        <NoResults phrase={mockTitle} type={mockType}/>
+        <ResultsLoading phrase={mockTitle} type={mockType}/>
       );
       expect(wrapper).toMatchSnapshot();
     });

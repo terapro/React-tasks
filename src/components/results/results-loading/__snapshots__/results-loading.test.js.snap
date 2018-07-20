@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResultsLoading /> Rendering should render the component 1`] = `
+<div
+  className="results-loading"
+>
+  Searching 
+  <span>
+    "
+    happyness
+    "
+  </span>
+   by 
+  <span>
+    life
+  </span>
+  <Spiner />
+</div>
+`;

@@ -29,11 +29,3 @@ exports[`<TopBar /> Rendering should render the component in search mode 1`] = `
   <Logo />
 </div>
 `;
-
-exports[`<TopBar /> Rendering should render the component with default props 1`] = `
-<div
-  className="topbar"
->
-  <Logo />
-</div>
-`;

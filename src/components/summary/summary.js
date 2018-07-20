@@ -6,49 +6,46 @@ import {Label} from 'src/components/common/label/label.js';
 import {FilmSort} from 'src/components/summary/film-sort/film-sort';
 
 const SummaryChild = (props) => {
-
   const {filmMode, searchPhrase, filmNumber, filmModeGenre, searchType, sortBy, onChangeItem} = props;
-    /**
-     * Toggles the current sort parameter
-     * @param {element} e
-     */
-    const sortParameterClick = (e) => {
-        onChangeItem(e.target.id);
-    };
-
+  /**
+   * Toggles the current sort parameter
+   * @param {element} e
+   */
+  const sortParameterClick = (e) => {
+    onChangeItem(e.target.id);
+  };
   return (
     <div className='summary'>
-        <div className='summary-wrapper'>
-            {filmMode && <Label content ={'Films by ' + filmModeGenre  + ' genre'} />}
-            {!filmMode && <Label content ={'Found '+ filmNumber +' films for \'' + searchPhrase + '\' by ' + searchType} />}
-            <FilmSort sortParameters={sortBy} onParameterClick = {sortParameterClick} />
-        </div>
+      <div className='summary-wrapper'>
+        {filmMode && <Label content={'Films by ' + filmModeGenre + ' genre'}/>}
+        {!filmMode && <Label content={'Found ' + filmNumber + ' films for \'' + searchPhrase + '\' by ' + searchType}/>}
+        <FilmSort sortParameters={sortBy} onParameterClick={sortParameterClick}/>
+      </div>
     </div>
   );
 };
 
 SummaryChild.propTypes = {
-    filmMode: PropTypes.bool,
-    searchPhrase: PropTypes.string,
-    filmNumber: PropTypes.number,
-    filmModeGenre: PropTypes.string,
-    searchType: PropTypes.string,
-    sortBy: PropTypes.shape({
-        parameters: PropTypes.arrayOf(PropTypes.string),
-        chosenParameter: PropTypes.string
-    }).isRequired,
-    onChangeItem: PropTypes.func
+  filmMode: PropTypes.bool,
+  searchPhrase: PropTypes.string,
+  filmNumber: PropTypes.number,
+  filmModeGenre: PropTypes.string,
+  searchType: PropTypes.string,
+  sortBy: PropTypes.shape({
+    parameters: PropTypes.arrayOf(PropTypes.string),
+    chosenParameter: PropTypes.string
+  }).isRequired,
+  onChangeItem: PropTypes.func
 };
 
 SummaryChild.defaultProps = {
-    filmMode: false,
-    searchPhrase: '',
-    filmNumber: 0,
-    filmModeGenre: '',
-    searchType: 'title',
-    onChangeItem: f=>f
+  filmMode: false,
+  searchPhrase: '',
+  filmNumber: 0,
+  filmModeGenre: '',
+  searchType: 'title',
+  onChangeItem: f => f
 };
-
 
 export const Summary = connect(
   store =>
@@ -64,9 +61,8 @@ export const Summary = connect(
   dispatch =>
     ({
       onChangeItem(newParameter) {
-          dispatch(changeItem(newParameter))
-        }
+        dispatch(changeItem(newParameter))
+      }
     })
-
 )(SummaryChild);
 

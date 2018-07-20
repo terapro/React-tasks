@@ -7,18 +7,13 @@ const mockFunc = jest.fn();
 describe('<TopBar />', () => {
   describe('Rendering', () => {
     it('should render the component in search mode', () => {
-      const wrapper = shallow(<TopBar setSearchModeCallback={mockFunc} />);
+      const wrapper = shallow(<TopBar searchButtonClick={mockFunc} />);
       expect(wrapper).toMatchSnapshot();
     });
     it('should render the component in film mode', () => {
-      const wrapper = shallow(<TopBar setSearchModeCallback={mockFunc} filmMode/>);
+      const wrapper = shallow(<TopBar searchButtonClick={mockFunc} filmMode/>);
       expect(wrapper).toMatchSnapshot();
     });
-    it('should render the component with default props', () => {
-      const wrapper = shallow(<TopBar setSearchModeCallback={mockFunc} />);
-      expect(wrapper).toMatchSnapshot();
-    });
-
   });
 });
 

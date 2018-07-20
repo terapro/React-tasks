@@ -10,7 +10,7 @@ import {WelcomeMessage} from "src/components/results/welcome-message/welcome-mes
 
 class ResultsChild extends Component {
   constructor(props) {
-        super(props);
+    super(props);
         /**
          * Sorts the list by the sorting parameters
          * @param {array} res - array of film objects
@@ -41,7 +41,6 @@ class ResultsChild extends Component {
             function sortFuncRating(a, b) {
                 return +b[parameter] - +a[parameter]
             }
-
             /**
              *Sort function for Release Date
              * @param {Object} a
@@ -131,12 +130,20 @@ ResultsChild.propTypes = {
     filmGenre: PropTypes.string
 };
 ResultsChild.defaultProps = {
-    searchList: [],
-    recommendedList: [],
-    onOpenFilm: f=>f,
-    filmMode: false,
-    onChangeItem: f=>f,
-    filmGenre: ''
+  searchList: [],
+  recommendedList: [],
+  onOpenFilm: f=>f,
+  onChangeItem: f=>f,
+  mode: {
+    film: false,
+    search: true,
+    loadingData: false
+  },
+  searchAttributes: {
+    phrase: '',
+    type: 'title'
+  },
+  filmGenre: 'Action'
 };
 
 export const Results = connect(

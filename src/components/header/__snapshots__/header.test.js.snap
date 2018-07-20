@@ -2,57 +2,201 @@
 
 exports[`<Header /> Rendering should render the component in film mode 1`] = `
 <header
-  className="header"
+  class="header"
 >
   <div
-    className="header-container"
+    class="header-container"
   >
-    <TopBar
-      filmMode={true}
-      setSearchModeCallback={[Function]}
-    />
-    <Film
-      active={true}
-      info={
-        Object {
-          "budget": 175000000,
-          "genres": Array [
-            "Adventure",
-            "Science Fiction",
-            "Action",
-          ],
-          "id": 333339,
-          "overview": "When the creator of a popular video game system dies, a virtual contest is created to compete for his fortune.",
-          "poster_path": "https://image.tmdb.org/t/p/w500/pU1ULUq8D3iRxl1fdX2lZIzdHuI.jpg",
-          "release_date": "2018-03-28",
-          "revenue": 0,
-          "runtime": 140,
-          "tagline": "A better reality awaits.",
-          "title": "Ready Player One",
-          "vote_average": 8.1,
-          "vote_count": 617,
-        }
-      }
-    />
+    <div
+      class="topbar"
+    >
+      <img
+        class="logo"
+        src="img/logo-netflixroulette.png"
+      />
+    </div>
+    <div
+      class="header-search"
+    >
+      <h2
+        class="ttl ttl-white ttl-UC"
+      >
+        Find your movie
+      </h2>
+      <input
+        class="search-input"
+        placeholder="Start typing..."
+        type="text"
+        value=""
+      />
+      <div
+        class="search-components"
+      >
+        <div
+          class="search-type-section"
+        >
+          <div
+            class="lbl lbl-UC lbl-white"
+          >
+            search by
+          </div>
+          <div
+            class="btn btn-red btn-UC"
+            id=""
+          >
+            title
+          </div>
+          <div
+            class="btn btn-grey btn-UC"
+            id=""
+          >
+            genres
+          </div>
+        </div>
+        <div>
+          <div
+            class="btn btn-big btn-red"
+            id=""
+          >
+            Search
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 `;
 
 exports[`<Header /> Rendering should render the component in search mode 1`] = `
 <header
-  className="header"
+  class="header"
 >
   <div
-    className="header-container"
+    class="header-container"
   >
-    <TopBar
-      filmMode={false}
-      setSearchModeCallback={[Function]}
-    />
-    <Search
-      active={true}
-      startSearch={[MockFunction]}
-    />
+    <div
+      class="topbar"
+    >
+      <img
+        class="logo"
+        src="img/logo-netflixroulette.png"
+      />
+    </div>
+    <div
+      class="header-search"
+    >
+      <h2
+        class="ttl ttl-white ttl-UC"
+      >
+        Find your movie
+      </h2>
+      <input
+        class="search-input"
+        placeholder="Start typing..."
+        type="text"
+        value=""
+      />
+      <div
+        class="search-components"
+      >
+        <div
+          class="search-type-section"
+        >
+          <div
+            class="lbl lbl-UC lbl-white"
+          >
+            search by
+          </div>
+          <div
+            class="btn btn-red btn-UC"
+            id=""
+          >
+            title
+          </div>
+          <div
+            class="btn btn-grey btn-UC"
+            id=""
+          >
+            genres
+          </div>
+        </div>
+        <div>
+          <div
+            class="btn btn-big btn-red"
+            id=""
+          >
+            Search
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`<Header /> Rendering should render the component with default props 1`] = `
+<header
+  class="header"
+>
+  <div
+    class="header-container"
+  >
+    <div
+      class="topbar"
+    >
+      <img
+        class="logo"
+        src="img/logo-netflixroulette.png"
+      />
+    </div>
+    <div
+      class="header-search"
+    >
+      <h2
+        class="ttl ttl-white ttl-UC"
+      >
+        Find your movie
+      </h2>
+      <input
+        class="search-input"
+        placeholder="Start typing..."
+        type="text"
+        value=""
+      />
+      <div
+        class="search-components"
+      >
+        <div
+          class="search-type-section"
+        >
+          <div
+            class="lbl lbl-UC lbl-white"
+          >
+            search by
+          </div>
+          <div
+            class="btn btn-red btn-UC"
+            id=""
+          >
+            title
+          </div>
+          <div
+            class="btn btn-grey btn-UC"
+            id=""
+          >
+            genres
+          </div>
+        </div>
+        <div>
+          <div
+            class="btn btn-big btn-red"
+            id=""
+          >
+            Search
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 `;

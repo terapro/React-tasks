@@ -4,6 +4,16 @@ exports[`<NoResults /> Rendering should render the component 1`] = `
 <div
   className="no-results"
 >
-  No films found
+  By request "
+  <span>
+    happyness
+  </span>
+  " in 
+  <span>
+    life
+  </span>
+   nothing was found. 
+  <br />
+  Don\`t worry, try to make another request!
 </div>
 `;

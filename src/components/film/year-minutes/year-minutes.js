@@ -13,6 +13,7 @@ YearMinutes.propTypes = {
   year: PropTypes.string,
   minutes: PropTypes.number
 };
+
 YearMinutes.defaultProps = {
   year: 'unknown date',
   minutes: '0'

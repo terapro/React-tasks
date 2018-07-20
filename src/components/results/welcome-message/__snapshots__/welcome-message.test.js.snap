@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WelcomeMessage /> Rendering should render the component 1`] = `
+<div
+  className="welcome-message"
+>
+  Type the film name to start search
+</div>
+`;

@@ -26,7 +26,7 @@ Item.propTypes = {
     runtime: PropTypes.number
   }).isRequired,
     onPosterClick: PropTypes.func,
-    filmIndex: PropTypes.number
+    filmIndex: PropTypes.number.isRequired
 };
 
 Item.defaultProps = {

@@ -9,6 +9,6 @@ export const NoResults = ({phrase, type}) => (
 );
 
 NoResults.propTypes = {
-  phrase: PropTypes.string,
-  type: PropTypes.string
+  phrase: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 };

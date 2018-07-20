@@ -5,7 +5,7 @@ import {shallow} from 'enzyme';
 
 const mockLinkText ='https://image.tmdb.org/t/p/w500/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg';
 const mockFunc = jest.fn();
-const mockIdtext = 'id03'
+const mockIndex = '3';
 
 describe('<ItemPoster />', () => {
   describe('Rendering', () => {
@@ -13,7 +13,7 @@ describe('<ItemPoster />', () => {
       const wrapper = shallow(
         <ItemPoster posterLink={mockLinkText}
                     posterClick = {mockFunc}
-                    id = {mockIdtext}
+                    filmIndex = {mockIndex}
         />
       );
       expect(wrapper).toMatchSnapshot();
@@ -21,8 +21,8 @@ describe('<ItemPoster />', () => {
   });
   describe('Behavior', () => {
     it('invokes onClick', () => {
-      shallow(<ItemPoster posterClick={mockFunc} id={mockIdtext} />)
-        .find('img#' + mockIdtext)
+      shallow(<ItemPoster posterClick={mockFunc} id={mockIndex} />)
+        .find('img')
         .simulate('click');
       expect(mockFunc).toHaveBeenCalled();
     });

@@ -6,7 +6,7 @@ import {resultsToStore, recommendedToStore} from 'src/actions'; // TODO; take an
 
 
 /**
- * For API requist to the server
+ * For API request to the server
  * @param {string} phrase
  * @param {string} searchBy
  * @param {number} limit
@@ -14,7 +14,6 @@ import {resultsToStore, recommendedToStore} from 'src/actions'; // TODO; take an
  * @constructor
  */
 const RequestToServer = (phrase, searchBy, limit=21) =>
-
   new Promise((resolves, rejects) => {
     const api = `http://react-cdp-api.herokuapp.com/movies?search=${phrase}&searchBy=${searchBy}&limit=${limit}`;
     const request = new XMLHttpRequest();
@@ -27,30 +26,46 @@ const RequestToServer = (phrase, searchBy, limit=21) =>
     request.send();
   });
 
+// Addition to the search - Genre aliases
+const searchKeysAliases = { // only lower case!
+  'sci fi': 'Science Fiction',
+  'scifi': 'Science Fiction',
+  'sci-fi': 'Science Fiction',
+  'sf': 'Science Fiction',
+  'melodrama': 'drama',
+  'cartoon': "animation"
+};
+
 
 const logger = store => next => action => {
 
-  console.log('Before ', action.type);
-
   // Starting API request for Search mode
   if(action.type == C.START_SEARCH) {// Request to the server
-    RequestToServer(action.payload.searchPhrase, action.payload.searchType).then(
+    let phrase = action.payload.searchPhrase;
+    const type = action.payload.searchType;
+    if (type === 'genres') {
+      phrase = searchKeysAliases[phrase.toLowerCase()]?
+        searchKeysAliases[phrase.toLowerCase()] :
+        phrase;
+    }
+    RequestToServer(phrase, type).then(
       info => store.dispatch(resultsToStore(info.data)),
       err => console.error(
-        new Error("cannot load films from server"))
+        new Error("Cannot load films from server"))
     );
   }
   // Starting API request for Film mode
   if(action.type == C.OPEN_FILM) {// Request to the server
-    RequestToServer(action.payload.filmGenre, action.payload.searchType).then(
+    const phrase = action.payload.searchPhrase;
+    const type = action.payload.searchType;
+    RequestToServer(type, phrase).then(
       info => store.dispatch(recommendedToStore(info.data)),
       err => console.error(
         new Error("cannot load films from server"))
     );
   }
-
   const returnVal = next(action);
-  console.log('After ', action.type);
+
   return returnVal;
 };
 
@@ -61,12 +76,10 @@ const store = createStore(
   applyMiddleware(logger)
 );
 
-
 store.subscribe(() => {
   localStorage['redux-store'] = JSON.stringify(store.getState())
 });
 
-//console.log(store.getState());
 localStorage['redux-store'] = JSON.stringify(store.getState());
 
 export default store;

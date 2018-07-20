@@ -7,7 +7,7 @@ import {Title} from 'src/components/common/title/title.js';
 import {TypeSection} from 'src/components/search/type-section/type-section.js';
 import {ButtonSection} from 'src/components/search/button-section/button-section.js';
 
-class SearchChild extends Component {
+export class SearchChild extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,8 +71,7 @@ SearchChild.propTypes = {
 
 };
 SearchChild.defaultProps = {
-  startSearch: () => {
-  }
+  searchMode: true
 };
 
 export const Search = connect(

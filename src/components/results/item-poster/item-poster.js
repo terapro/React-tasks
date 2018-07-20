@@ -10,12 +10,6 @@ export const ItemPoster = ({posterLink, posterClick, filmIndex}) => (
 
 ItemPoster.propTypes= {
   posterLink: PropTypes.string.isRequired,
-  posterClick: PropTypes.func,
-  id: PropTypes.string,
-  filmIndex: PropTypes.number
-};
-
-ItemPoster.defaultProps = {
-  posterClick: () => {},
-  id: ''
+  posterClick: PropTypes.func.isRequired,
+  filmIndex: PropTypes.number.isRequired
 };

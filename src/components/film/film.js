@@ -33,5 +33,5 @@ Film.propTypes = {
 
 Film.defaulProps = {
   active: false,
-  info: {}
+  info: { }
 };

@@ -5,7 +5,7 @@ import {shallow} from 'enzyme';
 const mockNumber = '5';
 
 describe('<Rating />', () => {
-  describe('<Rating />', () => {
+  describe('Rendering', () => {
     it('should render the component', () => {
       const wrapper = shallow(<Rating value={mockNumber}/>);
       expect(wrapper).toMatchSnapshot();

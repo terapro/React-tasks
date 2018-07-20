@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Rating /> <Rating /> should render the component 1`] = `
+exports[`<Rating /> Rendering should render the component 1`] = `
 <span
   className="rating"
 >
@@ -8,7 +8,7 @@ exports[`<Rating /> <Rating /> should render the component 1`] = `
 </span>
 `;
 
-exports[`<Rating /> <Rating /> should render the component with default value 1`] = `
+exports[`<Rating /> Rendering should render the component with default value 1`] = `
 <span
   className="rating"
 >
