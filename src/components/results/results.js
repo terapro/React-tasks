@@ -6,6 +6,7 @@ import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
 import {Summary} from 'src/components/summary/summary.js';
 import {ResultsLoading} from 'src/components/results/results-loading/results-loading';
+import {WelcomeMessage} from "src/components/results/welcome-message/welcome-message";
 
 class ResultsChild extends Component {
   constructor(props) {
@@ -59,17 +60,26 @@ class ResultsChild extends Component {
     };
   }
   render() {
-    const {searchList, recommendedList, mode, sortBy, searchAttributes} = this.props;
+    const {searchList, recommendedList, mode, sortBy, searchAttributes, filmGenre} = this.props;
       this.filmList = mode.film? [...recommendedList] : [... searchList]; // The film list depends on mode: search/film
       this.filmList = this.sortResult(this.filmList, sortBy.chosenParameter);
 
 
-
-    if(mode.loadingData) {
+    // Case: Data loads in the search mode
+    if(mode.loadingData && mode.search) {
       return (
         <ResultsLoading phrase={searchAttributes.phrase} type={searchAttributes.type} />
       )
-    } else if (this.filmList.length) { // When at least 1 film to show
+    }
+    // Case: Data loads in the film mode
+    else if(mode.loadingData && mode.film) {
+
+      return (
+        <ResultsLoading phrase={filmGenre} type='genres' />
+      )
+    }
+    // Case: Show the results
+    else if (this.filmList.length) { // When at least 1 film to show
       return (
         <Fragment>
           <Summary />
@@ -84,10 +94,16 @@ class ResultsChild extends Component {
           </div>
         </Fragment>
       );
-    } else  {
+    } else if(!this.filmList.length && searchAttributes.phrase) {
+      return(
+        <NoResults phrase={searchAttributes.phrase} type={searchAttributes.type} />
+      );
+    }
+    // Case: No results
+    else  {
       return (
         <div className='results'>
-          <NoResults />
+          <WelcomeMessage />
         </div>
       );
     }
@@ -111,14 +127,16 @@ ResultsChild.propTypes = {
     searchAttributes: PropTypes.shape({
       phrase: PropTypes.string,
       type: PropTypes.string
-    })
+    }),
+    filmGenre: PropTypes.string
 };
 ResultsChild.defaultProps = {
     searchList: [],
     recommendedList: [],
     onOpenFilm: f=>f,
     filmMode: false,
-    onChangeItem: f=>f
+    onChangeItem: f=>f,
+    filmGenre: ''
 };
 
 export const Results = connect(
@@ -127,6 +145,7 @@ export const Results = connect(
       searchAttributes: store.search,
       searchList: store.films.searchList,
       recommendedList: store.films.recommendedList,
+      filmGenre: store.films.currentFilmGenre,
       mode: store.mode,
       sortBy: store.films.sortBy
     }),

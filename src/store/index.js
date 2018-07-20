@@ -16,10 +16,7 @@ import {resultsToStore, recommendedToStore} from 'src/actions'; // TODO; take an
 const RequestToServer = (phrase, searchBy, limit=21) =>
 
   new Promise((resolves, rejects) => {
-    console.log(phrase);
-    console.log(searchBy);
     const api = `http://react-cdp-api.herokuapp.com/movies?search=${phrase}&searchBy=${searchBy}&limit=${limit}`;
-    console.log(api);
     const request = new XMLHttpRequest();
     request.open('GET', api);
     request.onload = () =>
