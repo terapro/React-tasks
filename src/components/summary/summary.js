@@ -11,15 +11,12 @@ const SummaryChild = (props) => {
    * Toggles the current sort parameter
    * @param {element} e
    */
-  const sortParameterClick = (e) => {
-    onChangeItem(e.target.id);
-  };
   return (
     <div className='summary'>
       <div className='summary-wrapper'>
         {filmMode && <Label content={'Films by ' + filmModeGenre + ' genre'}/>}
         {!filmMode && <Label content={'Found ' + filmNumber + ' films for \'' + searchPhrase + '\' by ' + searchType}/>}
-        <FilmSort sortParameters={sortBy} onParameterClick={sortParameterClick}/>
+        <FilmSort sortParameters={sortBy} onParameterClick={onChangeItem}/>
       </div>
     </div>
   );

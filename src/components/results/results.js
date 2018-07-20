@@ -51,10 +51,8 @@ class ResultsChild extends Component {
                 return Date.parse(b[parameter]) - Date.parse(a[parameter]);
             }
         };
-    this.filmList=[];
-    this.chooseFilmByClick = (el)=> {
-        const index = el.target.id;
-        const film = this.filmList[index];
+
+    this.chooseFilmByClick = (film) => {
         this.props.onOpenFilm(film);
     };
   }
@@ -83,11 +81,10 @@ class ResultsChild extends Component {
         <Fragment>
           <Summary />
           <div className='results'>
-            {this.filmList.map((item, i) => (
+            {this.filmList.map((item) => (
                             <Item key={item['id']}
                                   info={item}
                                   onPosterClick={this.chooseFilmByClick}
-                                  filmIndex={i}// we store the array index in the key property to save the quick reference to the film object when clicking the poster
                             />
             ))}
           </div>

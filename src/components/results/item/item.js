@@ -1,14 +1,25 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {ItemPoster} from 'src/components/results/item-poster/item-poster.js';
 import {ItemInfo} from 'src/components/results/item-info/item-info.js'
 
-export const Item = ({info, onPosterClick, filmIndex}) => (
-    <div className='item'>
-        <ItemPoster posterLink={info['poster_path']} posterClick={onPosterClick} filmIndex={filmIndex}/>
+export class Item extends Component {
+  constructor(props) {
+    super(props);
+    this.posterCallback = () => {
+      this.props.onPosterClick(this.props.info);
+    }
+  }
+  render() {
+    const {info} = this.props;
+    return (
+      <div className='item'>
+        <ItemPoster posterLink={info['poster_path']} posterClick={this.posterCallback} />
         <ItemInfo filmTitle={info['title']} releaseDate={info['release_date']} genre={info['genres']} />
-    </div>
-);
+      </div>
+    );
+  }
+}
 
 Item.propTypes = {
   info: PropTypes.shape({
@@ -25,8 +36,7 @@ Item.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string),
     runtime: PropTypes.number
   }).isRequired,
-    onPosterClick: PropTypes.func,
-    filmIndex: PropTypes.number.isRequired
+    posterClick: PropTypes.func
 };
 
 Item.defaultProps = {

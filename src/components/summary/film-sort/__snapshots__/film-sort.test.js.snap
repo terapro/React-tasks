@@ -22,7 +22,7 @@ exports[`<FilmSort /> Render should render the component 1`] = `
     btnUC={false}
     btnWhite={false}
     content="release date"
-    id="release date"
+    id=""
     key="release date"
   />
   <Button
@@ -37,7 +37,7 @@ exports[`<FilmSort /> Render should render the component 1`] = `
     btnUC={false}
     btnWhite={false}
     content="rating"
-    id="rating"
+    id=""
     key="rating"
   />
   <Button
@@ -52,7 +52,7 @@ exports[`<FilmSort /> Render should render the component 1`] = `
     btnUC={false}
     btnWhite={false}
     content="my rating"
-    id="my rating"
+    id=""
     key="my rating"
   />
 </div>
@@ -80,7 +80,7 @@ exports[`<FilmSort /> Render should render the component with default props 1`] 
     btnUC={false}
     btnWhite={false}
     content="release date"
-    id="release date"
+    id=""
     key="release date"
   />
   <Button
@@ -95,7 +95,7 @@ exports[`<FilmSort /> Render should render the component with default props 1`] 
     btnUC={false}
     btnWhite={false}
     content="rating"
-    id="rating"
+    id=""
     key="rating"
   />
   <Button
@@ -110,7 +110,7 @@ exports[`<FilmSort /> Render should render the component with default props 1`] 
     btnUC={false}
     btnWhite={false}
     content="my rating"
-    id="my rating"
+    id=""
     key="my rating"
   />
 </div>

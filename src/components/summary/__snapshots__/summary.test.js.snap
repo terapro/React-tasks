@@ -22,13 +22,13 @@ exports[`<TypeSection /> Render should render the component in the film mode wit
       </div>
       <div
         class="btn btn-bold btn-transp-red"
-        id="release date"
+        id=""
       >
         release date
       </div>
       <div
         class="btn btn-bold btn-transp"
-        id="rating"
+        id=""
       >
         rating
       </div>
@@ -59,13 +59,13 @@ exports[`<TypeSection /> Render should render the component in the film mode wit
       </div>
       <div
         class="btn btn-bold btn-transp-red"
-        id="release date"
+        id=""
       >
         release date
       </div>
       <div
         class="btn btn-bold btn-transp"
-        id="rating"
+        id=""
       >
         rating
       </div>
@@ -96,13 +96,13 @@ exports[`<TypeSection /> Render should render the component in the search mode w
       </div>
       <div
         class="btn btn-bold btn-transp-red"
-        id="release date"
+        id=""
       >
         release date
       </div>
       <div
         class="btn btn-bold btn-transp"
-        id="rating"
+        id=""
       >
         rating
       </div>
@@ -133,13 +133,13 @@ exports[`<TypeSection /> Render should render the component in the search mode w
       </div>
       <div
         class="btn btn-bold btn-transp-red"
-        id="release date"
+        id=""
       >
         release date
       </div>
       <div
         class="btn btn-bold btn-transp"
-        id="rating"
+        id=""
       >
         rating
       </div>
@@ -170,13 +170,13 @@ exports[`<TypeSection /> Render should render the component with default props 1
       </div>
       <div
         class="btn btn-bold btn-transp-red"
-        id="release date"
+        id=""
       >
         release date
       </div>
       <div
         class="btn btn-bold btn-transp"
-        id="rating"
+        id=""
       >
         rating
       </div>

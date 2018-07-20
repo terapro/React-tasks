@@ -14,7 +14,6 @@ export const FilmSort = ({sortParameters, onParameterClick}) => (
                         btnClick = {onParameterClick}
                         btnBold
                         content = {item}
-                        id = {item}
                 />
             ))}
       </div>
