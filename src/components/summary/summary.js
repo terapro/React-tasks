@@ -56,7 +56,7 @@ export const Summary = connect(
       filmMode: store.mode.film,
       searchPhrase: store.search.phrase,
       filmNumber: store.films.searchList.length,
-      filmModeGenre: store.mode.filmModeSettings.genre,
+      filmModeGenre: store.films.currentFilmGenre,
       searchType: store.search.type,
       sortBy: store.films.sortBy
 

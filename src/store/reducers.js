@@ -1,6 +1,5 @@
 import C from  'src/constants';
 
-
 export const films = (state={}, action) => {
   switch (action.type) {
     case C.START_SEARCH :
@@ -12,7 +11,8 @@ export const films = (state={}, action) => {
       return {
         ...state,
         currentFilm: action.payload.filmToOpen,
-        recommendedList: action.payload.recommendedList
+        recommendedList: action.payload.recommendedList,
+        currentFilmGenre: action.payload.filmGenre
       };
     case C.CHANGE_SORTING:
       return {
@@ -29,8 +29,7 @@ export const mode = (state={}, action) => {
       return {
         ...state,
         search: false,
-        film: true,
-        filmModeSettings: {genre: action.payload.filmGenre}
+        film: true
       };
     case C.OPEN_SEARCH:
       return {

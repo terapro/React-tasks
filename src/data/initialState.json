@@ -3,6 +3,7 @@
     "searchList": [],
     "recommendedList": [],
     "currentFilm": null,
+    "currentFilmGenre": " ",
     "sortBy": {
       "parameters": ["release date", "rating"],
       "chosenParameter": "release date"
@@ -10,10 +11,7 @@
   },
   "mode": {
     "search": true,
-    "film": false,
-    "filmModeSettings": {
-      "genre": " "
-    }
+    "film": false
   },
   "search": {
     "phrase": "",
