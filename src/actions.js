@@ -1,5 +1,5 @@
 import C from 'src/constants';
-import {moviesDB} from 'src/app/data.js';
+import {moviesDB} from 'src/data/data.js';
 const searchKeysAliases = { // only lower case!
   'sci fi': 'science fiction',
   'scifi': 'science fiction',
@@ -76,6 +76,6 @@ export const changeItem = (newCriterion) => {
     }
   }
 
-}
+};
 
 

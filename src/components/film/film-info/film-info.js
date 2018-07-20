@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {Caption} from 'src/components/common/caption/caption.js';
 import {YearMinutes} from "src/components/film/year-minutes/year-minutes";
 import {FilmHeader} from "src/components/film/film-header/film-header.js";
 
-const FilmInfo = ({info}) => {
+export const FilmInfo = ({info}) => {
   return (
     <div className='film-info'>
-      <FilmHeader title={info['title']} rating={+info['vote_average']}/>
+      <FilmHeader title={info['title']} rating={+info['vote_average']} />
       <Caption content={info['tagline']} txtWhite txtItalic />
-      <YearMinutes minutes={info['runtime']} year={info['release_date']}/>
+      <YearMinutes minutes={info['runtime']} year={info['release_date']} />
       <Caption content={info['overview']} txtWhite />
     </div>
   );
@@ -32,5 +31,3 @@ FilmInfo.propTypes ={
     runtime: PropTypes.number
   }).isRequired
 };
-
-export {FilmInfo};

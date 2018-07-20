@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const Input = ({onStartTyping,  onKeyEnterPressed, placeholder, value}) => (
+export const Input = ({onStartTyping,  onKeyEnterPressed, placeholder, value}) => (
 
   <input className={'search-input'}
          type='text'
@@ -10,18 +9,19 @@ const Input = ({onStartTyping,  onKeyEnterPressed, placeholder, value}) => (
          onInput = {onStartTyping}
          onKeyPress={onKeyEnterPressed}
          value = {value}
-
   />
 );
 
 Input.propTypes = {
   placeholder: PropTypes.string,
-  searchInputCallback: PropTypes.func.isRequired,
-  onKeyPressedFunc: PropTypes.func
+    onStartTyping: PropTypes.func.isRequired,
+    onKeyEnterPressed: PropTypes.func,
+    value: PropTypes.string
 };
+
 Input.defaultProps = {
   placeholder: 'Start typing...',
-  searchInputCallback: () => {},
-  onKeyPressedFunc: () => {}
+    onStartTyping: () => {},
+    onKeyEnterPressed: () => {},
+    value: ''
 };
-export {Input};

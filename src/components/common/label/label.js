@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Label = (props) => {
+export const Label = ({labelUC, labelWhite, labelBold, content}) => {
 
-    const {labelUC, labelWhite, labelBold, content} = props;
     const itemClass =classNames({
       'lbl': true,
       'lbl-UC': labelUC,
@@ -16,7 +15,7 @@ const Label = (props) => {
       <div className={itemClass}>
         {content}
       </div>
-    )
+    );
 };
 
 Label.propTypes = {
@@ -32,5 +31,3 @@ Label.defaultProps = {
   labelUC: false,
   labelWhite: false
 };
-
-export {Label};

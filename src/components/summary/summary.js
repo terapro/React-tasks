@@ -1,53 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {connect} from "react-redux";
+import {changeItem} from "src/actions";
 import {Label} from 'src/components/common/label/label.js';
 import {FilmSort} from 'src/components/summary/film-sort/film-sort';
-import {connect} from "react-redux";
-
 
 const SummaryChild = (props) => {
 
-  const {filmMode, searchPhrase, filmNumber, filmModeGenre, searchType, changeSortItemCallBack, sortParameters} = props;
+  const {filmMode, searchPhrase, filmNumber, filmModeGenre, searchType, sortBy, onChangeItem} = props;
+    /**
+     * Toggles the current sort parameter
+     * @param {element} e
+     */
+    const sortParameterClick = (e) => {
+        onChangeItem(e.target.id);
+    };
 
-  let innerContent;
-
-  if (filmMode) {
-    innerContent = (
-      <div className='summary-wrapper'>
-        <Label content ={'Films by ' + filmModeGenre  + ' genre'} />
-        <FilmSort sortParameters={sortParameters} changeSortItemCallBack = {changeSortItemCallBack} />
-      </div>
-    );
-  } else {
-    innerContent = (
-      <div className='summary-wrapper'>
-        <Label content ={'Found '+ filmNumber +' films for \'' + searchPhrase + '\' by ' + searchType} />
-        <FilmSort sortParameters={sortParameters} changeSortItemCallBack = {changeSortItemCallBack} />
-      </div>
-    );
-  }
   return (
     <div className='summary'>
-        {innerContent}
+        <div className='summary-wrapper'>
+            {filmMode && <Label content ={'Films by ' + filmModeGenre  + ' genre'} />}
+            {!filmMode && <Label content ={'Found '+ filmNumber +' films for \'' + searchPhrase + '\' by ' + searchType} />}
+            <FilmSort sortParameters={sortBy} onParameterClick = {sortParameterClick} />
+        </div>
     </div>
   );
 };
 
 SummaryChild.propTypes = {
-  searchPhrase: PropTypes.string,
-  filmModeGenre: PropTypes.string,
-  filmMode: PropTypes.bool,
-  filmNumber: PropTypes.number,
-  changeSortItemCallBack: PropTypes.func
+    filmMode: PropTypes.bool,
+    searchPhrase: PropTypes.string,
+    filmNumber: PropTypes.number,
+    filmModeGenre: PropTypes.string,
+    searchType: PropTypes.string,
+    sortBy: PropTypes.shape({
+        parameters: PropTypes.arrayOf(PropTypes.string),
+        chosenParameter: PropTypes.string
+    }).isRequired,
+    onChangeItem: PropTypes.func
 };
 
 SummaryChild.defaultProps = {
-  searchPhrase: '',
-  filmModeGenre: '',
-  filmMode: false,
-  filmNumber: 0,
-  changeSortItemCallBack: () => {}
+    filmMode: false,
+    searchPhrase: '',
+    filmNumber: 0,
+    filmModeGenre: '',
+    searchType: 'title',
+    onChangeItem: f=>f
 };
 
 
@@ -58,13 +57,15 @@ export const Summary = connect(
       searchPhrase: store.search.phrase,
       filmNumber: store.films.searchList.length,
       filmModeGenre: store.mode.filmModeSettings.genre,
-      searchType: store.search.type
+      searchType: store.search.type,
+      sortBy: store.films.sortBy
 
     }),
   dispatch =>
     ({
-
-
+      onChangeItem(newParameter) {
+          dispatch(changeItem(newParameter))
+        }
     })
 
 )(SummaryChild);

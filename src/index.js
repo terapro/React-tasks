@@ -12,7 +12,7 @@ import 'src/img/netflix-bg.jpg';
 import 'src/img/logo-netflixroulette.png';
 
 // Modules
-import {App} from 'src/app/app.js';
+import {Body} from 'src/components/body/body.js';
 import store from 'src/store/index.js';
 
 
@@ -22,7 +22,7 @@ window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <Body/>
   </Provider>
   , root);
 

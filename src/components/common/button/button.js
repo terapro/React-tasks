@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-const Button = (props) => {
+export const Button = (props) => {
   const {btnSm, btnBig, btnWhite, btnRed, btnGrey, btnBold, btnTransp, btnTranspRed, btnUC} = props;
   const {btnClick, id, content} = props;
   let itemClass = classNames({
@@ -38,6 +38,7 @@ Button.propTypes = {
   btnClick: PropTypes.func.isRequired,
   id: PropTypes.string
 };
+
 Button.defaultProps = {
   btnSm: false,
   btnBig: false,
@@ -51,6 +52,3 @@ Button.defaultProps = {
   content: 'Button',
   id: ''
 };
-
-
-export {Button};

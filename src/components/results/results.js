@@ -1,102 +1,80 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
+import {openFilm} from "src/actions";
 import {NoResults} from 'src/components/results/no-results/no-results.js';
 import {Item} from 'src/components/results/item/item.js';
 import {Summary} from 'src/components/summary/summary.js';
-import {connect} from "react-redux";
-import {openFilm, changeItem} from "src/actions";
+
 
 class ResultsChild extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      sortItems: {
-        list: ['release date', 'rating'],
-        active: 'release date'
-      }
-    };
-    /**
-     * // CallBack for changing this.state (it changes active genre)
-     * @param {element} el
-     */
-    this.changeSortItemClick = (el) => {
-      this.setState({sortItems: {
-          list: this.state.sortItems.list,
-          active: el.target.id
-        }})
-    };
-
-
-    this.sortParameterClick = (e) => {
-      console.log(e.target.id);
-      this.props.onChangeItem(e.target.id);
-    };
-    /**
-     * // Function for sorting results
-     * @param {Object} res
-     * @param {string} parameter
-     * @returns {DependencyReference[]|void|*}
-     */
+        super(props);
+        /**
+         * Sorts the list by the sorting parameters
+         * @param {array} res - array of film objects
+         * @param parameter
+         * @returns {DependencyReference[]|void|*}
+         */
     this.sortResult = (res, parameter) => {
       const sortParametersMatching = {
         'release date': 'release_date',
         'rating': 'vote_average'
       };
-
-
       parameter = sortParametersMatching[parameter];
 
       switch (parameter) {
         case 'release_date' : {
           return res.sort(sortFuncDates);
-        }
-        case 'vote_average': {
-          return res.sort(sortFuncRating);
-        }
+          }
+          case 'vote_average': {
+            return res.sort(sortFuncRating);
+          }
       }
+            /**
+             * Sort function for Rating
+             * @param {Object} a
+             * @param {Object} b
+             * @returns {number}
+             */
+            function sortFuncRating(a, b) {
+                return +b[parameter] - +a[parameter]
+            }
 
-      /**
-       * Sort function for Rating
-       * @param {Object} a
-       * @param {Object} b
-       * @returns {number}
-       */
-      function sortFuncRating (a,b) {
-        return +b[parameter] - +a[parameter]
-      }
-
-      /**
-       *Sort function for Release Date
-       * @param {Object} a
-       * @param {Object} b
-       * @returns {number}
-       */
-      function sortFuncDates(a,b) {
-        return Date.parse(b[parameter]) - Date.parse(a[parameter]);
-      }
-    }
+            /**
+             *Sort function for Release Date
+             * @param {Object} a
+             * @param {Object} b
+             * @returns {number}
+             */
+            function sortFuncDates(a, b) {
+                return Date.parse(b[parameter]) - Date.parse(a[parameter]);
+            }
+        };
+    this.filmList=[];
+    this.chooseFilmByClick = (el)=> {
+        const index = el.target.id;
+        const film = this.filmList[index];
+        this.props.onOpenFilm(film);
+    };
   }
   render() {
-    const {searchList, recommendedList, onOpenFilm,  filmMode, searchInFilmModeByGenre, sortBy} = this.props;
+    const {searchList, recommendedList, filmMode, sortBy} = this.props;
+      this.filmList = filmMode? [...recommendedList] : [... searchList]; // The film list depends on mode: search/film
+      this.filmList = this.sortResult(this.filmList, sortBy.chosenParameter);
 
-    const sortingParameter = sortBy.chosenParameter;
-    let filmList = filmMode? [...recommendedList] : [... searchList];
-
-    filmList = this.sortResult(filmList, sortingParameter);
-
-    if (filmList.length) { // When at least 1 film to show
+    if (this.filmList.length) { // When at least 1 film to show
       return (
         <Fragment>
-          <Summary sortParameters={sortBy}
-                            changeSortItemCallBack={this.sortParameterClick}/>
-
+          <Summary />
           <div className='results'>
-            {
-              filmList.map((item) => (
-                                          <Item key = {item['id']} info = {item} onPosterClick={() => onOpenFilm(item)} searchInFilmModeByGenre={searchInFilmModeByGenre} />
-                                        )
-                          )
-            }
+            {this.filmList.map((item, i) => (
+                            <Item key={item['id']}
+                                  info={item}
+                                  onPosterClick={this.chooseFilmByClick}
+                                  filmIndex={i}// we store the array index in the key property to save the quick reference to the film object when clicking the poster
+                            />
+            ))}
           </div>
         </Fragment>
       );
@@ -105,31 +83,29 @@ class ResultsChild extends Component {
         <div className='results'>
           <NoResults />
         </div>
-
       );
     }
   }
 }
 
 ResultsChild.propTypes = {
-  searchPhrase: PropTypes.string,//
-  filmMode: PropTypes.bool,//
-  filmModeGenre: PropTypes.string,//
-  searchResult: PropTypes.arrayOf(PropTypes.object), //
-  setFilmMode: PropTypes.func, //
-  startSearch: PropTypes.func,
-  searchInFilmModeByGenre: PropTypes.func.isRequired //
+    searchList: PropTypes.array,
+    recommendedList: PropTypes.array,
+    onOpenFilm: PropTypes.func,
+    onChangeItem: PropTypes.func,
+    filmMode: PropTypes.bool,
+    sortBy: PropTypes.shape({
+        parameters: PropTypes.arrayOf(PropTypes.string),
+        chosenParameter: PropTypes.string
+    }).isRequired
 };
-
 ResultsChild.defaultProps = {
-  searchPhrase: '',
-  filmMode: false,
-  filmModeGenre: '',
-  searchResult: [{}],
-  setFilmMode: PropTypes.func,
-  startSearch: () => {}
+    searchList: [],
+    recommendedList: [],
+    onOpenFilm: f=>f,
+    filmMode: false,
+    onChangeItem: f=>f
 };
-
 
 export const Results = connect(
   store =>
@@ -144,12 +120,8 @@ export const Results = connect(
     ({
       onOpenFilm(film) {
         dispatch(openFilm(film))
-      },
-      onChangeItem(newParameter) {
-        dispatch(changeItem(newParameter))
       }
     })
-
 )(ResultsChild);
 
 
