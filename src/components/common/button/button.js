@@ -2,15 +2,18 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-export class Button extends Component {
-  constructor(props) {
-    super(props);
+  export class Button extends Component {
+    constructor(props) {
+      super(props);
 
-    this.callbackFunc = () => {
-      this.props.btnClick(this.props.content);
-    };
-  }
-  render() {
+      this.callbackFunc = () => {
+        this.props.btnClick(this.props.content);
+      };
+    }
+
+
+
+    render() {
     const {btnSm, btnBig, btnWhite, btnRed, btnGrey, btnBold, btnTransp, btnTranspRed, btnUC} = this.props;
     const {id, content} = this.props;
     let itemClass = classNames({
@@ -29,7 +32,8 @@ export class Button extends Component {
       {content}
     </div>);
   }
-};
+}
+
 
 
 Button.propTypes = {

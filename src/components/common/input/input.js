@@ -21,7 +21,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   placeholder: 'Start typing...',
-    onStartTyping: () => {},
     onKeyEnterPressed: () => {},
     value: ''
 };

@@ -7,6 +7,7 @@ import {Search, SearchChild} from 'src/components/search/search.js';
 const mockFunc = jest.fn();
 const mockSearchPhraseText = 'star wars';
 const mockEl = {target: {innerHTML: 'genres', value: 'some input'}, key: 'Enter'};
+const mockNewType = 'genres';
 
 describe('<Search />', () => {
   describe('Rendering', () => {
@@ -51,7 +52,7 @@ describe('<Search />', () => {
             active: 'title'
           }
         };
-        instance.changeSearchType(mockEl);
+        instance.changeSearchType(mockNewType);
         expect(instance.state.searchTypes.active).toEqual(mockEl.target.innerHTML);
       });
     });
