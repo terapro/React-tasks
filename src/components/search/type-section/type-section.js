@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {Label} from 'src/components/common/label/label.js';
 import {Button} from 'src/components/common/button/button.js'
 
-const TypeSection = (props) => {
-  const {searchTypes, searchTypeCallback} = props;
-  return (
+export const TypeSection = ({searchTypes, searchTypeClick}) =>
+ (
     <div className={'search-type-section'}>
       <Label content={'search by'} labelUC labelWhite />
       {
@@ -15,7 +13,7 @@ const TypeSection = (props) => {
                     btnGrey={item !== searchTypes.active}
                     key = {item}
                     content = {item}
-                    btnClick={searchTypeCallback}
+                    btnClick={searchTypeClick}
                     btnInline
                     btnUC
             />
@@ -25,18 +23,14 @@ const TypeSection = (props) => {
     </div>
   );
 
-};
-
-
 TypeSection.propTypes = {
   searchTypes: PropTypes.shape({
     list: PropTypes.arrayOf(PropTypes.string),
     active: PropTypes.string
   }).isRequired,
-  searchTypeCallback: PropTypes.func
-};
-TypeSection.defaultProps = {
-  searchTypeCallback: ()=> {}
+    searchTypeClick: PropTypes.func
 };
 
-export {TypeSection};
+TypeSection.defaultProps = {
+    searchTypeClick: ()=> {}
+};

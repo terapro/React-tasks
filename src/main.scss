@@ -43,6 +43,7 @@ $color_black: #000; // black
 @import 'components/common/input/input';
 @import 'components/common/caption/caption';
 @import 'components/common/rating/rating';
+@import 'components/common/spiner/spiner';
 
   //Film
 @import 'components/film/film';
@@ -64,6 +65,8 @@ $color_black: #000; // black
 @import 'components/results/item/item';
 @import 'components/results/item-poster/item-poster';
 @import 'components/results/item-info/item-info';
+@import 'components/results/results-loading/results-loading';
+@import 'components/results/welcome-message/welcome-message';
 
   //Search
 @import 'components/search/search';

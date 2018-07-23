@@ -1,26 +1,22 @@
 import React, {Component} from 'react';
-
 import PropTypes from 'prop-types';
-
 import {ItemPoster} from 'src/components/results/item-poster/item-poster.js';
 import {ItemInfo} from 'src/components/results/item-info/item-info.js'
 
-class Item extends Component {
-  constructor() {
-    super();
-    this.onPosterClick = () => {
-      const {setFilmMode, info, searchInFilmModeByGenre} = this.props;
-      setFilmMode(info);
-      searchInFilmModeByGenre(info['genres'][0]);
-    };
-  }
+export class Item extends Component {
+  constructor(props) {
+    super(props);
 
+  }
+  onPosterClick = () => {
+    this.props.onPosterClick(this.props.info);
+  };
   render() {
     const {info} = this.props;
     return (
       <div className='item'>
-        <ItemPoster posterLink={info['poster_path']} posterClick={this.onPosterClick} id={(info['id']).toString()}/>
-        <ItemInfo filmTitle={info['title']} releaseDate={info['release_date']} genre={info['genres']}/>
+        <ItemPoster posterLink={info['poster_path']} posterClick={this.onPosterClick} />
+        <ItemInfo filmTitle={info['title']} releaseDate={info['release_date']} genre={info['genres']} />
       </div>
     );
   }
@@ -41,8 +37,9 @@ Item.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string),
     runtime: PropTypes.number
   }).isRequired,
-  setFilmMode: PropTypes.func.isRequired,
-  searchInFilmModeByGenre: PropTypes.func.isRequired
+    onPosterClick: PropTypes.func
 };
 
-export {Item};
+Item.defaultProps = {
+    onPosterClick: f=>f
+};

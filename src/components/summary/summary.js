@@ -1,52 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {connect} from "react-redux";
+import {changeItem} from "src/actions";
 import {Label} from 'src/components/common/label/label.js';
 import {FilmSort} from 'src/components/summary/film-sort/film-sort';
 
-const Summary = (props) => {
-  const {filmMode, searchPhrase, filmNumber, sortItems, changeSortItemCallBack, filmModeGenre} = props;
-  let innerContent;
-
-  if (filmMode) {
-    innerContent = (
-      <div className='summary-wrapper'>
-        <Label content ={'Films by ' + filmModeGenre  + ' genre'} />
-      </div>
-    );
-  } else {
-    innerContent = (
-      <div className='summary-wrapper'>
-        <Label content ={'For \''+ searchPhrase +'\' ' + filmNumber + ' movies found'} />
-        <FilmSort sortItems={sortItems} changeSortItemCallBack = {changeSortItemCallBack} />
-      </div>
-    );
-  }
+const SummaryChild = (props) => {
+  const {filmMode, searchPhrase, filmNumber, filmModeGenre, searchType, sortBy, onChangeItem} = props;
+  /**
+   * Toggles the current sort parameter
+   * @param {element} e
+   */
   return (
     <div className='summary'>
-        {innerContent}
+      <div className='summary-wrapper'>
+        {filmMode && <Label content={'Films by ' + filmModeGenre + ' genre'}/>}
+        {!filmMode && <Label content={'Found ' + filmNumber + ' films for \'' + searchPhrase + '\' by ' + searchType}/>}
+        <FilmSort sortParameters={sortBy} onParameterClick={onChangeItem}/>
+      </div>
     </div>
   );
 };
 
-Summary.propTypes = {
-  searchPhrase: PropTypes.string,
-  filmModeGenre: PropTypes.string,
+SummaryChild.propTypes = {
   filmMode: PropTypes.bool,
+  searchPhrase: PropTypes.string,
   filmNumber: PropTypes.number,
-  sortItems: PropTypes.shape({
-    list: PropTypes.arrayOf(PropTypes.string),
-    active: PropTypes.string
+  filmModeGenre: PropTypes.string,
+  searchType: PropTypes.string,
+  sortBy: PropTypes.shape({
+    parameters: PropTypes.arrayOf(PropTypes.string),
+    chosenParameter: PropTypes.string
   }).isRequired,
-  changeSortItemCallBack: PropTypes.func
+  onChangeItem: PropTypes.func
 };
 
-Summary.defaultProps = {
-  searchPhrase: '',
-  filmModeGenre: '',
+SummaryChild.defaultProps = {
   filmMode: false,
+  searchPhrase: '',
   filmNumber: 0,
-  changeSortItemCallBack: () => {}
+  filmModeGenre: '',
+  searchType: 'title',
+  onChangeItem: f => f
 };
 
-export {Summary}
+export const Summary = connect(
+  store =>
+    ({
+      filmMode: store.mode.film,
+      searchPhrase: store.search.phrase,
+      filmNumber: store.films.searchList.length,
+      filmModeGenre: store.films.currentFilmGenre,
+      searchType: store.search.type,
+      sortBy: store.films.sortBy
+
+    }),
+  dispatch =>
+    ({
+      onChangeItem(newParameter) {
+        dispatch(changeItem(newParameter))
+      }
+    })
+)(SummaryChild);
+

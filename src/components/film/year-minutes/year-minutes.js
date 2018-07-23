@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {Label} from 'src/components/common/label/label.js';
 
-const YearMinutes = ({year, minutes}) => {
-  return (
+export const YearMinutes = ({year, minutes}) => (
     <div className='year-min'>
-      <Label content={year.slice(0,4)} labelWhite labelBold />
-      <Label content={minutes + ' min'} labelWhite labelBold/>
+      <Label content={year? year.slice(0,4): year} labelWhite labelBold />
+      <Label content={minutes? minutes + ' min' :  minutes} labelWhite labelBold/>
     </div>
   );
-};
+
 YearMinutes.propTypes = {
-  year: PropTypes.string.isRequired,
-  minutes: PropTypes.number.isRequired
+  year: PropTypes.string,
+  minutes: PropTypes.number
 };
 
-export {YearMinutes};
+YearMinutes.defaultProps = {
+  year: '',
+  minutes: ''
+};

@@ -1,48 +1,32 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import {Button} from 'src/components/common/button/button.js'
 import {Label} from 'src/components/common/label/label.js'
 
-import PropTypes from 'prop-types';
-
-const FilmSort = (props) => {
-  const {sortItems, changeSortItemCallBack} = props;
-  if (sortItems) {
-    return (
-      <div className='film-sort'>
+export const FilmSort = ({sortParameters, onParameterClick}) => (
+    <div className='film-sort'>
         <Label content='Sort by '/>
-          {
-            sortItems.list.map(
+          {sortParameters.parameters.map(
               (item) => (
                 <Button key={item}
-                        btnTranspRed  = {item === sortItems.active}
-                        btnTransp  = {item !== sortItems.active}
-                        btnClick = {changeSortItemCallBack}
+                        btnTranspRed  = {item === sortParameters.chosenParameter}
+                        btnTransp  = {item !== sortParameters.chosenParameter}
+                        btnClick = {onParameterClick}
                         btnBold
                         content = {item}
-                        id = {item}
                 />
-              )
-            )
-          }
+            ))}
       </div>
     );
-  } else return '';
-};
 
 FilmSort.propTypes = {
-  changeSortItemCallBack: PropTypes.func,
-  sortItems: PropTypes.shape({
-        list: PropTypes.arrayOf(PropTypes.string),
-        active: PropTypes.string
-  }).isRequired,
+    onParameterClick: PropTypes.func,
+    sortParameters: PropTypes.shape({
+        parameters: PropTypes.arrayOf(PropTypes.string),
+        chosenParameter: PropTypes.string
+    }).isRequired
+
 };
 FilmSort.defaultProps = {
-  changeSortItemCallBack: ()=>{}
+    onParameterClick: ()=>{}
 };
-
-
-
-
-
-export {FilmSort};

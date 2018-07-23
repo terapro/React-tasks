@@ -1,40 +1,81 @@
 import React from 'react';
+import store from "src/store";
+import {Provider} from 'react-redux';
+import {render} from 'enzyme';
 import {Summary} from 'src/components/summary/summary';
-import {shallow} from 'enzyme';
 
-const mockSortItems =  {
-        list: ['release date', 'rating'],
-        active: 'release date'
+const mockSortBy1 = {
+  list: ['release date', 'rating'],
+  active: 'release date'
+};
+const mockSortBy2 = {
+  list: ['release date', 'rating'],
+  active: 'release date'
 };
 
-const mockFunc = jest.fn();
-const mockSearchPhrase = 'star wars';
-const mockFilmModeGenre = 'action';
-const mockFilmNumber = 11;
+const mockSearchPhrase = 'Jack';
+const mockFilmNumber = 5;
+const mockFilmModeGenre = 'Action';
+const mockSearchType = 'title';
 
+const mockFunc = jest.fn();
 
 describe('<TypeSection />', () => {
-    describe('Render', () => {
-        it('should render the component in the film mode', () => {
-            const wrapper = shallow(<Summary searchPhrase={mockSearchPhrase}
-                                                    filmModeGenre={mockFilmModeGenre}
-                                                    filmMode={true}
-                                                    filmNumber={mockFilmNumber}
-                                                    sortItems={mockSortItems}
-                                                    changeSortItemCallBack={mockFunc}
-                                    />);
-            expect(wrapper).toMatchSnapshot();
-        });
-        it('should render the component in the search mode', () => {
-            const wrapper = shallow(<Summary searchPhrase={mockSearchPhrase}
-                                             filmModeGenre={mockFilmModeGenre}
-                                             filmMode={false}
-                                             filmNumber={mockFilmNumber}
-                                             sortItems={mockSortItems}
-                                             changeSortItemCallBack={mockFunc}
-            />);
-            expect(wrapper).toMatchSnapshot();
-        });
-
+  describe('Render', () => {
+    it('should render the component in the film mode with sorting by release date', () => {
+      const wrapper = render(<Provider store={store}><Summary filmMode
+                                       searchPhrase={mockSearchPhrase}
+                                       filmNumber={mockFilmNumber}
+                                       filmModeGenre={mockFilmModeGenre}
+                                       searchType={mockSearchType}
+                                       sortBy={mockSortBy1}
+                                       onChangeItem={mockFunc}
+      /></Provider>);
+      expect(wrapper).toMatchSnapshot();
     });
+    it('should render the component in the film mode with sorting by rating', () => {
+      const wrapper = render(<Provider store={store}><Summary filmMode
+                                       searchPhrase={mockSearchPhrase}
+                                       filmNumber={mockFilmNumber}
+                                       filmModeGenre={mockFilmModeGenre}
+                                       searchType={mockSearchType}
+                                       sortBy={mockSortBy2}
+                                       onChangeItem={mockFunc}
+      /></Provider>);
+      expect(wrapper).toMatchSnapshot();
+    });
+    it('should render the component in the search mode with sorting by rating', () => {
+      const wrapper = render(<Provider store={store}><Summary filmMode={false}
+                                       searchPhrase={mockSearchPhrase}
+                                       filmNumber={mockFilmNumber}
+                                       filmModeGenre={mockFilmModeGenre}
+                                       searchType={mockSearchType}
+                                       sortBy={mockSortBy2}
+                                       onChangeItem={mockFunc}
+      /></Provider>);
+      expect(wrapper).toMatchSnapshot();
+    });
+    it('should render the component in the search mode with sorting by release date', () => {
+      const wrapper = render(<Provider store={store}><Summary filmMode={false}
+                                       searchPhrase={mockSearchPhrase}
+                                       filmNumber={mockFilmNumber}
+                                       filmModeGenre={mockFilmModeGenre}
+                                       searchType={mockSearchType}
+                                       sortBy={mockSortBy1}
+                                       onChangeItem={mockFunc}
+      /></Provider>);
+      expect(wrapper).toMatchSnapshot();
+    });
+    it('should render the component with default props', () => {
+      const wrapper = render(<Provider store={store}><Summary filmMode={false}
+                                       searchPhrase={mockSearchPhrase}
+                                       filmNumber={mockFilmNumber}
+                                       filmModeGenre={mockFilmModeGenre}
+                                       searchType={mockSearchType}
+                                       sortBy={mockSortBy1}
+                                       onChangeItem={mockFunc}
+      /></Provider>);
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });

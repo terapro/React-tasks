@@ -1,28 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-const Button = (props) => {
-  const {btnSm, btnBig, btnWhite, btnRed, btnGrey, btnBold, btnTransp, btnTranspRed, btnUC} = props;
-  const {btnClick, id, content} = props;
-  let itemClass = classNames({
-  'btn': true,
-  'btn-sm': btnSm,
-  'btn-big': btnBig,
-  'btn-white': btnWhite,
-  'btn-red': btnRed,
-  'btn-grey': btnGrey,
-  'btn-bold':  btnBold,
-  'btn-transp': btnTransp,
-  'btn-transp-red': btnTranspRed,
-  'btn-UC': btnUC
-  });
-  return (
-    <div className={itemClass} onClick = {btnClick} id={id}>
+  export class Button extends Component {
+    constructor(props) {
+      super(props);
+
+    }
+    onClickFunc = () => {
+      this.props.btnClick(this.props.content);
+    };
+    render() {
+    const {btnSm, btnBig, btnWhite, btnRed, btnGrey, btnBold, btnTransp, btnTranspRed, btnUC} = this.props;
+    const {id, content} = this.props;
+    let itemClass = classNames({
+      'btn': true,
+      'btn-sm': btnSm,
+      'btn-big': btnBig,
+      'btn-white': btnWhite,
+      'btn-red': btnRed,
+      'btn-grey': btnGrey,
+      'btn-bold':  btnBold,
+      'btn-transp': btnTransp,
+      'btn-transp-red': btnTranspRed,
+      'btn-UC': btnUC
+    });
+    return( <div className={itemClass} onClick={this.onClickFunc} id={id}>
       {content}
-    </div>
-  );
-};
+    </div>);
+  }
+}
+
+
 
 Button.propTypes = {
   btnSm: PropTypes.bool,
@@ -38,6 +47,7 @@ Button.propTypes = {
   btnClick: PropTypes.func.isRequired,
   id: PropTypes.string
 };
+
 Button.defaultProps = {
   btnSm: false,
   btnBig: false,
@@ -51,6 +61,3 @@ Button.defaultProps = {
   content: 'Button',
   id: ''
 };
-
-
-export {Button};

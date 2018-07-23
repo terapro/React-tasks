@@ -1,6 +1,8 @@
 import React from 'react';
 import {Header} from 'src/components/header/header.js';
-import {shallow} from 'enzyme';
+import store from "src/store";
+import {Provider} from 'react-redux';
+import {render} from 'enzyme';
 
 const mockFunc = jest.fn();
 
@@ -26,11 +28,15 @@ const mockFilm = {
 describe('<Header />', () => {
   describe('Rendering', () => {
     it('should render the component in search mode', () => {
-      const wrapper = shallow(<Header startSearch={mockFunc} filmInfo={mockFilm} filmMode={false} searchMode />);
+      const wrapper = render(<Provider store={store}><Header onOpenSearch={mockFunc} currentFilm={mockFilm} filmMode={false} /></Provider>);
       expect(wrapper).toMatchSnapshot();
     });
     it('should render the component in film mode', () => {
-      const wrapper = shallow(<Header startSearch={mockFunc} filmInfo={mockFilm} filmMode searchMode={false}/>);
+      const wrapper = render(<Provider store={store}><Header onOpenSearch={mockFunc} currentFilm={mockFilm} filmMode /></Provider>);
+      expect(wrapper).toMatchSnapshot();
+    });
+    it('should render the component with default props', () => {
+      const wrapper = render(<Provider store={store}><Header onOpenSearch={mockFunc} /></Provider>);
       expect(wrapper).toMatchSnapshot();
     });
   });

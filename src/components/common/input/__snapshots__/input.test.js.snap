@@ -5,20 +5,9 @@ exports[`<Input /> Rendering should render the component 1`] = `
   className="search-input"
   onInput={[MockFunction]}
   onKeyPress={[MockFunction]}
-  placeholder="Start typing..."
-  type="text"
-  value=""
-/>
-`;
-
-exports[`<Input /> Rendering should render the component with a proper placeholder  1`] = `
-<input
-  className="search-input"
-  onInput={[MockFunction]}
-  onKeyPress={[MockFunction]}
   placeholder="testing Input.."
   type="text"
-  value=""
+  value="Some text input"
 />
 `;
 

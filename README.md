@@ -66,10 +66,24 @@ Tasks are processed by Sergey Dmitriev
 
 ### Progress
 
-- [ ] Coverage > 60%
-- [ ] Use snapshot testing
-- [ ] Coverage > 80%. Functional testing with enzyme and jest
+- [X] Coverage > 60%
+- [X] Use snapshot testing
+- [X] Coverage > 80%. Functional testing with enzyme and jest
 - [ ] Write at least one e2e test
 
+## Task 5
+> Coverage > 60%
+> Write tests using enzyme and jest
+> Use snapshot testing
+> Use coverage tool
+> Write at least one e2e test using library from the list:
+> Cypress, CasperJS, Protractor, Nightwatch, Webdriver
 
+
+### Progress
+
+- [ ] All data fetches moved to actions & received from store by components
+- [ ] Filtering and sorting is done as redux actions
+- [ ] Actions and reducers covered with unit tests (~60%+, can be amended by mentor)
+- [ ] Offline data storage & store restoration (coverage ~100%)
 

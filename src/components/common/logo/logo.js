@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Logo =() => (
+export const Logo =() => (
     <img src={"img/logo-netflixroulette.png"} className={'logo'} />
 );
-
-export {Logo};

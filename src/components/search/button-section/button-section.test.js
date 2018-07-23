@@ -5,10 +5,10 @@ import {shallow} from 'enzyme';
 const mockFunc = jest.fn();
 
 describe('<ButtonSection />', () => {
-    describe('Render', () => {
-        it('should render the component', () => {
-            const wrapper = shallow(<ButtonSection searchButtonCallBack={mockFunc} />);
-            expect(wrapper).toMatchSnapshot();
-        });
+  describe('Render', () => {
+    it('should render the component', () => {
+      const wrapper = shallow(<ButtonSection searchButtonClick={mockFunc}/>);
+      expect(wrapper).toMatchSnapshot();
     });
+  });
 });

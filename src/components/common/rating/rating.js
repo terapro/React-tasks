@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const Rating = ({value}) => {
+export const Rating = ({value}) => {
 
   return (
     <span className='rating'>
       {value}
     </span>
   )
-
 };
 
 Rating.propTypes = {
@@ -19,4 +17,3 @@ Rating.defaultProps = {
   value: 0
 };
 
-export {Rating};

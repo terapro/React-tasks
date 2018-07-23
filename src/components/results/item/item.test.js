@@ -3,6 +3,7 @@ import {Item} from 'src/components/results/item/item.js';
 import {shallow} from 'enzyme';
 
 const mockFunc = jest.fn();
+const mockFilmIndexNumber = 5;
 
 const mockFilm = {
   "id": 333339,
@@ -23,11 +24,14 @@ const mockFilm = {
   "runtime": 140
 };
 
-
 describe('<Item />', () => {
   describe('Rendering', () => {
     it('should render the component', () => {
-      const wrapper = shallow(<Item info={mockFilm} />);
+      const wrapper = shallow(<Item info={mockFilm} onPosterClick={mockFunc} filmIndex={mockFilmIndexNumber} />);
+      expect(wrapper).toMatchSnapshot();
+    });
+    it('should render the component with default props', () => {
+      const wrapper = shallow(<Item info={mockFilm} filmIndex={mockFilmIndexNumber} />);
       expect(wrapper).toMatchSnapshot();
     });
   });

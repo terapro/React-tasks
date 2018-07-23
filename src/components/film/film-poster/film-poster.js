@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FilmPoster = ({posterPath}) => (
+export const FilmPoster = ({posterPath}) => (
     <div className="film-poster">
       <img src={posterPath} />
     </div>
@@ -10,5 +10,3 @@ const FilmPoster = ({posterPath}) => (
 FilmPoster.propTypes ={
   posterPath: PropTypes.string.isRequired
 };
-
-export {FilmPoster};

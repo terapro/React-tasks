@@ -3,28 +3,23 @@ import {Input} from 'src/components/common/input/input.js';
 import {shallow} from 'enzyme';
 
 const mockFn = jest.fn();
-const mockText = 'testing Input..';
+const mockText1 = 'testing Input..';
+const mockText2 = 'Some text input';
 
 describe('<Input />', () => {
   describe('Rendering', () => {
     it('should render the component', () => {
       const wrapper = shallow(<Input
-        searchInputCallback = {mockFn}
-        onKeyPressedFunc = {mockFn}
-      />);
-      expect(wrapper).toMatchSnapshot();
-    });
-    it('should render the component with a proper placeholder ', () => {
-      const wrapper = shallow(<Input
-        searchInputCallback = {mockFn}
-        onKeyPressedFunc = {mockFn}
-        placeholder = {mockText}
+        onStartTyping = {mockFn}
+        onKeyEnterPressed = {mockFn}
+        value={mockText2}
+        placeholder={mockText1}
       />);
       expect(wrapper).toMatchSnapshot();
     });
     it('should render the component with default props ', () => {
       const wrapper = shallow(<Input
-        searchInputCallback = {mockFn}
+        onStartTyping = {mockFn}
       />);
       expect(wrapper).toMatchSnapshot();
     });

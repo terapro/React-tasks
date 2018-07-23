@@ -18,3 +18,22 @@ exports[`<YearMinutes /> Rendering should render the component 1`] = `
   />
 </div>
 `;
+
+exports[`<YearMinutes /> Rendering should render the component with default props 1`] = `
+<div
+  className="year-min"
+>
+  <Label
+    content=""
+    labelBold={true}
+    labelUC={false}
+    labelWhite={true}
+  />
+  <Label
+    content=""
+    labelBold={true}
+    labelUC={false}
+    labelWhite={true}
+  />
+</div>
+`;

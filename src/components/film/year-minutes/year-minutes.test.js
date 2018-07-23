@@ -13,6 +13,9 @@ describe('<YearMinutes />', () => {
       const wrapper = shallow(<YearMinutes year={year} minutes={minutes} />);
       expect(wrapper).toMatchSnapshot();
     });
+    it('should render the component with default props', () => {
+      const wrapper = shallow(<YearMinutes />);
+      expect(wrapper).toMatchSnapshot();
+    });
   });
-
 });

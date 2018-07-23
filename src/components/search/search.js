@@ -1,89 +1,88 @@
 import React, {Component} from 'react';
-
+import {connect} from 'react-redux';
+import {startSearch} from 'src/actions';
 import PropTypes from 'prop-types';
-
 import {Input} from 'src/components/common/input/input.js';
 import {Title} from 'src/components/common/title/title.js';
 import {TypeSection} from 'src/components/search/type-section/type-section.js';
 import {ButtonSection} from 'src/components/search/button-section/button-section.js';
 
-class Search extends Component {
+export class SearchChild extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       searchTypes: {
         list: ['title', 'genres'],
         active: 'title'
       },
-      searchPhrase: ''
+      currentInputValue: ''
+    };
 
-    };
-    /**
-     * CallBack for SearchButton click
-     */
-    this.searchButtonClick = () => {
-      this.props.startSearch({
-        searchPhrase: this.state.searchPhrase,
-        searchType: this.state.searchTypes.active
-      });
-      this.setState({searchPhrase: ''});
-    };
-    /**
-     * Handle the enter click on the search input element
-     * @param {element} e
-     */
-    this.enterKeyPressedOnInput = (e) => {
-      if (e.key === 'Enter') {
-        this.searchButtonClick();
+  }
+  startSearching = () => {
+    this.props.onSearch(this.state.currentInputValue, this.state.searchTypes.active);
+    this.setState({currentInputValue: ''})
+  };
+  enterKeyPressedOnInput = (e) => {
+    if (e.key === 'Enter') {
+      this.startSearching();
+    }
+  };
+  changeSearchType = (newType) => {
+    this.setState({
+      searchTypes: {
+        list: this.state.searchTypes.list, // living as it is
+        active: newType // Toggle to the active type
       }
-    };
-    /**
-     * toggle the search type (search by type/title)
-     * @param {element} el
-     */
-    this.changeSearchType = (el) => {
-      this.setState({searchTypes: {
-          list: this.state.searchTypes.list, // living as it is
-          active: el.target.innerHTML // Toggle to the active type
-        }});
-    };
-    /**
-     * Clones the input from a search input
-     * @param {element} el
-     */
-    this.cloneSearchInput = (el) => {
-      this.setState({searchPhrase: el.target.value});
+    });
+  };
+  cloneSearchInput = (el) => {
+    this.setState({currentInputValue: el.target.value});
+  };
+  render() {
+    const {searchMode} = this.props;
+    if (searchMode) {
+      return (
+        <div className={'header-search'}>
+          <Title content='Find your movie' ttlWhite ttlUC/>
+
+          <Input onStartTyping={this.cloneSearchInput}
+                 value={this.state.currentInputValue}
+                 onKeyEnterPressed={this.enterKeyPressedOnInput}/>
+
+          <div className={'search-components'}>
+            <TypeSection searchTypes={this.state.searchTypes}
+                         searchTypeClick={this.changeSearchType}/>
+
+            <ButtonSection parentFormId={'search-form'}
+                           searchButtonClick={this.startSearching}/>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
     }
   }
-
-  render() {
-    return (
-      <div className={'header-search'} id={'search-form'}>
-
-        <Title  content='Find your movie' ttlWhite ttlUC/>
-
-        <Input searchInputCallback = {this.cloneSearchInput}
-               value = {this.state.searchPhrase}
-               onKeyPressedFunc={this.enterKeyPressedOnInput} />
-
-        <div className={'search-components'}>
-          <TypeSection searchTypes = {this.state.searchTypes}
-                       name = {'searchby'}
-                       searchTypeCallback = {this.changeSearchType}/>
-
-          <ButtonSection parentFormId={'search-form'}
-                         searchButtonCallBack = {this.searchButtonClick}/>
-        </div>
-      </div>
-    )
-  }
 }
-Search.propTypes = {
-  startSearch: PropTypes.func
+
+SearchChild.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  searchMode: PropTypes.bool
+
 };
-Search.defaultProps = {
-  startSearch: () => {}
+SearchChild.defaultProps = {
+  searchMode: true
 };
 
-export {Search};
+export const Search = connect(
+  store =>
+    ({
+      searchMode: store.mode.search
+    }),
+  dispatch =>
+    ({
+      onSearch(phrase, type) {// Request API
+        dispatch(startSearch(phrase, type))
+      }
+    })
+)(SearchChild);
