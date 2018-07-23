@@ -11,51 +11,52 @@ import {WelcomeMessage} from "src/components/results/welcome-message/welcome-mes
 class ResultsChild extends Component {
   constructor(props) {
     super(props);
-        /**
-         * Sorts the list by the sorting parameters
-         * @param {array} res - array of film objects
-         * @param parameter
-         * @returns {DependencyReference[]|void|*}
-         */
-    this.sortResult = (res, parameter) => {
-      const sortParametersMatching = {
-        'release date': 'release_date',
-        'rating': 'vote_average'
-      };
-      parameter = sortParametersMatching[parameter];
 
-      switch (parameter) {
-        case 'release_date' : {
-          return res.sort(sortFuncDates);
-          }
-          case 'vote_average': {
-            return res.sort(sortFuncRating);
-          }
-      }
-            /**
-             * Sort function for Rating
-             * @param {Object} a
-             * @param {Object} b
-             * @returns {number}
-             */
-            function sortFuncRating(a, b) {
-                return +b[parameter] - +a[parameter]
-            }
-            /**
-             *Sort function for Release Date
-             * @param {Object} a
-             * @param {Object} b
-             * @returns {number}
-             */
-            function sortFuncDates(a, b) {
-                return Date.parse(b[parameter]) - Date.parse(a[parameter]);
-            }
-        };
-
-    this.chooseFilmByClick = (film) => {
-        this.props.onOpenFilm(film);
-    };
   }
+  /**
+   * Sorts the list by the sorting parameters
+   * @param {array} res - array of film objects
+   * @param parameter
+   * @returns {DependencyReference[]|void|*}
+   */
+  sortResult = (res, parameter) => {
+    const sortParametersMatching = {
+      'release date': 'release_date',
+      'rating': 'vote_average'
+    };
+    parameter = sortParametersMatching[parameter];
+
+    switch (parameter) {
+      case 'release_date' : {
+        return res.sort(sortFuncDates);
+      }
+      case 'vote_average': {
+        return res.sort(sortFuncRating);
+      }
+    }
+    /**
+     * Sort function for Rating
+     * @param {Object} a
+     * @param {Object} b
+     * @returns {number}
+     */
+    function sortFuncRating(a, b) {
+      return +b[parameter] - +a[parameter]
+    }
+    /**
+     *Sort function for Release Date
+     * @param {Object} a
+     * @param {Object} b
+     * @returns {number}
+     */
+    function sortFuncDates(a, b) {
+      return Date.parse(b[parameter]) - Date.parse(a[parameter]);
+    }
+  };
+
+  chooseFilmByClick = (film) => {
+    this.props.onOpenFilm(film);
+  };
   render() {
     const {searchList, recommendedList, mode, sortBy, searchAttributes, filmGenre} = this.props;
       this.filmList = mode.film? [...recommendedList] : [... searchList]; // The film list depends on mode: search/film

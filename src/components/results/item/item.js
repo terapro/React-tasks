@@ -6,15 +6,16 @@ import {ItemInfo} from 'src/components/results/item-info/item-info.js'
 export class Item extends Component {
   constructor(props) {
     super(props);
-    this.posterCallback = () => {
-      this.props.onPosterClick(this.props.info);
-    }
+
   }
+  onPosterClick = () => {
+    this.props.onPosterClick(this.props.info);
+  };
   render() {
     const {info} = this.props;
     return (
       <div className='item'>
-        <ItemPoster posterLink={info['poster_path']} posterClick={this.posterCallback} />
+        <ItemPoster posterLink={info['poster_path']} posterClick={this.onPosterClick} />
         <ItemInfo filmTitle={info['title']} releaseDate={info['release_date']} genre={info['genres']} />
       </div>
     );
@@ -36,7 +37,7 @@ Item.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string),
     runtime: PropTypes.number
   }).isRequired,
-    posterClick: PropTypes.func
+    onPosterClick: PropTypes.func
 };
 
 Item.defaultProps = {

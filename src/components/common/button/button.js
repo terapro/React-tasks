@@ -6,13 +6,10 @@ import PropTypes from 'prop-types';
     constructor(props) {
       super(props);
 
-      this.callbackFunc = () => {
-        this.props.btnClick(this.props.content);
-      };
     }
-
-
-
+    onClickFunc = () => {
+      this.props.btnClick(this.props.content);
+    };
     render() {
     const {btnSm, btnBig, btnWhite, btnRed, btnGrey, btnBold, btnTransp, btnTranspRed, btnUC} = this.props;
     const {id, content} = this.props;
@@ -28,7 +25,7 @@ import PropTypes from 'prop-types';
       'btn-transp-red': btnTranspRed,
       'btn-UC': btnUC
     });
-    return( <div className={itemClass} onClick = {this.callbackFunc} id={id}>
+    return( <div className={itemClass} onClick={this.onClickFunc} id={id}>
       {content}
     </div>);
   }

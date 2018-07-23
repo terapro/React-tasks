@@ -17,28 +17,28 @@ export class SearchChild extends Component {
       },
       currentInputValue: ''
     };
-    this.startSearching = () => {
-      this.props.onSearch(this.state.currentInputValue, this.state.searchTypes.active);
-      this.setState({currentInputValue: ''})
-    };
-    this.enterKeyPressedOnInput = (e) => {
-      if (e.key === 'Enter') {
-        this.startSearching();
-      }
-    };
-    this.changeSearchType = (newType) => {
-      this.setState({
-        searchTypes: {
-          list: this.state.searchTypes.list, // living as it is
-          active: newType // Toggle to the active type
-        }
-      });
-    };
-    this.cloneSearchInput = (el) => {
-      this.setState({currentInputValue: el.target.value});
-    }
-  }
 
+  }
+  startSearching = () => {
+    this.props.onSearch(this.state.currentInputValue, this.state.searchTypes.active);
+    this.setState({currentInputValue: ''})
+  };
+  enterKeyPressedOnInput = (e) => {
+    if (e.key === 'Enter') {
+      this.startSearching();
+    }
+  };
+  changeSearchType = (newType) => {
+    this.setState({
+      searchTypes: {
+        list: this.state.searchTypes.list, // living as it is
+        active: newType // Toggle to the active type
+      }
+    });
+  };
+  cloneSearchInput = (el) => {
+    this.setState({currentInputValue: el.target.value});
+  };
   render() {
     const {searchMode} = this.props;
     if (searchMode) {
