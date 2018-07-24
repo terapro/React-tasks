@@ -1,7 +1,8 @@
 // Libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 
 // Styles
@@ -16,16 +17,15 @@ import 'src/img/spiner.gif'
 import {Body} from 'src/components/body/body.js';
 import store from 'src/store/index.js';
 
-
-
 const root = document.getElementById("root");
-window.store = store;
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Body/>
-  </Provider>
-  , root);
+  (<Router>
+    <Provider store={store}>
+      <Body/>
+    </Provider>
+  </Router>),
+  root);
 
 
 

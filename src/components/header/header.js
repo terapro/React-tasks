@@ -6,12 +6,14 @@ import {TopBar} from 'src/components/header/topbar/topbar.js';
 import {Search} from 'src/components/search/search.js';
 import {Film} from 'src/components/film/film.js'
 
-const HeaderChild = ({filmMode, currentFilm, onOpenSearch}) => (
+const HeaderChild = ({filmMode, currentFilm, onOpenSearch, children}) => (
     <header className={'header'}>
       <div className={'header-container'}>
+
         <TopBar searchButtonClick={onOpenSearch}  filmMode={filmMode}/>
-          <Search />
-          <Film info={currentFilm} active ={filmMode} />
+        {children}
+          {/*<Search />
+          <Film info={currentFilm} active ={filmMode} />*/}
       </div>
     </header>
 );

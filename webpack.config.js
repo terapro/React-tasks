@@ -59,5 +59,8 @@ module.exports = {
     alias: {
       'src': path.resolve('src')
     }
+  },
+  devServer: {
+    historyApiFallback: true,
   }
 };
