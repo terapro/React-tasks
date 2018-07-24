@@ -1,8 +1,10 @@
 //App parameters
 // App
-$appWidth: 1150px;
+$appWidth: 1050px;
 $fontFamily: Arial, "Helvetica Neue", Helvetica, sans-serif;
 $fontSizeDefault: 14px;
+$defaultPadding: 30px;
+
 
   // Element (button, label)
 $elementHeight: 30px; //buttons, labels
@@ -28,12 +30,18 @@ $summaryContainerWidth: $appWidth - 100px;
 
 $color_red: #F55263; // red
 $color_grey: #3C3C3C; // grey
-$color_white: #FFF; // grey
+$color_almostGrey: #f3f3f3;
+
+$color_white: #FFF;
+
 $color_black: #000; // black
+$color_almostBlack: #141414;
 
 //Imports
   //Body
-@import 'components/body/body';
+@import 'components-v2/body/body';
+@import 'components-v2/body/section/body-section';
+
 
   //Common
 @import 'components/common/logo/logo';
@@ -75,6 +83,8 @@ $color_black: #000; // black
   //Summary
 @import 'components/summary/summary';
 @import 'components/summary/film-sort/film-sort';
+
+
 
 
 

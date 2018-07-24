@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 // Styles
@@ -14,7 +14,12 @@ import 'src/img/logo-netflixroulette.png';
 import 'src/img/spiner.gif'
 
 // Modules
-import {Body} from 'src/components/body/body.js';
+import {Body} from 'src/components-v2/body/body.js';
+
+import {PageMain} from 'src/components-v2/pages/main/page-main';
+import {PageFilm} from 'src/components-v2/pages/film/page-film';
+import {PageSearch} from 'src/components-v2/pages/search/page-search';
+
 import store from 'src/store/index.js';
 
 const root = document.getElementById("root");
@@ -22,7 +27,11 @@ const root = document.getElementById("root");
 ReactDOM.render(
   (<Router>
     <Provider store={store}>
-      <Body/>
+      <Body>
+        <Route exact path='/' component={PageMain} />
+        <Route exact path='/search' component={PageSearch} />
+        <Route exact path='/film' component={PageFilm} />
+      </Body>
     </Provider>
   </Router>),
   root);

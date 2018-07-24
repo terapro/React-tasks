@@ -1,0 +1,25 @@
+div.body-section-wrapper {
+  padding: $defaultPadding 0;
+  min-height: 2 * $defaultPadding;
+  background: red;
+}
+
+div.body-section-wrapper_dark {
+  background: $color_almostBlack;
+}
+div.body-section-wrapper_light {
+  background: $color_almostGrey;
+}
+
+div.body-section-wrapper_theme {
+  background: #000 url('img/netflix-bg.jpg');
+  background-size: cover;
+}
+div.body-section-wrapper_as-footer {
+  flex: 0 0 auto;
+}
+
+div.body-section {
+   width: $appWidth;
+    margin: 0 auto;
+ }
