@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
     }
     onClickFunc = () => {
-      this.props.btnClick(this.props.content);
+      this.props.btnClick(this.props.id);
     };
     render() {
     const {btnSm, btnBig, btnWhite, btnRed, btnGrey, btnBold, btnTransp, btnTranspRed, btnUC} = this.props;
@@ -31,8 +31,6 @@ import PropTypes from 'prop-types';
   }
 }
 
-
-
 Button.propTypes = {
   btnSm: PropTypes.bool,
   btnBig: PropTypes.bool,
@@ -45,7 +43,7 @@ Button.propTypes = {
   btnUC: PropTypes.bool,
   content: PropTypes.string,
   btnClick: PropTypes.func.isRequired,
-  id: PropTypes.string
+  id: PropTypes.string.isRequired
 };
 
 Button.defaultProps = {
@@ -58,6 +56,5 @@ Button.defaultProps = {
   btnTransp: false,
   btnTranspRed: false,
   btnUC: false,
-  content: 'Button',
-  id: ''
+  content: 'Button'
 };

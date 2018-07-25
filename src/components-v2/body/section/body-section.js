@@ -34,7 +34,7 @@ BodySection.propTypes = {
 
 BodySection.defaultProps = {
   children: null,
-  bgDark: true,
+  bgDark: false,
   bgLight: false,
   bgTheme: false,
   asFooter: false

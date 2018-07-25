@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Input = ({onStartTyping,  onKeyEnterPressed, placeholder, value}) => (
-
   <input className={'search-input'}
          type='text'
          placeholder = {placeholder}

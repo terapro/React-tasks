@@ -14,7 +14,8 @@ $textSize: 16px;
 
 
 
-$logoHeight: 25px;
+$logoHeight: 50px;
+
 //Header
 $headerContainerWidth: $appWidth - 100px;
 $searchInputPaddingHorizontal: 20px;
@@ -30,25 +31,23 @@ $summaryContainerWidth: $appWidth - 100px;
 
 $color_red: #F55263; // red
 $color_grey: #3C3C3C; // grey
+$color_semiGrey: #cecece;
 $color_almostGrey: #f3f3f3;
 
 $color_white: #FFF;
-
 $color_black: #000; // black
 $color_almostBlack: #141414;
 
 //Imports
-  //Body
-@import 'components-v2/body/body';
-@import 'components-v2/body/section/body-section';
+
 
 
   //Common
-@import 'components/common/logo/logo';
-@import 'components/common/label/label';
-@import 'components/common/title/title';
-@import 'components/common/button/button';
-@import 'components/common/input/input';
+//@import 'components/common/logo/logo';
+
+
+
+
 @import 'components/common/caption/caption';
 @import 'components/common/rating/rating';
 @import 'components/common/spiner/spiner';
@@ -61,11 +60,11 @@ $color_almostBlack: #141414;
 @import 'components/film/film-header/film-header';
 
   //Footer
-@import 'components/footer/footer';
+
 
   //Header
-@import 'components/header/header';
-@import 'components/header/topbar/topbar';
+//@import 'components/header/header';
+//@import 'components/header/topbar/topbar';
 
   //Results
 @import 'components/results/results';
@@ -78,15 +77,34 @@ $color_almostBlack: #141414;
 
   //Search
 @import 'components/search/search';
-@import 'components/search/type-section/type-section';
+
 
   //Summary
 @import 'components/summary/summary';
 @import 'components/summary/film-sort/film-sort';
 
+//-------------------------------
 
+//Body
+@import 'components-v2/body/body';
+@import 'components-v2/body/section/body-section';
 
+//header
+@import 'components-v2/header/header';
 
+//common
+@import 'components-v2/common/button/button';
+@import 'components-v2/common/logo/logo';
+@import 'components-v2/common/label/label';
+@import 'components-v2/common/title/title';
+@import 'components-v2/common/input/input';
 
+// menu
+@import 'components-v2/menu/menu';
 
+// Search
+@import 'components-v2/search/search';
+@import 'components-v2/search/type-section/type-section';
 
+// footer
+@import 'components-v2/footer/footer';

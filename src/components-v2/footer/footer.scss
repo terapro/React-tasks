@@ -1,0 +1,9 @@
+div.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.footer ul li {
+  margin: $elementPadding auto;
+}

@@ -1,0 +1,26 @@
+ul.menu {
+  display: block;
+  list-style: none;
+}
+ul.menu li {
+  display: inline-block;
+  font-size: 18px;
+  color: $color_semiGrey;
+}
+
+
+ul.menu li:not(:last-child)::after {
+  content: '|';
+}
+
+ul.menu li a {
+  color: $color_semiGrey;
+  text-decoration: none;
+  margin: 0 $elementPadding/2;
+  text-shadow: 0px 0px 10px rgba(150, 150, 150, 1);
+}
+
+ul.menu li a:hover {
+  text-decoration: underline;
+  color: $color_white;
+}

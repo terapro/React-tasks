@@ -1,21 +1,23 @@
 {
-  "films": {
-    "searchList": [],
-    "recommendedList": [],
-    "currentFilm": null,
-    "currentFilmGenre": " ",
-    "sortBy": {
-      "parameters": ["release date", "rating"],
-      "chosenParameter": "release date"
-    }
+"mode": {
+  "dataLoading": false
+},
+"films": {
+  "current": null,
+  "userList": [null]
+},
+"search": {
+  "request": {
+      "phrase": "",
+      "type": "title",
+      "sortParameter": "rating"
   },
-  "mode": {
-    "search": true,
-    "film": false,
-    "loadingData": false
+  "requestHistory": [null],
+  "result": {
+    "data":[],
+    "total":0,
+    "offset":0,
+    "limit":20
   },
-  "search": {
-    "phrase": "",
-    "type": ""
-  }
+}
 }

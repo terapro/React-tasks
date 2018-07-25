@@ -1,9 +1,9 @@
 // Libraries
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
+import {Search} from 'src/components-v2/search/search';
 
 // Styles
 import 'src/main.scss';
@@ -19,6 +19,8 @@ import {Body} from 'src/components-v2/body/body.js';
 import {PageMain} from 'src/components-v2/pages/main/page-main';
 import {PageFilm} from 'src/components-v2/pages/film/page-film';
 import {PageSearch} from 'src/components-v2/pages/search/page-search';
+import {PageSearchByUrl} from 'src/components-v2/pages/searchByUrl/page-searchByUrl';
+import {PageUnknown} from 'src/components-v2/pages/unknown/page-unknown';
 
 import store from 'src/store/index.js';
 
@@ -26,16 +28,14 @@ const root = document.getElementById("root");
 
 ReactDOM.render(
   (<Router>
-    <Provider store={store}>
-      <Body>
+    <Body>
+      <Switch>
         <Route exact path='/' component={PageMain} />
-        <Route exact path='/search' component={PageSearch} />
-        <Route exact path='/film' component={PageFilm} />
-      </Body>
-    </Provider>
+        <Route exact path='/search' component={PageSearch}/>
+        <Route path='/search' component={PageSearchByUrl}/>
+        <Route path='/film' component={PageFilm} />
+        <Route path='*' component={PageUnknown} />
+      </Switch>
+    </Body>
   </Router>),
-  root);
-
-
-
-
+    root);

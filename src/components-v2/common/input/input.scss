@@ -1,5 +1,5 @@
 .search-input {
-  width: $headerContainerWidth - 2 * $searchInputPaddingHorizontal;
+  width: $appWidth - 2 * $elementPadding;
   background-color: #000;
   border: 0px;
   border-bottom: 2px solid $color_red;
