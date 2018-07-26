@@ -4,7 +4,7 @@ import {Link} from  'react-router-dom';
 
 export const Menu = () => (
 <ul className='menu'>
-  <li><Link to='/search'>
+  <li><Link to='/'>
     Search
   </Link></li>
   <li><Link to='/film'>

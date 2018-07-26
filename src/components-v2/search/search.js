@@ -12,7 +12,8 @@ export class Search extends React.Component {
     super(props);
     this.state = {
       activeSearchType: parameters.searchTypes[0].value,
-      currentInputValue: ''
+      currentInputValue: '',
+      sortByParam: parameters.sortParameters[0].value // TODO: load this value from the store
     }
 
   }
@@ -24,12 +25,18 @@ export class Search extends React.Component {
   };
   startSearching = () => {
   //  this.props.onSearch(this.state.currentInputValue, this.state.searchTypes.active);
-    var phrase = this.state.currentInputValue;
+    const phrase = this.state.currentInputValue;
+    const type = this.state.activeSearchType;
+    const sortBy = this.state.sortByParam;
+    const offset = 0;
+    const query = '/search?phrase=' + phrase + '&searchBy=' + type + '&sortBy=' + sortBy + '&offset=' + offset;
+
     console.log(this.props.location);
     this.setState({currentInputValue: ''});
   //  window.location('/search?info=' + phrase');
   //  location.search = 'info=' + phrase;
-   history.replace('/search?info=' + phrase);
+   history.replace(query);
+   history.go(0);
 
   };
   enterKeyPressedOnInput = (e) => {
