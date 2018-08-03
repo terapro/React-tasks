@@ -5,7 +5,7 @@ import {TypeSection} from 'src/components-v2/search/type-section/type-section';
 import {ButtonSection} from 'src/components-v2/search/button-section/button-section';
 import {parameters} from 'src/data/constants.js';
 
-import history from 'src/store/browserHistory';
+import history from 'src/store/browser-history';
 
 export class Search extends React.Component {
   constructor(props) {
@@ -31,7 +31,6 @@ export class Search extends React.Component {
     const offset = 0;
     const query = '/search?phrase=' + phrase + '&searchBy=' + type + '&sortBy=' + sortBy + '&offset=' + offset;
 
-    console.log(this.props.location);
     this.setState({currentInputValue: ''});
   //  window.location('/search?info=' + phrase');
   //  location.search = 'info=' + phrase;

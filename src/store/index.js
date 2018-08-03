@@ -7,9 +7,8 @@ import stateData from 'src/data/initialState.json'
 
 const logger = store => next => action => {
 
-  console.log('before');
+
   const returnVal = next(action);
-  console.log('after');
   return returnVal;
 };
 

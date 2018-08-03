@@ -1,11 +1,9 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Header} from "src/components-v2/header/header";
 import {Footer} from "src/components-v2/footer/footer";
 import {BodySection} from "src/components-v2/body/section/body-section";
-import { withRouter } from 'react-router'
 
-export const Body = withRouter(({children}) => (
+export const Body = ({children}) => (
   <Fragment>
       <div className="content">
         {children}
@@ -14,7 +12,7 @@ export const Body = withRouter(({children}) => (
         <Footer/>
       </BodySection>
   </Fragment>
-));
+);
 
 Body.propTypes = {
   children: PropTypes.oneOfType([

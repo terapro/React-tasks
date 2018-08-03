@@ -5,7 +5,7 @@ import queryString from 'query-string';
 import {startSearch} from 'src/actions';
 
 
-class PageSearchByUrlChild extends Component {
+class PageSearchByUrlUI extends Component {
   constructor(props) {
     super(props);
     const parsedData = queryString.parse(location.search);
@@ -14,10 +14,8 @@ class PageSearchByUrlChild extends Component {
 
   }
   render() {
-
     return (
       <React.Fragment>
-        <PageSearch />
         <PageSearch />
       </React.Fragment>
     );
@@ -35,7 +33,7 @@ export const PageSearchByUrl = connect (
       }
   })
 
-)(PageSearchByUrlChild);
+)(PageSearchByUrlUI);
 
 
 /*
